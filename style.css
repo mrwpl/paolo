@@ -338,3 +338,47 @@ ol.pub-list {
 .workshop-list a {
   font-size: 0.96rem;
 }
+
+
+/* Workshop talk cards */
+.talks-section {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.talk-card {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.talk-speaker {
+  margin: 0 0 0.3rem 0;
+  font-size: 1rem;
+}
+
+.talk-title {
+  margin: 0 0 0.4rem 0;
+  font-size: 0.95rem;
+}
+
+.talk-abstract p {
+  margin: 0.2rem 0;
+  font-size: 0.94rem;
+}
+
+.talk-label {
+  font-weight: 600;
+  margin-right: 0.25rem;
+}
+
+@media (max-width: 640px) {
+  .talk-card {
+    padding: 0.8rem 0.9rem;
+  }
+}
