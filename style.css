@@ -382,3 +382,53 @@ ol.pub-list {
     padding: 0.8rem 0.9rem;
   }
 }
+
+
+/* Improved layout for workshop talk cards (London–Tokyo II and similar) */
+.talks-section {
+  margin-top: 1.75rem;
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.talk-card {
+  background: #ffffff;
+  border-radius: 0.9rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.06);
+}
+
+.talk-speaker {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.02rem;
+}
+
+.talk-title {
+  margin: 0 0 0.35rem 0;
+  font-size: 0.95rem;
+}
+
+.talk-abstract {
+  margin: 0;
+  font-size: 0.94rem;
+}
+
+.talk-label {
+  font-weight: 600;
+  margin-right: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 640px) {
+  .talks-section {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .talk-card {
+    padding: 0.9rem 0.95rem;
+  }
+}
