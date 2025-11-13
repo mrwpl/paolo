@@ -214,3 +214,56 @@ h3 {
     padding: 0.8rem 0.85rem;
   }
 }
+
+
+/* Clean minimalist styling for publications list */
+.publications {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.pub-intro {
+  margin-top: 0.4rem;
+  margin-bottom: 1.2rem;
+  color: #4b5563;
+  font-size: 0.97rem;
+}
+
+.pub-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.pub-list li {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.94rem;
+}
+
+.pub-list li:last-child {
+  border-bottom: none;
+}
+
+.pub-list li a {
+  font-weight: 500;
+}
+
+.pub-list li span.pub-year {
+  font-weight: 500;
+  color: #374151;
+  margin-right: 0.35rem;
+}
+
+.pub-list li span.pub-venue {
+  color: #4b5563;
+}
+
+@media (max-width: 640px) {
+  .publications {
+    max-width: 100%;
+  }
+  .pub-list li {
+    padding: 0.35rem 0;
+  }
+}
