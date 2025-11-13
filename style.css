@@ -274,3 +274,12 @@ h3 {
   list-style: decimal;
   padding-left: 1.5rem;
 }
+
+
+/* Ensure numbered publications list shows numbers (not bullets) */
+.pub-list.pub-numbered,
+ol.pub-list {
+  list-style-type: decimal !important;
+  list-style-position: outside;
+  padding-left: 1.7rem;
+}
