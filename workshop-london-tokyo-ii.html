@@ -2,123 +2,400 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Paolo Cascini — Site.London-TokyoWorkshopInBirationalGeometryII</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+  <title>London-Tokyo Workshop in Birational Geometry II</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+    
+    header {
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: white;
+      padding: 60px 40px;
+      text-align: center;
+    }
+    
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    
+    .workshop-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    
+    .info-card {
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .info-label {
+      font-size: 0.85em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.9;
+      margin-bottom: 8px;
+    }
+    
+    .info-content {
+      font-size: 1.1em;
+      font-weight: 500;
+    }
+    
+    main {
+      padding: 50px 40px;
+    }
+    
+    section {
+      margin-bottom: 60px;
+    }
+    
+    h2 {
+      font-size: 2em;
+      color: #2a5298;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #667eea;
+    }
+    
+    .speakers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+    
+    .speaker-card {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 4px solid #667eea;
+      transition: transform 0.2s;
+    }
+    
+    .speaker-card:hover {
+      transform: translateX(5px);
+    }
+    
+    .speaker-name {
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+    
+    .speaker-affiliation {
+      color: #555;
+      font-size: 0.9em;
+    }
+    
+    .schedule-day {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      border: 2px solid #e9ecef;
+    }
+    
+    .schedule-day h3 {
+      color: #2a5298;
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .room-badge {
+      background: #667eea;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.8em;
+      font-weight: 500;
+    }
+    
+    .schedule-item {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      margin-bottom: 10px;
+      background: white;
+      border-radius: 8px;
+      border-left: 4px solid #764ba2;
+    }
+    
+    .schedule-time {
+      font-weight: 700;
+      color: #667eea;
+      min-width: 120px;
+      font-size: 1.05em;
+    }
+    
+    .schedule-speaker {
+      color: #1a1a1a;
+      font-weight: 500;
+    }
+    
+    .talk-card {
+      background: white;
+      border: 2px solid #e9ecef;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      transition: all 0.3s;
+    }
+    
+    .talk-card:hover {
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+      border-color: #667eea;
+    }
+    
+    .talk-speaker {
+      font-size: 1.5em;
+      color: #2a5298;
+      margin-bottom: 15px;
+    }
+    
+    .talk-title {
+      font-size: 1.15em;
+      margin-bottom: 20px;
+      color: #1a1a1a;
+    }
+    
+    .talk-label {
+      font-weight: 700;
+      color: #667eea;
+      margin-right: 8px;
+    }
+    
+    .talk-abstract {
+      color: #495057;
+      line-height: 1.8;
+      padding-left: 20px;
+      border-left: 3px solid #e9ecef;
+    }
+    
+    .talk-abstract p {
+      margin-bottom: 10px;
+    }
+    
+    footer {
+      background: #1e3c72;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    
+    @media (max-width: 768px) {
+      header {
+        padding: 40px 20px;
+      }
+      
+      h1 {
+        font-size: 1.8em;
+      }
+      
+      main {
+        padding: 30px 20px;
+      }
+      
+      .schedule-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .schedule-time {
+        margin-bottom: 5px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <h1 class="site-title"><a href="index.html">Paolo Cascini</a></h1>
-      <nav class="site-nav">
-        <a href="index.html">Home</a>
-        <a href="research.html">Research</a>
-        <a href="publications.html">Publications</a>
-        <a href="workshops.html" class="active">Workshops</a>
-      </nav>
-    </div>
-  </header>
-  <main class="container">
-  <section class="workshop">
-<h2>Workshop</h2>
+  <div class="container">
+    <header>
+      <h1>London-Tokyo Workshop in Birational Geometry II</h1>
+      <div class="workshop-info">
+        <div class="info-card">
+          <div class="info-label">Location</div>
+          <div class="info-content">Imperial College<br>Huxley Building</div>
+        </div>
+        <div class="info-card">
+          <div class="info-label">Date</div>
+          <div class="info-content">Wednesday, 5 December 2018<br>Thursday, 6 December 2018</div>
+        </div>
+        <div class="info-card">
+          <div class="info-label">Organisers</div>
+          <div class="info-content">Paolo Cascini<br>Yoshinori Gongyo<br>Yusuke Nakamura</div>
+        </div>
+      </div>
+    </header>
+    
+    <main>
+      <section>
+        <h2>Speakers</h2>
+        <div class="speakers-grid">
+          <div class="speaker-card">
+            <div class="speaker-name">Weichung Chen</div>
+            <div class="speaker-affiliation">University of Tokyo</div>
+          </div>
+          <div class="speaker-card">
+            <div class="speaker-name">Stefano Filipazzi</div>
+            <div class="speaker-affiliation">University of Utah</div>
+          </div>
+          <div class="speaker-card">
+            <div class="speaker-name">Naoki Koseki</div>
+            <div class="speaker-affiliation">University of Tokyo/IPMU</div>
+          </div>
+          <div class="speaker-card">
+            <div class="speaker-name">Masaru Nagaoka</div>
+            <div class="speaker-affiliation">University of Tokyo</div>
+          </div>
+          <div class="speaker-card">
+            <div class="speaker-name">Johannes Nicaise</div>
+            <div class="speaker-affiliation">Imperial College</div>
+          </div>
+          <div class="speaker-card">
+            <div class="speaker-name">Kentaro Ohno</div>
+            <div class="speaker-affiliation">University of Tokyo</div>
+          </div>
+          <div class="speaker-card">
+            <div class="speaker-name">Christian Urech</div>
+            <div class="speaker-affiliation">Imperial College</div>
+          </div>
+        </div>
+      </section>
+      
+      <section>
+        <h2>Schedule</h2>
+        
+        <div class="schedule-day">
+          <h3>Wednesday, 5 December <span class="room-badge">Room 140</span></h3>
+          <div class="schedule-item">
+            <div class="schedule-time">1:00 - 1:50</div>
+            <div class="schedule-speaker">Naoki Koseki</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">2:00 - 2:50</div>
+            <div class="schedule-speaker">Kentaro Ohno</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">3:30 - 4:20</div>
+            <div class="schedule-speaker">Weichung Chen</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">4:30 - 5:20</div>
+            <div class="schedule-speaker">Stefano Filipazzi</div>
+          </div>
+        </div>
+        
+        <div class="schedule-day">
+          <h3>Thursday, 6 December <span class="room-badge">Room 130</span></h3>
+          <div class="schedule-item">
+            <div class="schedule-time">10:00 - 10:50</div>
+            <div class="schedule-speaker">Christian Urech</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">11:00 - 11:50</div>
+            <div class="schedule-speaker">Masaru Nagaoka</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">12:00 - 12:50</div>
+            <div class="schedule-speaker">Johannes Nicaise</div>
+          </div>
+        </div>
+      </section>
+      
+      <section>
+        <h2>Titles and Abstracts</h2>
+        
+        <article class="talk-card">
+          <h3 class="talk-speaker">Weichung Chen</h3>
+          <p class="talk-title"><span class="talk-label">Title.</span> Boundedness of weak Fano Pairs with alpha-invariants and volumes bounded below</p>
+          <div class="talk-abstract">
+            <p><span class="talk-label">Abstract.</span> We show that fixed dimensional klt weak Fano pairs with alpha-invariants and volumes bounded away from 0 and the coefficients of the boundaries belong to a fixed DCC set of rational closure form a bounded family. We also show α(X, B)^(d−1)vol(−(K_X + B)) are bounded from above for all klt weak Fano pairs (X, B) of a fixed dimension d.</p>
+          </div>
+        </article>
 
-<p><strong>Location</strong>: Imperial College - Huxley Building</p>
+        <article class="talk-card">
+          <h3 class="talk-speaker">Stefano Filipazzi</h3>
+          <p class="talk-title"><span class="talk-label">Title.</span> A generalized canonical bundle formula and applications</p>
+          <div class="talk-abstract">
+            <p><span class="talk-label">Abstract.</span> Birkar and Zhang recently introduced the notion of generalized pair. These pairs are closely related to the canonical bundle formula and have been a fruitful tool for recent developments in birational geometry. In this talk, I will introduce a version of the canonical bundle formula for generalized pairs. This machinery allows us to develop a theory of adjunction and inversion thereof for generalized pairs. I will conclude by discussing some applications to a conjecture of Prokhorov and Shokurov.</p>
+          </div>
+        </article>
 
-<p><strong>Date</strong>: Wednesday, 5 December 2018 - Thursday, 6 December 2018</p>
+        <article class="talk-card">
+          <h3 class="talk-speaker">Naoki Koseki</h3>
+          <p class="talk-title"><span class="talk-label">Title.</span> Stability conditions on threefolds with nef tangent bundles</p>
+          <div class="talk-abstract">
+            <p><span class="talk-label">Abstract.</span> Constructing Bridgeland stability conditions on threefolds is an open problem in general. By the work of Bayer, Macri, and Toda, the problem is reduced to proving the so-called Bogomolov-Gieseker (BG) type inequality conjecture. In my talk, I will explain how to solve the BG type inequality conjecture for threefolds in the title.</p>
+          </div>
+        </article>
 
-<p><strong>Organisers</strong>: Paolo Cascini, Yoshinori Gongyo and Yusuke Nakamura</p>
+        <article class="talk-card">
+          <h3 class="talk-speaker">Masaru Nagaoka</h3>
+          <p class="talk-title"><span class="talk-label">Title.</span> On compactifications of contractible affine threefolds into del Pezzo fibrations</p>
+          <div class="talk-abstract">
+            <p><span class="talk-label">Abstract.</span> By the contribution of M. Furushima, N. Nakayama, Th. Peternell and M. Schneider, it is completed to classify all projective compactifications of the affine $3$-space $\mathbb{A}^3$ with Picard number one. After that, T. Kishimoto observed that their arguments make use of only the contractibility of $\mathbb{A}^3$ and that the ambient space are Fano manifolds. In this talk, I will consider compactifications of contractible affine threefolds into another special manifolds, i.e. del Pezzo fibrations. Mainly I will introduce a certain type of such compactifications, which seems to have connection with vertical cylinder, and give you examples of such certain compactifications.</p>
+          </div>
+        </article>
 
+        <article class="talk-card">
+          <h3 class="talk-speaker">Johannes Nicaise</h3>
+          <p class="talk-title"><span class="talk-label">Title.</span> Specialization of (stable) rationality in families with mild singularities</p>
+          <div class="talk-abstract">
+            <p><span class="talk-label">Abstract.</span> I will present joint work with Evgeny Shinder, where we use Denef and Loeser's motivic nearby fiber and a theorem by Larsen and Lunts to prove that stable rationality specializes in families with mild singularities. I will also discuss an improvement of our results by Kontsevich and Tschinkel, who defined a birational version of the motivic nearby fiber to prove specialization of rationality.</p>
+          </div>
+        </article>
 
-<p><br></p>
+        <article class="talk-card">
+          <h3 class="talk-speaker">Kentaro Ohno</h3>
+          <p class="talk-title"><span class="talk-label">Title.</span> Minimizing CM degree and slope stability of projective varieties</p>
+          <div class="talk-abstract">
+            <p><span class="talk-label">Abstract.</span> We discuss a minimization problem of the degree of the CM line bundle among all possible fillings of a polarized family with fixed general fibers. This problem derives from the study on the compactification of moduli spaces. In this talk, we show that such minimization implies the slope semistability of the fiber if the central fiber is smooth.</p>
+          </div>
+        </article>
 
-<h2>Speakers</h2>
-
-<ul>
-<li>Weichung Chen (University of Tokyo)</li>
-<li>Stefano Filipazzi (University of Utah)</li>
-<li>Naoki Koseki (University of Tokyo/IPMU)</li>
-<li>Masaru Nagaoka (University of Tokyo)</li>
-<li>Johannes Nicaise (Imperial College)</li>
-<li>Kentaro Ohno (University of Tokyo)</li>
-<li>Christian Urech (Imperial College)<br><br><br><br><br><br><br><br><br><br></li>
-</ul>
-<h2>Schedule</h2>
-
-<p><strong>Wednesday, 5 December - Room 140 </strong></p>
-
-<p>1:00 - 1:50:  Naoki Koseki</p>
-
-<p>2:00- 2:50: Kentaro Ohno</p>
-
-<p>3:30 - 4:20: Weichung Chen</p>
-
-<p>4:30 -5:20: Stefano Filipazzi</p>
-
-
-<p><strong>Thursday, 6 December - Room 130</strong></p>
-
-<p>10:00 - 10:50 Christian Urech</p>
-
-<p>11:00 - 11:50 Masaru Nagaoka</p>
-
-<p>12:00 - 12:50 Johannes Nicaise</p>
-
-
-
-<p><br></p>
-
-
-
-<h2>Titles and Abstracts</h2>
-  <div class="talks-section">
-  <article class="talk-card">
-    <h3 class="talk-speaker">Weichung Chen</h3>
-    <p class="talk-title"><span class="talk-label">Title.</span> Boundedness of weak Fano Pairs with alpha-invariants and volumes bounded below</p>
-    <p class="talk-abstract"><span class="talk-label">Abstract.</span> We show that fixed dimensional klt weak Fano pairs with alpha-invariants and volumes bounded away from 0 and the coefficients of the boundaries belong to a fixed DCC set of rational closure form a bounded family. We also show α(X, B)^(d－1)vol(－(K_X + B)) are bounded from above for all klt weak Fano pairs (X, B) of a fixed dimension d.</p>
-  </article>
-
-  <article class="talk-card">
-    <h3 class="talk-speaker">Stefano Filipazzi</h3>
-    <p class="talk-title"><span class="talk-label">Title.</span> A generalized canonical bundle formula and applications</p>
-    <p class="talk-abstract"><span class="talk-label">Abstract.</span> Birkar and Zhang recently introduced the notion of generalized pair. These pairs are closely related to the canonical bundle formula and have been a fruitful tool for recent developments in birational geometry. In this talk, I will introduce a version of the canonical bundle formula for generalized pairs. This machinery allows us to develop a theory of adjunction and inversion thereof for generalized pairs. I will conclude by discussing some applications to a conjecture of Prokhorov and Shokurov.</p>
-  </article>
-
-  <article class="talk-card">
-    <h3 class="talk-speaker">Naoki Koseki</h3>
-    <p class="talk-title"><span class="talk-label">Title.</span> Stability conditions on threefolds with nef tangent bundles</p>
-    <p class="talk-abstract"><span class="talk-label">Abstract.</span> Constructing Bridgeland stability conditions on threefolds is an open problem in general. By the work of Bayer, Macri, and Toda, the problem is reduced to proving the so-called Bogomolov-Gieseker (BG) type inequality conjecture. In my talk, I will explain how to solve the BG type inequality conjecture for threefolds in the title.</p>
-  </article>
-
-  <article class="talk-card">
-    <h3 class="talk-speaker">Masaru Nagaoka</h3>
-    <p class="talk-title"><span class="talk-label">Title.</span> On compactifications of contractible affine threefolds into del</p>
-    <p class="talk-abstract"><span class="talk-label">Abstract.</span> By the contribution of M. Furushima, N. Nakayama, Th. Peternell and M. Schneider, it is completed to classify all projective compactifications of the affine $3$-space $¥mathbb{A}^3$ with Picard number one. After that, T. Kishimoto observed that their arguments make use of only the contractibility of $¥mathbb{A}^3$ and that the ambient space are Fano manifolds. In this talk, I will consider compactifications of contractible affine threefolds into another special manifolds, i.e. del Pezzo fibrations. Mainly I will introduce a certain type of such compactifications, which seems to have connection with vertical cylinder, and give you examples of such certain compactifications.</p>
-  </article>
-
-  <article class="talk-card">
-    <h3 class="talk-speaker">Johannes Nicaise</h3>
-    <p class="talk-title"><span class="talk-label">Title.</span> Specialization of (stable) rationality in families with mild singularities</p>
-    <p class="talk-abstract"><span class="talk-label">Abstract.</span> I will present joint work with Evgeny Shinder, where we use Denef and Loeser’s motivic nearby fiber and a theorem by Larsen and Lunts to prove that stable rationality specializes in families with mild singularities. I will also discuss an improvement of our results by Kontsevich and Tschinkel, who defined a birational version of the motivic nearby fiber to prove specialization of rationality.</p>
-  </article>
-
-  <article class="talk-card">
-    <h3 class="talk-speaker">Kentaro Ohno</h3>
-    <p class="talk-title"><span class="talk-label">Title.</span> Minimizing CM degree and slope stability of projective varieties</p>
-    <p class="talk-abstract"><span class="talk-label">Abstract.</span> We discuss a minimization problem of the degree of the CM line bundle among all possible fillings of a polarized family with fixed general fibers. This problem derives from the study on the compactification of moduli spaces. In this talk, we show that such minimization implies the slope semistability of the fiber if the central fiber is smooth.</p>
-  </article>
-
-  <article class="talk-card">
-    <h3 class="talk-speaker">Christian Urech</h3>
-    <p class="talk-title"><span class="talk-label">Title.</span> On the characterization of affine surfaces by their automorphism groups</p>
-    <p class="talk-abstract"><span class="talk-label">Abstract.</span> In this talk we will look at the question, in as far affine surfaces are characterized by the group structure of their automorphism groups. In particular, we will see that if $S$ is a toric surface and $S&amp;#x27;$ any normal affine surface such that $Aut(S)$ and $Aut(S&amp;#x27;)$ are isomorphic as groups, then $S$ and $S&amp;#x27;$ are isomorphic. The main ingredients of the proof are results on the degree growth of birational transformations. This is joint work with Liendo and Regeta.</p>
-  </article>
-  </div></section>
-
-  </main>
-  <footer class="site-footer">
-    <div class="container">
+        <article class="talk-card">
+          <h3 class="talk-speaker">Christian Urech</h3>
+          <p class="talk-title"><span class="talk-label">Title.</span> On the characterization of affine surfaces by their automorphism groups</p>
+          <div class="talk-abstract">
+            <p><span class="talk-label">Abstract.</span> In this talk we will look at the question, in as far affine surfaces are characterized by the group structure of their automorphism groups. In particular, we will see that if $S$ is a toric surface and $S'$ any normal affine surface such that $Aut(S)$ and $Aut(S')$ are isomorphic as groups, then $S$ and $S'$ are isomorphic. The main ingredients of the proof are results on the degree growth of birational transformations. This is joint work with Liendo and Regeta.</p>
+          </div>
+        </article>
+      </section>
+    </main>
+    
+    <footer>
       <p>&copy; 2025 Paolo Cascini</p>
-    </div>
-  </footer>
+    </footer>
+  </div>
 </body>
 </html>
