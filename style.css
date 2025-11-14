@@ -1,3 +1,9 @@
+Here’s a cleaned-up `style.css` that keeps what you’re actually using now, removes duplicates, and makes the home page layout behave as you described (narrower contact box, more space on the right, gap between “External links” and “Editorial Board”).
+
+You can replace the contents of your current `style.css` with this:
+
+```css
+/* ---------- Global ---------- */
 
 * {
   box-sizing: border-box;
@@ -19,6 +25,37 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  color: #111827;
+}
+
+h2 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  margin-top: 1.2rem;
+}
+
+/* ---------- Layout ---------- */
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+main.container {
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+}
+
+/* ---------- Header & Navigation ---------- */
 
 .site-header {
   background: #ffffff;
@@ -55,56 +92,7 @@ a:hover {
   border-bottom: 2px solid #1d4ed8;
 }
 
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-main.container {
-  padding-top: 1.5rem;
-  padding-bottom: 2rem;
-}
-
-h1, h2, h3 {
-  font-weight: 600;
-  color: #111827;
-}
-
-h2 {
-  margin-top: 1.5rem;
-  margin-bottom: 0.75rem;
-}
-
-h3 {
-  margin-top: 1.2rem;
-}
-
-.home-intro p {
-  font-size: 1.02rem;
-}
-
-.home-contact p {
-  background: #ffffff;
-  border-radius: 0.5rem;
-  padding: 0.75rem 1rem;
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
-}
-
-.publications ul,
-.workshops ul {
-  padding-left: 1.2rem;
-}
-
-.publications li {
-  margin-bottom: 0.6rem;
-}
-
-.workshops article {
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid #e5e7eb;
-}
+/* ---------- Footer ---------- */
 
 .site-footer {
   border-top: 1px solid #e5e7eb;
@@ -115,130 +103,38 @@ h3 {
   margin-top: 1.5rem;
 }
 
-@media (max-width: 640px) {
-  .header-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .site-nav {
-    margin-top: 0.5rem;
-  }
-  .site-nav a {
-    margin-left: 0;
-    margin-right: 1rem;
-  }
-}
+/* ---------- Publications ---------- */
 
-
-/* Publications page enhancements */
-.pub-header {
-  margin-bottom: 1.5rem;
-}
-
-.pub-header h2 {
-  margin-bottom: 0.25rem;
-}
-
-.pub-header p {
-  margin-top: 0.25rem;
-  max-width: 48rem;
-  color: #4b5563;
-  font-size: 0.98rem;
-}
-
-.pub-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 2fr);
-  gap: 1.75rem;
-  align-items: flex-start;
-}
-
-.pub-list ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-
-.pub-list li {
-  background: #ffffff;
-  border-radius: 0.85rem;
-  padding: 0.85rem 1rem;
-  margin-bottom: 0.8rem;
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
-  border: 1px solid #e5e7eb;
-  font-size: 0.95rem;
-}
-
-.pub-list li:last-child {
-  margin-bottom: 0;
-}
-
-.pub-list li a {
-  font-weight: 500;
-}
-
-.pub-aside {
-  background: #f3f4f6;
-  border-radius: 0.85rem;
-  padding: 1rem 1.2rem;
-  font-size: 0.9rem;
-  color: #4b5563;
-  border: 1px solid #e5e7eb;
-}
-
-.pub-aside h3 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-}
-
-.pub-aside ul {
-  padding-left: 1.1rem;
-  margin-top: 0.2rem;
-  margin-bottom: 0.6rem;
-}
-
-.pub-aside-note {
-  font-size: 0.85rem;
-  color: #6b7280;
-}
-
-@media (min-width: 900px) {
-  .pub-layout {
-    grid-template-columns: minmax(0, 2.3fr) minmax(0, 1.2fr);
-  }
-}
-
-@media (max-width: 639px) {
-  .pub-list li {
-    padding: 0.8rem 0.85rem;
-  }
-}
-
-
-/* Clean minimalist styling for publications list */
 .publications {
   max-width: 60rem;
   margin: 0 auto;
 }
 
-.pub-intro {
-  margin-top: 0.4rem;
-  margin-bottom: 1.2rem;
-  color: #4b5563;
-  font-size: 0.97rem;
+.publications h3 {
+  margin-top: 1.4rem;
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
+/* Main numbered list (research articles) */
 .pub-list {
-  list-style: none;
-  padding-left: 0;
   margin: 0;
+  padding-left: 1.7rem;
+}
+
+.pub-list.pub-numbered,
+ol.pub-list {
+  list-style-type: decimal;
+  list-style-position: outside;
 }
 
 .pub-list li {
-  padding: 0.4rem 0;
+  margin: 0 0 0.35rem 0;
+  padding: 0.1rem 0 0.35rem 0;
   border-bottom: 1px solid #e5e7eb;
-  font-size: 0.94rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .pub-list li:last-child {
@@ -249,69 +145,7 @@ h3 {
   font-weight: 500;
 }
 
-.pub-list li span.pub-year {
-  font-weight: 500;
-  color: #374151;
-  margin-right: 0.35rem;
-}
-
-.pub-list li span.pub-venue {
-  color: #4b5563;
-}
-
-@media (max-width: 640px) {
-  .publications {
-    max-width: 100%;
-  }
-  .pub-list li {
-    padding: 0.35rem 0;
-  }
-}
-
-
-/* Numbered publications list: 1 is the oldest paper */
-.pub-list.pub-numbered {
-  list-style: decimal;
-  padding-left: 1.5rem;
-}
-
-
-/* Ensure numbered publications list shows numbers (not bullets) */
-.pub-list.pub-numbered,
-ol.pub-list {
-  list-style-type: decimal !important;
-  list-style-position: outside;
-  padding-left: 1.7rem;
-}
-
-
-/* Publications page: clean rows and centered text within the list box */
-.publications .pub-list {
-  margin: 0;
-  padding-left: 1.75rem;
-}
-
-.publications .pub-list li {
-  background: transparent;
-  border-radius: 0;
-  box-shadow: none;
-  border: 0;
-  border-bottom: 1px solid #e5e7eb;
-  margin: 0 0 0.35rem 0;
-  padding: 0.1rem 0 0.35rem 0;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-
-/* Publications subsections (books, surveys) */
-.publications h3 {
-  margin-top: 1.4rem;
-  margin-bottom: 0.4rem;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
+/* Books edited / survey papers */
 .pub-secondary {
   list-style-type: decimal;
   padding-left: 1.7rem;
@@ -324,6 +158,7 @@ ol.pub-list {
   font-size: 0.95rem;
 }
 
+/* ---------- Workshops index ---------- */
 
 .workshop-list {
   list-style: none;
@@ -339,52 +174,8 @@ ol.pub-list {
   font-size: 0.96rem;
 }
 
+/* ---------- Workshop talk cards (Titles & Abstracts) ---------- */
 
-/* Workshop talk cards */
-.talks-section {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.talk-card {
-  background: #ffffff;
-  border-radius: 0.75rem;
-  padding: 0.9rem 1.1rem;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
-}
-
-.talk-speaker {
-  margin: 0 0 0.3rem 0;
-  font-size: 1rem;
-}
-
-.talk-title {
-  margin: 0 0 0.4rem 0;
-  font-size: 0.95rem;
-}
-
-.talk-abstract p {
-  margin: 0.2rem 0;
-  font-size: 0.94rem;
-}
-
-.talk-label {
-  font-weight: 600;
-  margin-right: 0.25rem;
-}
-
-@media (max-width: 640px) {
-  .talk-card {
-    padding: 0.8rem 0.9rem;
-  }
-}
-
-
-/* Improved layout for workshop talk cards (London–Tokyo II and similar) */
 .talks-section {
   margin-top: 1.75rem;
   margin-bottom: 2rem;
@@ -424,21 +215,16 @@ ol.pub-list {
   font-size: 0.8rem;
 }
 
-@media (max-width: 640px) {
-  .talks-section {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .talk-card {
-    padding: 0.9rem 0.95rem;
-  }
-}
+/* ---------- Home page ---------- */
 
 .home-grid {
   margin-top: 1.75rem;
   margin-bottom: 2rem;
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-  gap: 1.5rem;
+  /* contact column narrower, right column wider */
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
+  column-gap: 1.75rem;
+  row-gap: 1.75rem;
   align-items: flex-start;
 }
 
@@ -453,6 +239,13 @@ ol.pub-list {
 .home-card h2 {
   margin-top: 0;
   margin-bottom: 0.5rem;
+}
+
+/* Right-hand column: External links + Editorial Board stacked */
+.home-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* space between the two boxes */
 }
 
 /* External links list */
@@ -476,60 +269,37 @@ ol.pub-list {
   text-decoration: underline;
 }
 
-/* Small-screen tweak */
+/* ---------- Responsive tweaks ---------- */
+
 @media (max-width: 640px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .site-nav {
+    margin-top: 0.5rem;
+  }
+
+  .site-nav a {
+    margin-left: 0;
+    margin-right: 1rem;
+  }
+
+  .publications {
+    max-width: 100%;
+  }
+
   .home-grid {
     grid-template-columns: minmax(0, 1fr);
   }
-}
 
-.home-column {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-/* Optional: keep it nice on small screens */
-@media (max-width: 640px) {
-  .home-grid {
+  .talks-section {
     grid-template-columns: minmax(0, 1fr);
   }
-}
 
-
-/* Layout of the two columns on the home page */
-.home-grid {
-  margin-top: 1.75rem;
-  margin-bottom: 2rem;
-  display: grid;
-  /* Make the contact column narrower and the right-hand column wider */
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
-  column-gap: 1.75rem;
-  row-gap: 1.75rem;
-}
-
-/* Stack "External Links" and "Editorial Board" with some space */
-.home-column {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;  /* space between the two boxes */
-}
-
-/* Card styling (if you don’t already have something similar) */
-.home-card {
-  background: #ffffff;
-  border-radius: 0.9rem;
-  padding: 1rem 1.2rem;
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
-  border: 1px solid #e5e7eb;
-}
-
-/* Mobile: stack everything nicely */
-@media (max-width: 640px) {
-  .home-grid {
-    grid-template-columns: minmax(0, 1fr);
+  .talk-card {
+    padding: 0.9rem 0.95rem;
   }
 }
-
-
-
+```
