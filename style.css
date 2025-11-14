@@ -432,3 +432,54 @@ ol.pub-list {
     padding: 0.9rem 0.95rem;
   }
 }
+
+.home-grid {
+  margin-top: 1.75rem;
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.home-card {
+  background: #ffffff;
+  border-radius: 0.9rem;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+  border: 1px solid #e5e7eb;
+}
+
+.home-card h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+/* External links list */
+.home-links ul {
+  list-style: none;
+  margin: 0.25rem 0 0;
+  padding: 0;
+}
+
+.home-links li + li {
+  margin-top: 0.5rem;
+}
+
+.home-links a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.home-links a:hover {
+  text-decoration: underline;
+}
+
+/* Small-screen tweak */
+@media (max-width: 640px) {
+  .home-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
