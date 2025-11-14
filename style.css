@@ -483,3 +483,17 @@ ol.pub-list {
   }
 }
 
+.home-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Optional: keep it nice on small screens */
+@media (max-width: 640px) {
+  .home-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+
