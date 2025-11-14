@@ -2,107 +2,423 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Paolo Cascini — Site.Japanese-SpanishWorkshop</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+  <title>Paolo Cascini — Japanese-Spanish Workshop</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+    
+    header {
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: white;
+      padding: 60px 40px;
+      text-align: center;
+    }
+    
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    
+    .site-title a {
+      color: white;
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+    
+    .site-title a:hover {
+      opacity: 0.8;
+    }
+    
+    .site-nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .site-nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all 0.3s;
+      font-size: 1.05em;
+    }
+    
+    .site-nav a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    
+    .site-nav a.active {
+      background: rgba(255,255,255,0.25);
+      font-weight: 600;
+    }
+    
+    main {
+      padding: 50px 40px;
+    }
+    
+    .workshop h2 {
+      font-size: 2em;
+      color: #2a5298;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #667eea;
+    }
+    
+    .workshop-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      padding: 30px;
+      border-radius: 12px;
+      border-left: 5px solid #667eea;
+    }
+    
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .info-label {
+      font-weight: 700;
+      color: #667eea;
+      font-size: 0.95em;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .info-content {
+      color: #1a1a1a;
+      font-size: 1.05em;
+    }
+    
+    .schedule-section {
+      background: #f8f9fa;
+      padding: 35px;
+      border-radius: 12px;
+      margin-bottom: 40px;
+      border: 2px solid #e9ecef;
+    }
+    
+    .schedule-section h2 {
+      border-bottom: none;
+      margin-bottom: 25px;
+    }
+    
+    .schedule-item {
+      display: flex;
+      align-items: center;
+      padding: 18px 20px;
+      margin-bottom: 12px;
+      background: white;
+      border-radius: 8px;
+      border-left: 4px solid #764ba2;
+      transition: all 0.3s;
+    }
+    
+    .schedule-item:hover {
+      transform: translateX(5px);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.15);
+    }
+    
+    .schedule-time {
+      font-weight: 700;
+      color: #667eea;
+      min-width: 130px;
+      font-size: 1.05em;
+    }
+    
+    .schedule-speaker {
+      color: #1a1a1a;
+      font-weight: 500;
+    }
+    
+    .schedule-affiliation {
+      color: #666;
+      font-size: 0.95em;
+      margin-left: 8px;
+    }
+    
+    .break-item {
+      padding: 12px 20px;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #fff9e6 0%, #ffe6cc 100%);
+      border-radius: 8px;
+      border-left: 4px solid #ffa500;
+      text-align: center;
+      font-style: italic;
+      color: #d68000;
+      font-weight: 500;
+    }
+    
+    .talks-section {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .talk-card {
+      background: white;
+      border: 2px solid #e9ecef;
+      border-radius: 12px;
+      padding: 30px;
+      transition: all 0.3s;
+    }
+    
+    .talk-card:hover {
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+      border-color: #667eea;
+    }
+    
+    .talk-speaker {
+      font-size: 1.5em;
+      color: #2a5298;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    
+    .talk-affiliation {
+      color: #666;
+      font-size: 1.1em;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    
+    .talk-title {
+      font-weight: 700;
+      color: #667eea;
+      margin-bottom: 8px;
+      font-size: 0.95em;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .talk-title-content {
+      font-size: 1.15em;
+      margin-bottom: 20px;
+      color: #1a1a1a;
+      font-weight: 500;
+    }
+    
+    .talk-abstract-label {
+      font-weight: 700;
+      color: #764ba2;
+      margin-bottom: 8px;
+      font-size: 0.95em;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .talk-abstract {
+      color: #495057;
+      line-height: 1.8;
+      padding-left: 20px;
+      border-left: 3px solid #e9ecef;
+    }
+    
+    .talk-abstract p {
+      margin-bottom: 12px;
+    }
+    
+    footer {
+      background: #1e3c72;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    
+    @media (max-width: 768px) {
+      header {
+        padding: 40px 20px;
+      }
+      
+      h1 {
+        font-size: 1.8em;
+      }
+      
+      main {
+        padding: 30px 20px;
+      }
+      
+      .workshop-info {
+        padding: 20px;
+      }
+      
+      .schedule-section {
+        padding: 25px 20px;
+      }
+      
+      .schedule-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .schedule-time {
+        margin-bottom: 5px;
+      }
+      
+      .talk-card {
+        padding: 25px 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
+  <div class="container">
+    <header>
       <h1 class="site-title"><a href="index.html">Paolo Cascini</a></h1>
       <nav class="site-nav">
-        <a href="index.html">Home</a>
-        <a href="publications.html">Publications</a>
-        <a href="events.html" class="active">Events</a>
       </nav>
-    </div>
-  </header>
-  <main class="container">
-  <section class="workshop">
-<h2>Workshop</h2>
-
-<p><strong>Location</strong>: Imperial College - Huxley Building - Room 140</p>
-
-<p><strong>Date</strong>: Friday, 12 July 2013</p>
-
-<p><strong>Organisers</strong>: Paolo Cascini and Yoshinori Gongyo</p>
-
-<p><br></p>
-
-<h2>Schedule</h2>
-
-<p>10:00-10:50 Katsuhisa Furukawa (Waseda)</p>
-
-<p>coffee</p>
-
-<p>11:20 - 12:10 Enrique Arrondo (Madrid)</p>
-
-<p>lunch</p>
-
-<p>14:10 - 15:00 Kiwamu Watanabe (Saitama)</p>
-
-<p>coffee</p>
-
-<p>15:30 - 16:20 Taku Suzuki (Waseda)</p>
-
-
-<p><br></p>
-
-<h2>Titles/Abstracts</h2>
-
-<p><strong>Katsuhisa Furukawa (Waseda)</strong></p>
-
-<p>Title: Cohomological characterization of hyperquadrics of odd dimensions in characteristic two</p>
-
-<p>Abstract: J. Wahl characterized projective spaces in characteristic zero by cohomological condition of tangent bundles; in addition, he remarked that a counter-example in characteristic two is constructed from odd-dimensional hyperquadrics $Q_{2n-1}$ ($n > 1$).</p>
-<p>This is caused by existence of a common point which every embedded tangent space to the quadric contains.</p>
-<p>In general, a projective variety in $P^N$ is said to be strange if it admits such a common point.</p>
-<p>A non-linear smooth projective curve is strange if and only if it is a conic in characteristic two (E. Lluis, P. Samuel).</p>
-<p>S. Kleiman and R. Piene showed that a non-linear smooth hypersurface in $P^N$ is strange if and only if it is a quadric of odd-dimension in characteristic two.</p>
-<p>In this talk, we investigate complete intersection varieties, and prove that, a non-linear smooth complete intersection variety in $P^N$ is strange if and only if it is a quadric in $P^N$ of odd dimension in characteristic two; these conditions are also equivalent to non-vanishing of $0$-cohomology of $(-1)$-twist of the tangent bundle. (The details of our results are stated in arXiv:1304.1634v1.)</p>
-
-
-<p><strong>Enrique Arrondo (Madrid)</strong></p>
-
-<p>Title: Barth-Larsen Theorem revisited</p>
-
-
-<p>Abstract: We will present a new approach to Barth-Larsen theorem about</p>
-<p>the extendability of algebraic cycles of projective subvarieties of</p>
-<p>small codimension. We will use merely geometric tools, which will allow</p>
-<p>to generalize the result to other ambient spaces. We will also discuss</p>
-<p>the relation of this theory with the famous Hartshorne's conjecture.</p>
-
-<p><strong>Kiwamu Watanabe (Saitama)</strong></p>
-
-<p>Title: Characterization of complete flag manifolds of classical type</p>
-
-
-<p>Abstract:  A Fano manifold $X$ with nef tangent bundle is of flag-type if it has the same type of elementary contractions as a complete flag manifold. In this talk, we present a method to associate a Dynkin diagram $\mathcal{D}(X)$ with any such $X$, based on the numerical properties of its contractions. We then show that $\mathcal{D}(X)$ is the Dynkin diagram of a semisimple Lie group. Furthermore, we prove that a flag-type manifold of classical type is a complete flag manifold.</p>
-<p>This is joint work with R. Mu .A Nqoz, G. Occhetta, L. E. Sol Na Conde and J. Wisniewski.</p>
-
-
-<p><strong>Taku Suzuki (Waseda)</strong></p>
-
-<p>Title: On manifolds swept out by high dimensional hypersurfaces</p>
-
-
-<p>Abstract: Several results on the structures of embedded manifolds swept out by high</p>
-<p>dimensional linear spaces, quadric hypersurfaces, or cubic hypersurfaces,</p>
-<p>have been provided. In this talk, I will discuss the structures of manifolds</p>
-<p>swept out by high dimensional hypersurfaces with arbitrary degree on the</p>
-<p>assumption that the famous Hartshorne conjecture about complete intersections</p>
-<p>is true.</p>
-
-
-<p><br></p>
-  </section>
-
-  </main>
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2025 Paolo Cascini</p>
-    </div>
-  </footer>
+    </header>
+    
+    <main>
+      <section class="workshop">
+        <h2>Japanese-Spanish Workshop</h2>
+        
+        <div class="workshop-info">
+          <div class="info-item">
+            <div class="info-label">Location</div>
+            <div class="info-content">Imperial College<br>Huxley Building - Room 140</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Date</div>
+            <div class="info-content">Friday, 12 July 2013</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Organisers</div>
+            <div class="info-content">Paolo Cascini<br>Yoshinori Gongyo</div>
+          </div>
+        </div>
+        
+        <div class="schedule-section">
+          <h2>Schedule</h2>
+          
+          <div class="schedule-item">
+            <div class="schedule-time">10:00 - 10:50</div>
+            <div class="schedule-speaker">Katsuhisa Furukawa <span class="schedule-affiliation">(Waseda)</span></div>
+          </div>
+          
+          <div class="break-item">coffee</div>
+          
+          <div class="schedule-item">
+            <div class="schedule-time">11:20 - 12:10</div>
+            <div class="schedule-speaker">Enrique Arrondo <span class="schedule-affiliation">(Madrid)</span></div>
+          </div>
+          
+          <div class="break-item">lunch</div>
+          
+          <div class="schedule-item">
+            <div class="schedule-time">14:10 - 15:00</div>
+            <div class="schedule-speaker">Kiwamu Watanabe <span class="schedule-affiliation">(Saitama)</span></div>
+          </div>
+          
+          <div class="break-item">coffee</div>
+          
+          <div class="schedule-item">
+            <div class="schedule-time">15:30 - 16:20</div>
+            <div class="schedule-speaker">Taku Suzuki <span class="schedule-affiliation">(Waseda)</span></div>
+          </div>
+        </div>
+        
+        <h2>Titles/Abstracts</h2>
+        
+        <div class="talks-section">
+          <article class="talk-card">
+            <div class="talk-speaker">Katsuhisa Furukawa</div>
+            <div class="talk-affiliation">Waseda</div>
+            
+            <div class="talk-title">Title:</div>
+            <div class="talk-title-content">Cohomological characterization of hyperquadrics of odd dimensions in characteristic two</div>
+            
+            <div class="talk-abstract-label">Abstract:</div>
+            <div class="talk-abstract">
+              <p>J. Wahl characterized projective spaces in characteristic zero by cohomological condition of tangent bundles; in addition, he remarked that a counter-example in characteristic two is constructed from odd-dimensional hyperquadrics $Q_{2n-1}$ ($n > 1$).</p>
+              <p>This is caused by existence of a common point which every embedded tangent space to the quadric contains.</p>
+              <p>In general, a projective variety in $P^N$ is said to be strange if it admits such a common point.</p>
+              <p>A non-linear smooth projective curve is strange if and only if it is a conic in characteristic two (E. Lluis, P. Samuel).</p>
+              <p>S. Kleiman and R. Piene showed that a non-linear smooth hypersurface in $P^N$ is strange if and only if it is a quadric of odd-dimension in characteristic two.</p>
+              <p>In this talk, we investigate complete intersection varieties, and prove that, a non-linear smooth complete intersection variety in $P^N$ is strange if and only if it is a quadric in $P^N$ of odd dimension in characteristic two; these conditions are also equivalent to non-vanishing of $0$-cohomology of $(-1)$-twist of the tangent bundle. (The details of our results are stated in arXiv:1304.1634v1.)</p>
+            </div>
+          </article>
+          
+          <article class="talk-card">
+            <div class="talk-speaker">Enrique Arrondo</div>
+            <div class="talk-affiliation">Madrid</div>
+            
+            <div class="talk-title">Title:</div>
+            <div class="talk-title-content">Barth-Larsen Theorem revisited</div>
+            
+            <div class="talk-abstract-label">Abstract:</div>
+            <div class="talk-abstract">
+              <p>We will present a new approach to Barth-Larsen theorem about the extendability of algebraic cycles of projective subvarieties of small codimension. We will use merely geometric tools, which will allow to generalize the result to other ambient spaces. We will also discuss the relation of this theory with the famous Hartshorne's conjecture.</p>
+            </div>
+          </article>
+          
+          <article class="talk-card">
+            <div class="talk-speaker">Kiwamu Watanabe</div>
+            <div class="talk-affiliation">Saitama</div>
+            
+            <div class="talk-title">Title:</div>
+            <div class="talk-title-content">Characterization of complete flag manifolds of classical type</div>
+            
+            <div class="talk-abstract-label">Abstract:</div>
+            <div class="talk-abstract">
+              <p>A Fano manifold $X$ with nef tangent bundle is of flag-type if it has the same type of elementary contractions as a complete flag manifold. In this talk, we present a method to associate a Dynkin diagram $\mathcal{D}(X)$ with any such $X$, based on the numerical properties of its contractions. We then show that $\mathcal{D}(X)$ is the Dynkin diagram of a semisimple Lie group. Furthermore, we prove that a flag-type manifold of classical type is a complete flag manifold.</p>
+              <p>This is joint work with R. Mu .A Nqoz, G. Occhetta, L. E. Sol Na Conde and J. Wisniewski.</p>
+            </div>
+          </article>
+          
+          <article class="talk-card">
+            <div class="talk-speaker">Taku Suzuki</div>
+            <div class="talk-affiliation">Waseda</div>
+            
+            <div class="talk-title">Title:</div>
+            <div class="talk-title-content">On manifolds swept out by high dimensional hypersurfaces</div>
+            
+            <div class="talk-abstract-label">Abstract:</div>
+            <div class="talk-abstract">
+              <p>Several results on the structures of embedded manifolds swept out by high dimensional linear spaces, quadric hypersurfaces, or cubic hypersurfaces, have been provided. In this talk, I will discuss the structures of manifolds swept out by high dimensional hypersurfaces with arbitrary degree on the assumption that the famous Hartshorne conjecture about complete intersections is true.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+    
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2025 Paolo Cascini</p>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
