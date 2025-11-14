@@ -216,8 +216,8 @@ ol.pub-list {
   margin-top: 1.75rem;
   margin-bottom: 2rem;
   display: grid;
-  /* contact column narrower, right column wider */
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
+  /* Contact box a bit larger, right column a bit smaller */
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
   column-gap: 1.75rem;
   row-gap: 1.75rem;
   align-items: flex-start;
