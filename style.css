@@ -294,9 +294,7 @@ ol.pub-list {
     max-width: 100%;
   }
 
-  .home-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
+  
 
   .talks-section {
     grid-template-columns: minmax(0, 1fr);
