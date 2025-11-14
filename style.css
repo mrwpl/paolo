@@ -1,8 +1,3 @@
-Here’s a cleaned-up `style.css` that keeps what you’re actually using now, removes duplicates, and makes the home page layout behave as you described (narrower contact box, more space on the right, gap between “External links” and “Editorial Board”).
-
-You can replace the contents of your current `style.css` with this:
-
-```css
 /* ---------- Global ---------- */
 
 * {
@@ -302,4 +297,15 @@ ol.pub-list {
     padding: 0.9rem 0.95rem;
   }
 }
-```
+
+/* Editorial board list: no bullets */
+.home-editorial ul {
+  list-style: none;
+  margin: 0.25rem 0 0;
+  padding: 0;
+}
+
+.home-editorial li + li {
+  margin-top: 0.5rem;
+}
+
