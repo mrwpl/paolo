@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fedor Bogomolov 80th Birthday Conference</title>
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --paper: #ffffff;
+      --ink: #18212f;
+      --muted: #5f6877;
+      --accent: #7a1f1f;
+      --accent-soft: #f1dfdc;
+      --line: #ded8cf;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: underline;
+    }
+
+    header {
+      padding: 64px 24px 48px;
+      background: linear-gradient(135deg, #fff 0%, #f4e9e5 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 840px;
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .subtitle {
+      margin: 28px 0 0;
+      max-width: 720px;
+      font-size: 1.3rem;
+      color: var(--muted);
+    }
+
+    nav {
+      margin-top: 36px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    nav a {
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--ink);
+    }
+
+    main {
+      padding: 48px 24px 72px;
+    }
+
+    section {
+      margin-bottom: 48px;
+    }
+
+    .panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(24, 33, 47, 0.05);
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: 2rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .info-card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fbfaf8;
+    }
+
+    .label {
+      margin: 0 0 4px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .value {
+      margin: 0;
+      font-size: 1.05rem;
+      color: var(--ink);
+    }
+
+    .speaker-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      padding: 0;
+      margin: 24px 0 0;
+      list-style: none;
+    }
+
+    .speaker-list li {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fbfaf8;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .speaker-list li:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(24, 33, 47, 0.08);
+    }
+
+    .speaker-list a {
+      display: block;
+      padding: 18px;
+      font-size: 1.12rem;
+      font-weight: 700;
+    }
+
+    .note {
+      margin-top: 18px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.96rem;
+    }
+
+    footer {
+      padding: 28px 24px;
+      border-top: 1px solid var(--line);
+      background: #fff;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 760px) {
+      header {
+        padding-top: 44px;
+      }
+
+      .info-grid,
+      .speaker-list {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <p class="eyebrow">New York University · 2-3 October 2026</p>
+      <h1>Conference in honour of Fedor Bogomolov's 80th birthday</h1>
+      <p class="subtitle">
+        A two-day conference celebrating Fedor Bogomolov and his influence on algebraic geometry and related areas.
+      </p>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#speakers">Speakers</a>
+        <a href="#organisers">Organisers</a>
+        <a href="#practical">Practical information</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section id="about" class="panel">
+        <h2>About the conference</h2>
+        <p>
+          This conference will be held at New York University on 2-3 October 2026, in honour of Fedor Bogomolov's 80th birthday.
+        </p>
+        <p>
+          The programme will bring together speakers whose work reflects the breadth of Bogomolov's mathematical influence.
+        </p>
+        <div class="info-grid" aria-label="Conference details">
+          <div class="info-card">
+            <p class="label">Dates</p>
+            <p class="value">2-3 October 2026</p>
+          </div>
+          <div class="info-card">
+            <p class="label">Venue</p>
+            <p class="value">New York University</p>
+          </div>
+          <div class="info-card">
+            <p class="label">City</p>
+            <p class="value">New York, USA</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="speakers" class="panel">
+        <h2>Speakers</h2>
+        <p>The invited speakers are listed alphabetically by surname.</p>
+        <ul class="speaker-list">
+          <li><a href="https://www.imo.universite-paris-saclay.fr/~ekaterina.amerik/">Ekaterina Amerik</a></li>
+          <li><a href="https://www.math.miami.edu/~bdeolive/">Bruno de Oliveira</a></li>
+          <li><a href="https://www.ihes.fr/~gromov/">Mikhail Gromov</a></li>
+          <li><a href="https://www.math.brown.edu/~bhassett/">Brendan Hassett</a></li>
+          <li><a href="https://www.math.stonybrook.edu/~kamenova/">Ljudmila Kamenova</a></li>
+          <li><a href="https://people.miami.edu/profile/285d74bf51ccc978f527c1386e82d0d4">Ludmil Katzarkov</a></li>
+          <li><a href="https://www.mat.uniroma2.it/~mcquilla/">Michael McQuillan</a></li>
+          <li><a href="https://math.jhu.edu/~shokurov/">Vyacheslav Shokurov</a></li>
+        </ul>
+      </section>
+
+      <section id="organisers" class="panel">
+        <h2>Organisers</h2>
+        <p>
+          Paolo Cascini, Ivan Cheltsov and James McKernan.
+        </p>
+      </section>
+
+      <section id="practical" class="panel">
+        <h2>Practical information</h2>
+        <p>
+          Further details about the schedule, lecture room, registration and local information will be posted here closer to the conference.
+        </p>
+        <p class="note">
+          This page is a preliminary announcement. Please check back for updates.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      Conference in honour of Fedor Bogomolov's 80th birthday · NYU · 2-3 October 2026
+    </div>
+  </footer>
+</body>
+</html>
