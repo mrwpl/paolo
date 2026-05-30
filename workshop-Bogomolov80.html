@@ -226,6 +226,18 @@
     color: var(--ink);
   }
 
+  .organiser-item a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .organiser-item a:hover {
+    color: var(--gold);
+    border-color: var(--gold-light);
+  }
+
   /* ─── PRACTICAL ─── */
   .practical-grid {
     display: grid;
@@ -312,7 +324,6 @@
 <nav>
   <div class="nav-inner">
     <a href="#" class="nav-brand">Bogomolov at 80</a>
-    <a href="#about">About</a>
     <a href="#speakers">Speakers</a>
     <a href="#organisers">Organisers</a>
     <a href="#practical">Practical</a>
@@ -342,16 +353,6 @@
 </header>
 
 <main>
-
-  <section id="about">
-    <div class="container">
-      <p class="section-label">About the conference</p>
-      <div class="about-text">
-        <p>This two-day conference celebrates the eightieth birthday of <strong>Fedor Bogomolov</strong>, one of the most original and influential geometers of our time. Bogomolov's work has shaped algebraic geometry for five decades, from the foundational study of holomorphic symplectic manifolds and Bogomolov–Beauville decomposition, to his profound contributions to birational geometry, the geometry of algebraic curves, and Galois theory.</p>
-        <p>Bringing together leading mathematicians whose work intersects with and has been inspired by Bogomolov's, the conference will feature research talks across the themes that have defined his career. All are welcome to attend.</p>
-      </div>
-    </div>
-  </section>
 
   <section id="speakers">
     <div class="container">
@@ -422,9 +423,9 @@
     <div class="container">
       <p class="section-label">Organisers</p>
       <div class="organisers-list">
-        <div class="organiser-item"><strong>Paolo Cascini</strong></div>
-        <div class="organiser-item"><strong>Ivan Cheltsov</strong></div>
-        <div class="organiser-item"><strong>James McKernan</strong></div>
+        <div class="organiser-item"><a href="https://www.ma.imperial.ac.uk/~pcascini/wiki/index.php" target="_blank" rel="noopener"><strong>Paolo Cascini</strong></a></div>
+        <div class="organiser-item"><a href="https://webhomes.maths.ed.ac.uk/cheltsov/" target="_blank" rel="noopener"><strong>Ivan Cheltsov</strong></a></div>
+        <div class="organiser-item"><a href="https://mathweb.ucsd.edu/~jmckerna/" target="_blank" rel="noopener"><strong>James McKernan</strong></a></div>
       </div>
     </div>
   </section>
