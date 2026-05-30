@@ -1,288 +1,463 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fedor Bogomolov 80th Birthday Conference</title>
-  <style>
-    :root {
-      --bg: #f7f4ef;
-      --paper: #ffffff;
-      --ink: #18212f;
-      --muted: #5f6877;
-      --accent: #7a1f1f;
-      --accent-soft: #f1dfdc;
-      --line: #ded8cf;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geometry & Beyond — A Conference in Honour of Fedor Bogomolov</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    * {
-      box-sizing: border-box;
-    }
+  :root {
+    --ink: #1a1814;
+    --ink-soft: #3d3830;
+    --ink-muted: #7a7060;
+    --ink-faint: #b8ad9e;
+    --parchment: #faf7f2;
+    --parchment-mid: #f0ebe0;
+    --parchment-dark: #e0d8c8;
+    --gold: #8b6914;
+    --gold-light: #c49a2a;
+    --rule: #c8bfaf;
+  }
 
-    body {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      color: var(--ink);
-      background: var(--bg);
-      line-height: 1.6;
-    }
+  html { scroll-behavior: smooth; }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+  body {
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
 
-    a:hover,
-    a:focus {
-      text-decoration: underline;
-    }
+  /* ─── HERO ─── */
+  .hero {
+    text-align: center;
+    padding: 5rem 2rem 4rem;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
 
-    header {
-      padding: 64px 24px 48px;
-      background: linear-gradient(135deg, #fff 0%, #f4e9e5 100%);
-      border-bottom: 1px solid var(--line);
-    }
+  .hero::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto 2.5rem;
+  }
 
-    .container {
-      max-width: 980px;
-      margin: 0 auto;
-    }
+  .hero-subtitle {
+    font-family: 'Spectral', Georgia, serif;
+    font-weight: 300;
+    font-size: 0.85rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
 
-    .eyebrow {
-      margin: 0 0 16px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
+  .hero h1 {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
 
-    h1 {
-      margin: 0;
-      max-width: 840px;
-      font-size: clamp(2.4rem, 6vw, 4.8rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-    }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--ink-soft);
+  }
 
-    .subtitle {
-      margin: 28px 0 0;
-      max-width: 720px;
-      font-size: 1.3rem;
-      color: var(--muted);
-    }
+  .hero-tagline {
+    font-family: 'Spectral', Georgia, serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--ink-muted);
+    margin: 1.4rem auto 0;
+    max-width: 560px;
+  }
 
-    nav {
-      margin-top: 36px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+  }
 
-    nav a {
-      padding: 9px 14px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.7);
-      color: var(--ink);
-    }
+  .meta-item {
+    text-align: center;
+  }
 
-    main {
-      padding: 48px 24px 72px;
-    }
+  .meta-label {
+    display: block;
+    font-family: 'Spectral', Georgia, serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.25rem;
+  }
 
-    section {
-      margin-bottom: 48px;
-    }
+  .meta-value {
+    display: block;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
 
-    .panel {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 30px;
-      box-shadow: 0 10px 30px rgba(24, 33, 47, 0.05);
-    }
+  /* ─── LAYOUT ─── */
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
 
-    h2 {
-      margin: 0 0 18px;
-      font-size: 2rem;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-    }
+  section {
+    padding: 3.5rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
 
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 24px;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+  section:last-of-type {
+    border-bottom: none;
+  }
 
-    .info-card {
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: #fbfaf8;
-    }
+  .section-label {
+    font-family: 'Spectral', Georgia, serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
 
-    .label {
-      margin: 0 0 4px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-    }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--parchment-dark);
+  }
 
-    .value {
-      margin: 0;
-      font-size: 1.05rem;
-      color: var(--ink);
-    }
+  /* ─── ABOUT ─── */
+  .about-text {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    max-width: 680px;
+  }
 
-    .speaker-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      padding: 0;
-      margin: 24px 0 0;
-      list-style: none;
-    }
+  .about-text p + p {
+    margin-top: 1rem;
+  }
 
-    .speaker-list li {
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: #fbfaf8;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
+  /* ─── SPEAKERS ─── */
+  .speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 1px;
+    background: var(--parchment-dark);
+    border: 1px solid var(--parchment-dark);
+    border-radius: 2px;
+    overflow: hidden;
+  }
 
-    .speaker-list li:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 22px rgba(24, 33, 47, 0.08);
-    }
+  .speaker-card {
+    background: var(--parchment);
+    padding: 1.4rem 1.5rem;
+    transition: background 0.15s;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
 
-    .speaker-list a {
-      display: block;
-      padding: 18px;
-      font-size: 1.12rem;
-      font-weight: 700;
-    }
+  .speaker-card:hover {
+    background: var(--parchment-mid);
+  }
 
-    .note {
-      margin-top: 18px;
-      color: var(--muted);
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.96rem;
-    }
+  .speaker-name {
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: var(--ink);
+    line-height: 1.3;
+  }
 
-    footer {
-      padding: 28px 24px;
-      border-top: 1px solid var(--line);
-      background: #fff;
-      color: var(--muted);
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.95rem;
-    }
+  .speaker-name a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    transition: border-color 0.15s, color 0.15s;
+  }
 
-    @media (max-width: 760px) {
-      header {
-        padding-top: 44px;
-      }
+  .speaker-name a:hover {
+    color: var(--gold);
+    border-color: var(--gold-light);
+  }
 
-      .info-grid,
-      .speaker-list {
-        grid-template-columns: 1fr;
-      }
+  .speaker-inst {
+    font-family: 'Spectral', Georgia, serif;
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    font-style: italic;
+  }
 
-      .panel {
-        padding: 22px;
-      }
-    }
-  </style>
+  /* ─── ORGANISERS ─── */
+  .organisers-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2.5rem;
+  }
+
+  .organiser-item {
+    font-size: 1rem;
+    color: var(--ink-soft);
+  }
+
+  .organiser-item strong {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  /* ─── PRACTICAL ─── */
+  .practical-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+  }
+
+  .practical-block dt {
+    font-family: 'Spectral', Georgia, serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.4rem;
+  }
+
+  .practical-block dd {
+    color: var(--ink-soft);
+    font-size: 0.97rem;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    font-family: 'Spectral', Georgia, serif;
+    font-size: 0.82rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.06em;
+  }
+
+  footer::before {
+    content: '✦';
+    display: block;
+    margin-bottom: 1rem;
+    color: var(--gold-light);
+    font-size: 1rem;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky;
+    top: 0;
+    background: rgba(250, 247, 242, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+    z-index: 100;
+    padding: 0 2rem;
+  }
+
+  .nav-inner {
+    max-width: 820px;
+    margin: 0 auto;
+    display: flex;
+    gap: 2rem;
+    height: 48px;
+    align-items: center;
+    font-family: 'Spectral', Georgia, serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .nav-inner a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .nav-inner a:hover {
+    color: var(--gold);
+  }
+
+  .nav-brand {
+    font-weight: 500;
+    color: var(--ink) !important;
+    margin-right: auto;
+    letter-spacing: 0.05em;
+  }
+</style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <p class="eyebrow">New York University · 2-3 October 2026</p>
-      <h1>Conference in honour of Fedor Bogomolov's 80th birthday</h1>
-      <p class="subtitle">
-        A two-day conference celebrating Fedor Bogomolov and his influence on algebraic geometry and related areas.
-      </p>
-      <nav aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#speakers">Speakers</a>
-        <a href="#organisers">Organisers</a>
-        <a href="#practical">Practical information</a>
-      </nav>
-    </div>
-  </header>
 
-  <main>
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">Bogomolov at 80</a>
+    <a href="#about">About</a>
+    <a href="#speakers">Speakers</a>
+    <a href="#organisers">Organisers</a>
+    <a href="#practical">Practical</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <p class="hero-subtitle">A Conference in Honour of</p>
+    <h1>Fedor Bogomolov<br><em>at Eighty</em></h1>
+    <p class="hero-tagline">Celebrating a lifetime of fundamental contributions to algebraic geometry, birational geometry, and the geometry of manifolds</p>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="meta-label">Dates</span>
+        <span class="meta-value">2–3 October 2026</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Location</span>
+        <span class="meta-value">New York University</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">City</span>
+        <span class="meta-value">New York, USA</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section id="about">
     <div class="container">
-      <section id="about" class="panel">
-        <h2>About the conference</h2>
-        <p>
-          This conference will be held at New York University on 2-3 October 2026, in honour of Fedor Bogomolov's 80th birthday.
-        </p>
-        <p>
-          The programme will bring together speakers whose work reflects the breadth of Bogomolov's mathematical influence.
-        </p>
-        <div class="info-grid" aria-label="Conference details">
-          <div class="info-card">
-            <p class="label">Dates</p>
-            <p class="value">2-3 October 2026</p>
-          </div>
-          <div class="info-card">
-            <p class="label">Venue</p>
-            <p class="value">New York University</p>
-          </div>
-          <div class="info-card">
-            <p class="label">City</p>
-            <p class="value">New York, USA</p>
-          </div>
+      <p class="section-label">About the conference</p>
+      <div class="about-text">
+        <p>This two-day conference celebrates the eightieth birthday of <strong>Fedor Bogomolov</strong>, one of the most original and influential geometers of our time. Bogomolov's work has shaped algebraic geometry for five decades, from the foundational study of holomorphic symplectic manifolds and Bogomolov–Beauville decomposition, to his profound contributions to birational geometry, the geometry of algebraic curves, and Galois theory.</p>
+        <p>Bringing together leading mathematicians whose work intersects with and has been inspired by Bogomolov's, the conference will feature research talks across the themes that have defined his career. All are welcome to attend.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="speakers">
+    <div class="container">
+      <p class="section-label">Invited speakers</p>
+      <div class="speakers-grid">
+
+        <div class="speaker-card">
+          <span class="speaker-name">
+            <a href="http://www.math.u-psud.fr/~amerik/" target="_blank" rel="noopener">Ekaterina Amerik</a>
+          </span>
+          <span class="speaker-inst">Université Paris-Sud / HSE Moscow</span>
         </div>
-      </section>
 
-      <section id="speakers" class="panel">
-        <h2>Speakers</h2>
-        <p>The invited speakers are listed alphabetically by surname.</p>
-        <ul class="speaker-list">
-          <li><a href="https://www.imo.universite-paris-saclay.fr/~ekaterina.amerik/">Ekaterina Amerik</a></li>
-          <li><a href="https://www.math.miami.edu/~bdeolive/">Bruno de Oliveira</a></li>
-          <li><a href="https://www.ihes.fr/~gromov/">Mikhail Gromov</a></li>
-          <li><a href="https://www.math.brown.edu/~bhassett/">Brendan Hassett</a></li>
-          <li><a href="https://www.math.stonybrook.edu/~kamenova/">Ljudmila Kamenova</a></li>
-          <li><a href="https://people.miami.edu/profile/285d74bf51ccc978f527c1386e82d0d4">Ludmil Katzarkov</a></li>
-          <li><a href="https://www.mat.uniroma2.it/~mcquilla/">Michael McQuillan</a></li>
-          <li><a href="https://math.jhu.edu/~shokurov/">Vyacheslav Shokurov</a></li>
-        </ul>
-      </section>
+        <div class="speaker-card">
+          <span class="speaker-name">
+            <a href="https://www.math.miami.edu/~bdeolive/" target="_blank" rel="noopener">Bruno de Oliveira</a>
+          </span>
+          <span class="speaker-inst">University of Miami</span>
+        </div>
 
-      <section id="organisers" class="panel">
-        <h2>Organisers</h2>
-        <p>
-          Paolo Cascini, Ivan Cheltsov and James McKernan.
-        </p>
-      </section>
+        <div class="speaker-card">
+          <span class="speaker-name">
+            <a href="https://www.ihes.fr/~gromov/" target="_blank" rel="noopener">Mikhail Gromov</a>
+          </span>
+          <span class="speaker-inst">IHÉS / New York University</span>
+        </div>
 
-      <section id="practical" class="panel">
-        <h2>Practical information</h2>
-        <p>
-          Further details about the schedule, lecture room, registration and local information will be posted here closer to the conference.
-        </p>
-        <p class="note">
-          This page is a preliminary announcement. Please check back for updates.
-        </p>
-      </section>
+        <div class="speaker-card">
+          <span class="speaker-name">
+            <a href="https://mathematics.brown.edu/people/brendan-hassett" target="_blank" rel="noopener">Brendan Hassett</a>
+          </span>
+          <span class="speaker-inst">Brown University</span>
+        </div>
+
+        <div class="speaker-card">
+          <span class="speaker-name">
+            <a href="https://www.math.stonybrook.edu/~kamenova/" target="_blank" rel="noopener">Ljudmila Kamenova</a>
+          </span>
+          <span class="speaker-inst">Stony Brook University</span>
+        </div>
+
+        <div class="speaker-card">
+          <span class="speaker-name">
+            <a href="https://people.miami.edu/profile/285d74bf51ccc978f527c1386e82d0d4" target="_blank" rel="noopener">Ludmil Katzarkov</a>
+          </span>
+          <span class="speaker-inst">University of Miami</span>
+        </div>
+
+        <div class="speaker-card">
+          <span class="speaker-name">
+            <a href="https://www.mat.uniroma2.it/~mcquilla/" target="_blank" rel="noopener">Michael McQuillan</a>
+          </span>
+          <span class="speaker-inst">University of Rome Tor Vergata</span>
+        </div>
+
+        <div class="speaker-card">
+          <span class="speaker-name">
+            <a href="https://mathematics.jhu.edu/directory/vyacheslav-shokurov/" target="_blank" rel="noopener">Vyacheslav Shokurov</a>
+          </span>
+          <span class="speaker-inst">Johns Hopkins University</span>
+        </div>
+
+      </div>
     </div>
-  </main>
+  </section>
 
-  <footer>
+  <section id="organisers">
     <div class="container">
-      Conference in honour of Fedor Bogomolov's 80th birthday · NYU · 2-3 October 2026
+      <p class="section-label">Organisers</p>
+      <div class="organisers-list">
+        <div class="organiser-item"><strong>Paolo Cascini</strong></div>
+        <div class="organiser-item"><strong>Ivan Cheltsov</strong></div>
+        <div class="organiser-item"><strong>James McKernan</strong></div>
+      </div>
     </div>
-  </footer>
+  </section>
+
+  <section id="practical">
+    <div class="container">
+      <p class="section-label">Practical information</p>
+      <div class="practical-grid">
+        <dl class="practical-block">
+          <dt>Venue</dt>
+          <dd>New York University<br>New York, USA</dd>
+        </dl>
+        <dl class="practical-block">
+          <dt>Dates</dt>
+          <dd>Friday 2 October –<br>Saturday 3 October 2026</dd>
+        </dl>
+        <dl class="practical-block">
+          <dt>Registration</dt>
+          <dd>Details to be announced.<br>Attendance is free.</dd>
+        </dl>
+        <dl class="practical-block">
+          <dt>Contact</dt>
+          <dd>Please write to the organisers<br>for further information.</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Geometry &amp; Beyond — Fedor Bogomolov at 80 &nbsp;·&nbsp; New York University &nbsp;·&nbsp; 2–3 October 2026</p>
+</footer>
+
 </body>
 </html>
