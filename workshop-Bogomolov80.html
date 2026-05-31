@@ -162,32 +162,33 @@
   /* ─── SPEAKERS ─── */
   .speakers-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 1px;
-    background: var(--parchment-dark);
-    border: 1px solid var(--parchment-dark);
-    border-radius: 2px;
-    overflow: hidden;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0;
   }
 
   .speaker-card {
-    background: var(--parchment);
-    padding: 1.4rem 1.5rem;
-    transition: background 0.15s;
     display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
+    align-items: baseline;
+    gap: 0;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--parchment-dark);
   }
 
-  .speaker-card:hover {
-    background: var(--parchment-mid);
+  .speaker-card:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+
+  /* Fallback: always remove border from last item */
+  .speaker-card:last-child {
+    border-bottom: none;
   }
 
   .speaker-name {
     font-weight: 500;
     font-size: 1.05rem;
     color: var(--ink);
-    line-height: 1.3;
+    line-height: 1.4;
+    min-width: 0;
   }
 
   .speaker-name a {
@@ -202,11 +203,21 @@
     border-color: var(--gold-light);
   }
 
+  .speaker-sep {
+    flex-shrink: 0;
+    color: var(--ink-faint);
+    margin: 0 0.6rem;
+    font-weight: 300;
+  }
+
   .speaker-inst {
     font-family: 'Spectral', Georgia, serif;
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     color: var(--ink-muted);
     font-style: italic;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   /* ─── ORGANISERS ─── */
@@ -360,58 +371,50 @@
       <div class="speakers-grid">
 
         <div class="speaker-card">
-          <span class="speaker-name">
-            <a href="http://www.math.u-psud.fr/~amerik/" target="_blank" rel="noopener">Ekaterina Amerik</a>
-          </span>
+          <span class="speaker-name"><a href="http://www.math.u-psud.fr/~amerik/" target="_blank" rel="noopener">Ekaterina Amerik</a></span>
+          <span class="speaker-sep">—</span>
           <span class="speaker-inst">Université Paris-Sud / HSE Moscow</span>
         </div>
 
         <div class="speaker-card">
-          <span class="speaker-name">
-            <a href="https://www.math.miami.edu/~bdeolive/" target="_blank" rel="noopener">Bruno de Oliveira</a>
-          </span>
+          <span class="speaker-name"><a href="https://www.math.miami.edu/~bdeolive/" target="_blank" rel="noopener">Bruno de Oliveira</a></span>
+          <span class="speaker-sep">—</span>
           <span class="speaker-inst">University of Miami</span>
         </div>
 
         <div class="speaker-card">
-          <span class="speaker-name">
-            <a href="https://www.ihes.fr/~gromov/" target="_blank" rel="noopener">Mikhail Gromov</a>
-          </span>
+          <span class="speaker-name"><a href="https://www.ihes.fr/~gromov/" target="_blank" rel="noopener">Mikhail Gromov</a></span>
+          <span class="speaker-sep">—</span>
           <span class="speaker-inst">IHÉS / New York University</span>
         </div>
 
         <div class="speaker-card">
-          <span class="speaker-name">
-            <a href="https://mathematics.brown.edu/people/brendan-hassett" target="_blank" rel="noopener">Brendan Hassett</a>
-          </span>
+          <span class="speaker-name"><a href="https://mathematics.brown.edu/people/brendan-hassett" target="_blank" rel="noopener">Brendan Hassett</a></span>
+          <span class="speaker-sep">—</span>
           <span class="speaker-inst">Brown University</span>
         </div>
 
         <div class="speaker-card">
-          <span class="speaker-name">
-            <a href="https://www.math.stonybrook.edu/~kamenova/" target="_blank" rel="noopener">Ljudmila Kamenova</a>
-          </span>
+          <span class="speaker-name"><a href="https://www.math.stonybrook.edu/~kamenova/" target="_blank" rel="noopener">Ljudmila Kamenova</a></span>
+          <span class="speaker-sep">—</span>
           <span class="speaker-inst">Stony Brook University</span>
         </div>
 
         <div class="speaker-card">
-          <span class="speaker-name">
-            <a href="https://people.miami.edu/profile/285d74bf51ccc978f527c1386e82d0d4" target="_blank" rel="noopener">Ludmil Katzarkov</a>
-          </span>
+          <span class="speaker-name"><a href="https://people.miami.edu/profile/285d74bf51ccc978f527c1386e82d0d4" target="_blank" rel="noopener">Ludmil Katzarkov</a></span>
+          <span class="speaker-sep">—</span>
           <span class="speaker-inst">University of Miami</span>
         </div>
 
         <div class="speaker-card">
-          <span class="speaker-name">
-            <a href="https://www.mat.uniroma2.it/~mcquilla/" target="_blank" rel="noopener">Michael McQuillan</a>
-          </span>
+          <span class="speaker-name"><a href="https://www.mat.uniroma2.it/~mcquilla/" target="_blank" rel="noopener">Michael McQuillan</a></span>
+          <span class="speaker-sep">—</span>
           <span class="speaker-inst">University of Rome Tor Vergata</span>
         </div>
 
         <div class="speaker-card">
-          <span class="speaker-name">
-            <a href="https://mathematics.jhu.edu/directory/vyacheslav-shokurov/" target="_blank" rel="noopener">Vyacheslav Shokurov</a>
-          </span>
+          <span class="speaker-name"><a href="https://mathematics.jhu.edu/directory/vyacheslav-shokurov/" target="_blank" rel="noopener">Vyacheslav Shokurov</a></span>
+          <span class="speaker-sep">—</span>
           <span class="speaker-inst">Johns Hopkins University</span>
         </div>
 
@@ -426,6 +429,7 @@
         <div class="organiser-item"><a href="https://www.ma.imperial.ac.uk/~pcascini/wiki/index.php" target="_blank" rel="noopener"><strong>Paolo Cascini</strong></a></div>
         <div class="organiser-item"><a href="https://webhomes.maths.ed.ac.uk/cheltsov/" target="_blank" rel="noopener"><strong>Ivan Cheltsov</strong></a></div>
         <div class="organiser-item"><a href="https://mathweb.ucsd.edu/~jmckerna/" target="_blank" rel="noopener"><strong>James McKernan</strong></a></div>
+        <div class="organiser-item"><a href="https://cims.nyu.edu/~vt2234/" target="_blank" rel="noopener"><strong>Valentino Tosatti</strong></a></div>
       </div>
     </div>
   </section>
