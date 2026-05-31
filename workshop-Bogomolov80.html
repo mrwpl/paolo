@@ -270,6 +270,26 @@
     font-size: 0.97rem;
   }
 
+  /* ─── PORTRAIT ─── */
+  .hero-portrait {
+    margin: 2.2rem auto 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--parchment-dark);
+    box-shadow: 0 4px 24px rgba(80,60,20,0.10);
+  }
+
+  .hero-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: sepia(8%);
+  }
+
   /* ─── FOOTER ─── */
   footer {
     text-align: center;
@@ -346,6 +366,9 @@
     <p class="hero-subtitle">A Conference in Honour of</p>
     <h1>Fedor Bogomolov<br><em>at Eighty</em></h1>
     <p class="hero-tagline">Celebrating a lifetime of fundamental contributions to algebraic geometry, birational geometry, and the geometry of manifolds</p>
+    <div class="hero-portrait">
+      <img src="https://webhomes.maths.ed.ac.uk/cheltsov/easter/foto/jpeg/96.jpg" alt="Fedor Bogomolov">
+    </div>
     <div class="hero-meta">
       <div class="meta-item">
         <span class="meta-label">Dates</span>
