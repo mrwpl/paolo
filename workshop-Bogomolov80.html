@@ -210,6 +210,49 @@
     font-style: italic;
   }
 
+
+  /* ─── SPEAKERS ─── */
+  .speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2.5rem;
+    row-gap: 0;
+  }
+
+  .speaker-card {
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--parchment-dark);
+  }
+
+  .speaker-list-name {
+    display: block;
+    font-weight: 500;
+    font-size: 1.06rem;
+    line-height: 1.35;
+  }
+
+  .speaker-list-name a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .speaker-list-name a:hover {
+    color: var(--gold);
+    border-color: var(--gold-light);
+  }
+
+  .speaker-affiliation {
+    display: block;
+    margin-top: 0.15rem;
+    font-family: 'Spectral', Georgia, serif;
+    font-size: 0.84rem;
+    line-height: 1.45;
+    color: var(--ink-muted);
+    font-style: italic;
+  }
+
   /* ─── SCHEDULE ─── */
   .schedule-days {
     display: grid;
@@ -279,7 +322,7 @@
     color: var(--gold);
   }
 
-  /* ─── SPEAKERS & TALKS ─── */
+  /* ─── TITLES & ABSTRACTS ─── */
   .talk-list {
     display: grid;
     gap: 2.25rem;
@@ -447,6 +490,8 @@
       height: 240px;
     }
 
+    .speakers-grid { grid-template-columns: 1fr; }
+
     .schedule-days { grid-template-columns: 1fr; }
 
     .schedule-row {
@@ -469,8 +514,9 @@
 <nav>
   <div class="nav-inner">
     <a href="#" class="nav-brand">Bogomolov at 80</a>
-    <a href="#schedule">Schedule</a>
     <a href="#speakers">Speakers</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#abstracts">Titles &amp; Abstracts</a>
     <a href="#organisers">Organisers</a>
     <a href="#practical">Practical</a>
   </div>
@@ -493,7 +539,7 @@
       </div>
       <div class="meta-item">
         <span class="meta-label">Location</span>
-        <span class="meta-value">New York University</span>
+        <span class="meta-value">Room 109, Courant Institute<br>New York University</span>
       </div>
       <div class="meta-item">
         <span class="meta-label">City</span>
@@ -505,10 +551,58 @@
 
 <main>
 
+  <section id="speakers">
+    <div class="container">
+      <p class="section-label">Speakers</p>
+      <div class="speakers-grid">
+
+        <div class="speaker-card">
+          <span class="speaker-list-name"><a href="http://www.math.u-psud.fr/~amerik/" target="_blank" rel="noopener">Ekaterina Amerik</a></span>
+          <span class="speaker-affiliation">Université Paris-Sud / HSE Moscow</span>
+        </div>
+
+        <div class="speaker-card">
+          <span class="speaker-list-name"><a href="https://www.math.miami.edu/~bdeolive/" target="_blank" rel="noopener">Bruno de Oliveira</a></span>
+          <span class="speaker-affiliation">University of Miami</span>
+        </div>
+
+        <div class="speaker-card">
+          <span class="speaker-list-name"><a href="https://www.ihes.fr/~gromov/" target="_blank" rel="noopener">Mikhail Gromov</a></span>
+          <span class="speaker-affiliation">IHÉS / New York University</span>
+        </div>
+
+        <div class="speaker-card">
+          <span class="speaker-list-name"><a href="https://mathematics.brown.edu/people/brendan-hassett" target="_blank" rel="noopener">Brendan Hassett</a></span>
+          <span class="speaker-affiliation">Brown University</span>
+        </div>
+
+        <div class="speaker-card">
+          <span class="speaker-list-name"><a href="https://www.math.stonybrook.edu/~kamenova/" target="_blank" rel="noopener">Ljudmila Kamenova</a></span>
+          <span class="speaker-affiliation">Stony Brook University</span>
+        </div>
+
+        <div class="speaker-card">
+          <span class="speaker-list-name"><a href="https://people.miami.edu/profile/285d74bf51ccc978f527c1386e82d0d4" target="_blank" rel="noopener">Ludmil Katzarkov</a></span>
+          <span class="speaker-affiliation">University of Miami</span>
+        </div>
+
+        <div class="speaker-card">
+          <span class="speaker-list-name"><a href="https://www.mat.uniroma2.it/~mcquilla/" target="_blank" rel="noopener">Michael McQuillan</a></span>
+          <span class="speaker-affiliation">University of Rome Tor Vergata</span>
+        </div>
+
+        <div class="speaker-card">
+          <span class="speaker-list-name"><a href="https://mathematics.jhu.edu/directory/vyacheslav-shokurov/" target="_blank" rel="noopener">Vyacheslav Shokurov</a></span>
+          <span class="speaker-affiliation">Steklov Mathematical Institute RAS / Moscow Institute of Physics and Technology</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <section id="schedule">
     <div class="container">
       <p class="section-label">Tentative Schedule</p>
-      <p class="section-intro">The programme below is tentative and may be adjusted before the conference.</p>
 
       <div class="schedule-days">
         <div class="schedule-day">
@@ -601,16 +695,15 @@
     </div>
   </section>
 
-  <section id="speakers">
+  <section id="abstracts">
     <div class="container">
-      <p class="section-label">Speakers &amp; Talks</p>
+      <p class="section-label">Titles and Abstracts</p>
 
       <div class="talk-list">
 
         <article class="talk-card">
           <div class="speaker-heading">
             <h2 class="speaker-name"><a href="http://www.math.u-psud.fr/~amerik/" target="_blank" rel="noopener">Ekaterina Amerik</a></h2>
-            <span class="speaker-inst">Université Paris-Sud / HSE Moscow</span>
           </div>
           <h3 class="talk-title">Birational automorphisms of hyperkähler manifolds in families</h3>
           <p class="talk-abstract"><strong>Abstract.</strong> This is joint work with Andrey Soldatenkov and Misha Verbitsky. In the beginning of the 1990s, Oguiso proved that in any nontrivial family of projective K3 surfaces <em>X<sub>t</sub></em> over a disc, there is a dense subset of parameters <em>t</em> such that Aut(<em>X<sub>t</sub></em>) is infinite. I shall explain how this generalizes to hyperkähler manifolds.</p>
@@ -619,7 +712,6 @@
         <article class="talk-card">
           <div class="speaker-heading">
             <h2 class="speaker-name"><a href="https://www.math.miami.edu/~bdeolive/" target="_blank" rel="noopener">Bruno de Oliveira</a></h2>
-            <span class="speaker-inst">University of Miami</span>
           </div>
           <h3 class="talk-title">Surfaces of general type with extremal cotangent dimension</h3>
           <p class="talk-abstract"><strong>Abstract.</strong> This talk discusses the geography of surfaces of general type with extremal cotangent dimension, in other words surfaces which have either no global holomorphic symmetric differentials at all or the maximal asymptotic growth of their number, i.e. big cotangent bundle. We are mainly interested in surfaces with low slope <em>K</em><sup>2</sup>/χ, which, as far as maximal cotangent dimension is concerned, were out of reach of previous methods. We prove vanishing theorems for symmetric logarithmic differentials on minimal rational surfaces and for differentials on their double covers and extend a bigness criterion of Sakai to fibrations of general type in the sense of Campana. As a consequence, we prove, on the one hand, that generic Horikawa surfaces have no nontrivial symmetric differentials and, on the other hand, that there exist Horikawa surfaces with big cotangent bundle. This talk is based on joint work with Damian Brotbek and Erwan Rousseau.</p>
@@ -628,7 +720,6 @@
         <article class="talk-card">
           <div class="speaker-heading">
             <h2 class="speaker-name"><a href="https://www.ihes.fr/~gromov/" target="_blank" rel="noopener">Mikhail Gromov</a></h2>
-            <span class="speaker-inst">IHÉS / New York University</span>
           </div>
           <h3 class="talk-title">Topological Uniformization Problem</h3>
           <p class="talk-abstract abstract-forthcoming">Abstract forthcoming.</p>
@@ -637,7 +728,6 @@
         <article class="talk-card">
           <div class="speaker-heading">
             <h2 class="speaker-name"><a href="https://mathematics.brown.edu/people/brendan-hassett" target="_blank" rel="noopener">Brendan Hassett</a></h2>
-            <span class="speaker-inst">Brown University</span>
           </div>
           <h3 class="talk-title">Moduli of conic bundles, with a view toward rationality statistics</h3>
           <p class="talk-abstract"><strong>Abstract.</strong> We consider moduli spaces for conic bundles over P<sup>1</sup>, obtained via explicit equations of their models. Connections to related moduli problems, including parabolic bundles, are discussed. We present an application to the proportion of such varieties rational over a given finite field, due to Hernandez. (Joint with Amanda Hernandez.)</p>
@@ -646,7 +736,6 @@
         <article class="talk-card">
           <div class="speaker-heading">
             <h2 class="speaker-name"><a href="https://www.math.stonybrook.edu/~kamenova/" target="_blank" rel="noopener">Ljudmila Kamenova</a></h2>
-            <span class="speaker-inst">Stony Brook University</span>
           </div>
           <h3 class="talk-title">Lagrangian fibrations in hyperkähler geometry: sections, multiple fibers and non-hyperbolicity</h3>
           <p class="talk-abstract"><strong>Abstract.</strong> In this talk we'll explore various results in hyperkähler geometry inspired by ideas and conversations with Fedya Bogomolov. We'll revisit results on non-hyperbolicity of hyperkähler manifolds, vanishing of the Kobayashi pseudometric (joint with F. Bogomolov, M. Verbitsky, S. Lu), and their generalizations in the singular case (for primitive symplectic varieties, joint with C. Lehn). We'll also explore the questions about existence and properties of multiple fibers of a Lagrangian fibration (joint results with M. Verbitsky and F. Campana), and the question on existence of a rational section of a hyperkähler Lagrangian fibration (joint with F. Bogomolov and M. Verbitsky).</p>
@@ -655,7 +744,6 @@
         <article class="talk-card">
           <div class="speaker-heading">
             <h2 class="speaker-name"><a href="https://people.miami.edu/profile/285d74bf51ccc978f527c1386e82d0d4" target="_blank" rel="noopener">Ludmil Katzarkov</a></h2>
-            <span class="speaker-inst">University of Miami</span>
           </div>
           <h3 class="talk-title">Atoms and MMP</h3>
           <p class="talk-abstract"><strong>Abstract.</strong> In this talk we will describe the connection of the theory of atoms with MMP and mixed Hodge theory. Applications will be considered.</p>
@@ -664,7 +752,6 @@
         <article class="talk-card">
           <div class="speaker-heading">
             <h2 class="speaker-name"><a href="https://www.mat.uniroma2.it/~mcquilla/" target="_blank" rel="noopener">Michael McQuillan</a></h2>
-            <span class="speaker-inst">University of Rome Tor Vergata</span>
           </div>
           <h3 class="talk-title">Why Fedor was right and Bourbaki were wrong</h3>
           <p class="talk-abstract"><strong>Abstract.</strong> In the Bourbaki on Fedor's work on symmetric tensors, when it came to applying it to bounding the moduli of curves on surfaces of general type, Fedor's appeal to resolution of foliation singularities was skipped in favour of an algebrisation criterion of Jouanolou for hypersurface foliations. This latter approach has, modulo fully functorial resolution of singularities, a simple and well-defined generalisation to bounding the moduli of hypersurfaces in dimension <em>n</em> whenever Ω<sup>n−1</sup> is big, but deeper problems such as bounding the moduli of curves on surfaces of general type require generalisations of Fedor's approach.</p>
@@ -673,7 +760,6 @@
         <article class="talk-card">
           <div class="speaker-heading">
             <h2 class="speaker-name"><a href="https://mathematics.jhu.edu/directory/vyacheslav-shokurov/" target="_blank" rel="noopener">Vyacheslav Shokurov</a></h2>
-            <span class="speaker-inst">Steklov Mathematical Institute RAS / Moscow Institute of Physics and Technology</span>
           </div>
           <h3 class="talk-title">Boundedness and birational boundedness in algebraic geometry</h3>
           <p class="talk-abstract"><strong>Abstract.</strong> Two examples will illustrate boundedness and its birational version. The first example will be about boundedness of exceptional varieties of fixed dimension (Birkar). The second example is about birational boundedness of three-dimensional tetragonal conic bundles with bounded discriminant.</p>
@@ -701,7 +787,7 @@
       <div class="practical-grid">
         <dl class="practical-block">
           <dt>Venue</dt>
-          <dd>New York University<br>New York, USA</dd>
+          <dd>Room 109<br>Courant Institute<br>New York University<br>New York, USA</dd>
         </dl>
         <dl class="practical-block">
           <dt>Dates</dt>
