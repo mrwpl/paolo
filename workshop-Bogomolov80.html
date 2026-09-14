@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Geometry & Beyond — A Conference in Honour of Fedor Bogomolov</title>
+<title>Geometry &amp; Beyond — A Conference in Honour of Fedor Bogomolov</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -32,6 +32,46 @@
     font-size: 18px;
     line-height: 1.75;
     min-height: 100vh;
+  }
+
+  /* ─── NAVIGATION ─── */
+  nav {
+    position: sticky;
+    top: 0;
+    background: rgba(250, 247, 242, 0.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+    z-index: 100;
+    padding: 0 2rem;
+  }
+
+  .nav-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    display: flex;
+    gap: 1.65rem;
+    min-height: 48px;
+    align-items: center;
+    font-family: 'Spectral', Georgia, serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    flex-wrap: wrap;
+  }
+
+  .nav-inner a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .nav-inner a:hover { color: var(--gold); }
+
+  .nav-brand {
+    font-weight: 500;
+    color: var(--ink) !important;
+    margin-right: auto;
+    letter-spacing: 0.05em;
   }
 
   /* ─── HERO ─── */
@@ -81,7 +121,7 @@
     font-size: 1.05rem;
     color: var(--ink-muted);
     margin: 1.4rem auto 0;
-    max-width: 560px;
+    max-width: 620px;
   }
 
   .hero-meta {
@@ -92,9 +132,7 @@
     flex-wrap: wrap;
   }
 
-  .meta-item {
-    text-align: center;
-  }
+  .meta-item { text-align: center; }
 
   .meta-label {
     display: block;
@@ -113,21 +151,38 @@
     color: var(--ink);
   }
 
-  /* ─── LAYOUT ─── */
+  .hero-portrait {
+    margin: 2.2rem auto 0;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--parchment-dark);
+    box-shadow: 0 4px 24px rgba(80,60,20,0.10);
+  }
+
+  .hero-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: sepia(8%);
+  }
+
+  /* ─── GENERAL LAYOUT ─── */
   .container {
-    max-width: 820px;
+    max-width: 920px;
     margin: 0 auto;
     padding: 0 2rem;
   }
 
   section {
-    padding: 3.5rem 0;
+    padding: 3.8rem 0;
     border-bottom: 1px solid var(--rule);
   }
 
-  section:last-of-type {
-    border-bottom: none;
-  }
+  section:last-of-type { border-bottom: none; }
 
   .section-label {
     font-family: 'Spectral', Georgia, serif;
@@ -135,7 +190,7 @@
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.6rem;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -148,50 +203,110 @@
     background: var(--parchment-dark);
   }
 
-  /* ─── ABOUT ─── */
-  .about-text {
-    font-size: 1.05rem;
-    color: var(--ink-soft);
-    max-width: 680px;
+  .section-intro {
+    max-width: 740px;
+    color: var(--ink-muted);
+    margin: -0.5rem 0 2rem;
+    font-style: italic;
   }
 
-  .about-text p + p {
-    margin-top: 1rem;
+  /* ─── SCHEDULE ─── */
+  .schedule-days {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
   }
 
-  /* ─── SPEAKERS & TALKS ─── */
-  .speakers-list {
-    display: flex;
-    flex-direction: column;
+  .schedule-day {
+    border-top: 2px solid var(--gold);
+    padding-top: 1rem;
   }
 
-  .talk-card {
-    padding: 1.65rem 0 1.8rem;
+  .schedule-day h3 {
+    font-weight: 500;
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+  }
+
+  .schedule-row {
+    display: grid;
+    grid-template-columns: 118px 1fr;
+    gap: 1rem;
+    padding: 0.9rem 0;
     border-bottom: 1px solid var(--parchment-dark);
   }
 
-  .talk-card:first-child {
-    padding-top: 0.25rem;
+  .schedule-row:last-child { border-bottom: none; }
+
+  .schedule-time {
+    font-family: 'Spectral', Georgia, serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+    padding-top: 0.13rem;
+    white-space: nowrap;
+  }
+
+  .schedule-speaker {
+    display: block;
+    font-weight: 600;
+    font-size: 1.02rem;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+
+  .schedule-talk {
+    display: block;
+    color: var(--ink-soft);
+    font-style: italic;
+    line-height: 1.45;
+    margin-top: 0.16rem;
+  }
+
+  .schedule-break {
+    background: var(--parchment-mid);
+    margin: 0.25rem -0.65rem;
+    padding-left: 0.65rem;
+    padding-right: 0.65rem;
+    border-bottom: none;
+  }
+
+  .schedule-break .schedule-speaker {
+    font-family: 'Spectral', Georgia, serif;
+    font-size: 0.88rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ─── SPEAKERS & TALKS ─── */
+  .talk-list {
+    display: grid;
+    gap: 2.25rem;
+  }
+
+  .talk-card {
+    padding-bottom: 2.25rem;
+    border-bottom: 1px solid var(--parchment-dark);
   }
 
   .talk-card:last-child {
-    border-bottom: none;
     padding-bottom: 0;
+    border-bottom: none;
   }
 
-  .speaker-header {
+  .speaker-heading {
     display: flex;
     align-items: baseline;
     flex-wrap: wrap;
-    gap: 0.2rem 0;
-    margin-bottom: 0.55rem;
+    gap: 0.35rem 0.6rem;
+    margin-bottom: 0.35rem;
   }
 
   .speaker-name {
+    font-size: 1.35rem;
     font-weight: 500;
-    font-size: 1.1rem;
-    color: var(--ink);
-    line-height: 1.4;
+    line-height: 1.35;
   }
 
   .speaker-name a {
@@ -206,62 +321,33 @@
     border-color: var(--gold-light);
   }
 
-  .speaker-sep {
-    flex-shrink: 0;
-    color: var(--ink-faint);
-    margin: 0 0.6rem;
-    font-weight: 300;
-  }
-
   .speaker-inst {
     font-family: 'Spectral', Georgia, serif;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--ink-muted);
     font-style: italic;
   }
 
   .talk-title {
-    font-size: 1.3rem;
-    line-height: 1.35;
-    font-weight: 500;
-    color: var(--ink);
-    margin: 0.25rem 0 0.7rem;
-  }
-
-  .abstract-label {
-    font-family: 'Spectral', Georgia, serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-right: 0.45rem;
+    font-size: 1.12rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin: 0.55rem 0 0.55rem;
   }
 
   .talk-abstract {
     color: var(--ink-soft);
-    font-size: 1rem;
-    line-height: 1.7;
-    max-width: 740px;
+    max-width: 830px;
   }
 
-  .talk-abstract-missing {
+  .talk-abstract strong {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .abstract-forthcoming {
     color: var(--ink-muted);
     font-style: italic;
-  }
-
-  @media (max-width: 600px) {
-    .speaker-header {
-      display: block;
-    }
-
-    .speaker-sep {
-      display: none;
-    }
-
-    .speaker-inst {
-      display: block;
-      margin-top: 0.2rem;
-    }
   }
 
   /* ─── ORGANISERS ─── */
@@ -314,24 +400,15 @@
     font-size: 0.97rem;
   }
 
-  /* ─── PORTRAIT ─── */
-  .hero-portrait {
-    margin: 2.2rem auto 0;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid var(--parchment-dark);
-    box-shadow: 0 4px 24px rgba(80,60,20,0.10);
+  .practical-block a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
   }
 
-  .hero-portrait img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-    filter: sepia(8%);
+  .practical-block a:hover {
+    color: var(--gold);
+    border-color: var(--gold-light);
   }
 
   /* ─── FOOTER ─── */
@@ -352,45 +429,38 @@
     font-size: 1rem;
   }
 
-  /* ─── NAV ─── */
-  nav {
-    position: sticky;
-    top: 0;
-    background: rgba(250, 247, 242, 0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--rule);
-    z-index: 100;
-    padding: 0 2rem;
+  @media (max-width: 760px) {
+    .nav-inner {
+      gap: 0.85rem 1rem;
+      padding: 0.45rem 0;
+    }
+
+    .nav-brand {
+      width: 100%;
+      margin-right: 0;
+    }
+
+    .hero { padding-top: 4rem; }
+
+    .hero-portrait {
+      width: 240px;
+      height: 240px;
+    }
+
+    .schedule-days { grid-template-columns: 1fr; }
+
+    .schedule-row {
+      grid-template-columns: 108px 1fr;
+      gap: 0.75rem;
+    }
   }
 
-  .nav-inner {
-    max-width: 820px;
-    margin: 0 auto;
-    display: flex;
-    gap: 2rem;
-    height: 48px;
-    align-items: center;
-    font-family: 'Spectral', Georgia, serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  .nav-inner a {
-    color: var(--ink-muted);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-
-  .nav-inner a:hover {
-    color: var(--gold);
-  }
-
-  .nav-brand {
-    font-weight: 500;
-    color: var(--ink) !important;
-    margin-right: auto;
-    letter-spacing: 0.05em;
+  @media (max-width: 500px) {
+    body { font-size: 17px; }
+    .container { padding: 0 1.25rem; }
+    nav { padding: 0 1.25rem; }
+    .schedule-row { grid-template-columns: 1fr; gap: 0.15rem; }
+    .schedule-time { white-space: normal; }
   }
 </style>
 </head>
@@ -399,7 +469,8 @@
 <nav>
   <div class="nav-inner">
     <a href="#" class="nav-brand">Bogomolov at 80</a>
-    <a href="#speakers">Speakers &amp; Talks</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#speakers">Speakers</a>
     <a href="#organisers">Organisers</a>
     <a href="#practical">Practical</a>
   </div>
@@ -410,9 +481,11 @@
     <p class="hero-subtitle">A Conference in Honour of</p>
     <h1>Fedor Bogomolov<br><em>at Eighty</em></h1>
     <p class="hero-tagline">Celebrating a lifetime of fundamental contributions to algebraic geometry, birational geometry, and the geometry of manifolds</p>
+
     <div class="hero-portrait">
       <img src="https://webhomes.maths.ed.ac.uk/cheltsov/easter/foto/jpeg/96.jpg" alt="Fedor Bogomolov">
     </div>
+
     <div class="hero-meta">
       <div class="meta-item">
         <span class="meta-label">Dates</span>
@@ -432,89 +505,178 @@
 
 <main>
 
+  <section id="schedule">
+    <div class="container">
+      <p class="section-label">Tentative Schedule</p>
+      <p class="section-intro">The programme below is tentative and may be adjusted before the conference.</p>
+
+      <div class="schedule-days">
+        <div class="schedule-day">
+          <h3>Saturday, 3 October 2026</h3>
+
+          <div class="schedule-row">
+            <div class="schedule-time">10:00–11:00 am</div>
+            <div>
+              <span class="schedule-speaker">Ludmil Katzarkov</span>
+              <span class="schedule-talk">Atoms and MMP</span>
+            </div>
+          </div>
+
+          <div class="schedule-row schedule-break">
+            <div class="schedule-time">11:00–11:30 am</div>
+            <div><span class="schedule-speaker">Coffee break</span></div>
+          </div>
+
+          <div class="schedule-row">
+            <div class="schedule-time">11:30 am–12:30 pm</div>
+            <div>
+              <span class="schedule-speaker">Ekaterina Amerik</span>
+              <span class="schedule-talk">Birational automorphisms of hyperkähler manifolds in families</span>
+            </div>
+          </div>
+
+          <div class="schedule-row">
+            <div class="schedule-time">12:30–1:30 pm</div>
+            <div>
+              <span class="schedule-speaker">Bruno de Oliveira</span>
+              <span class="schedule-talk">Surfaces of general type with extremal cotangent dimension</span>
+            </div>
+          </div>
+
+          <div class="schedule-row">
+            <div class="schedule-time">3:00–4:00 pm</div>
+            <div>
+              <span class="schedule-speaker">Michael McQuillan</span>
+              <span class="schedule-talk">Why Fedor was right and Bourbaki were wrong</span>
+            </div>
+          </div>
+
+          <div class="schedule-row schedule-break">
+            <div class="schedule-time">4:00–4:30 pm</div>
+            <div><span class="schedule-speaker">Coffee break</span></div>
+          </div>
+
+          <div class="schedule-row">
+            <div class="schedule-time">4:30–5:30 pm</div>
+            <div>
+              <span class="schedule-speaker">Vyacheslav Shokurov</span>
+              <span class="schedule-talk">Boundedness and birational boundedness in algebraic geometry</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="schedule-day">
+          <h3>Sunday, 4 October 2026</h3>
+
+          <div class="schedule-row">
+            <div class="schedule-time">10:00–11:00 am</div>
+            <div>
+              <span class="schedule-speaker">Brendan Hassett</span>
+              <span class="schedule-talk">Moduli of conic bundles, with a view toward rationality statistics</span>
+            </div>
+          </div>
+
+          <div class="schedule-row schedule-break">
+            <div class="schedule-time">11:00–11:30 am</div>
+            <div><span class="schedule-speaker">Coffee break</span></div>
+          </div>
+
+          <div class="schedule-row">
+            <div class="schedule-time">11:30 am–12:30 pm</div>
+            <div>
+              <span class="schedule-speaker">Ljudmila Kamenova</span>
+              <span class="schedule-talk">Lagrangian fibrations in hyperkähler geometry: sections, multiple fibers and non-hyperbolicity</span>
+            </div>
+          </div>
+
+          <div class="schedule-row">
+            <div class="schedule-time">12:30–1:00 pm</div>
+            <div>
+              <span class="schedule-speaker">Mikhail Gromov</span>
+              <span class="schedule-talk">Topological Uniformization Problem</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="speakers">
     <div class="container">
       <p class="section-label">Speakers &amp; Talks</p>
-      <div class="speakers-list">
+
+      <div class="talk-list">
 
         <article class="talk-card">
-          <div class="speaker-header">
-            <span class="speaker-name"><a href="http://www.math.u-psud.fr/~amerik/" target="_blank" rel="noopener">Ekaterina Amerik</a></span>
-            <span class="speaker-sep">—</span>
+          <div class="speaker-heading">
+            <h2 class="speaker-name"><a href="http://www.math.u-psud.fr/~amerik/" target="_blank" rel="noopener">Ekaterina Amerik</a></h2>
             <span class="speaker-inst">Université Paris-Sud / HSE Moscow</span>
           </div>
           <h3 class="talk-title">Birational automorphisms of hyperkähler manifolds in families</h3>
-          <p class="talk-abstract"><span class="abstract-label">Abstract</span>This is a joint work with Andrey Soldatenkov and Misha Verbitsky. In the beginning of the 90's Oguiso proved that in any nontrivial family of projective K3 surfaces X<sub>t</sub> over a disc, there is a dense subset of t's such that Aut(X<sub>t</sub>) is infinite. I shall explain how this generalizes to hyperkähler manifolds.</p>
+          <p class="talk-abstract"><strong>Abstract.</strong> This is joint work with Andrey Soldatenkov and Misha Verbitsky. In the beginning of the 1990s, Oguiso proved that in any nontrivial family of projective K3 surfaces <em>X<sub>t</sub></em> over a disc, there is a dense subset of parameters <em>t</em> such that Aut(<em>X<sub>t</sub></em>) is infinite. I shall explain how this generalizes to hyperkähler manifolds.</p>
         </article>
 
         <article class="talk-card">
-          <div class="speaker-header">
-            <span class="speaker-name"><a href="https://www.math.miami.edu/~bdeolive/" target="_blank" rel="noopener">Bruno de Oliveira</a></span>
-            <span class="speaker-sep">—</span>
+          <div class="speaker-heading">
+            <h2 class="speaker-name"><a href="https://www.math.miami.edu/~bdeolive/" target="_blank" rel="noopener">Bruno de Oliveira</a></h2>
             <span class="speaker-inst">University of Miami</span>
           </div>
           <h3 class="talk-title">Surfaces of general type with extremal cotangent dimension</h3>
-          <p class="talk-abstract"><span class="abstract-label">Abstract</span>This talk discusses the geography of surfaces of general type with extremal cotangent dimension, in other words surfaces which have either no global holomorphic symmetric differentials at all or the maximal asymptotic growth of their number, i.e. big cotangent bundle. We are mainly interested in surfaces with low slope K<sup>2</sup>/χ, which, as far as maximal cotangent dimension is concerned, were out of reach of previous methods. We prove vanishing theorems for symmetric logarithmic differentials on minimal rational surfaces and for differentials on their double covers and extend a bigness criterion of Sakai to fibrations of general type in the sense of Campana. As a consequence, we prove, on the one hand that generic Horikawa surfaces have no nontrivial symmetric differentials and on the other hand that there exist Horikawa surfaces with big cotangent bundle. This talk is based on joint work with Damian Brotbek and Erwan Rousseau.</p>
+          <p class="talk-abstract"><strong>Abstract.</strong> This talk discusses the geography of surfaces of general type with extremal cotangent dimension, in other words surfaces which have either no global holomorphic symmetric differentials at all or the maximal asymptotic growth of their number, i.e. big cotangent bundle. We are mainly interested in surfaces with low slope <em>K</em><sup>2</sup>/χ, which, as far as maximal cotangent dimension is concerned, were out of reach of previous methods. We prove vanishing theorems for symmetric logarithmic differentials on minimal rational surfaces and for differentials on their double covers and extend a bigness criterion of Sakai to fibrations of general type in the sense of Campana. As a consequence, we prove, on the one hand, that generic Horikawa surfaces have no nontrivial symmetric differentials and, on the other hand, that there exist Horikawa surfaces with big cotangent bundle. This talk is based on joint work with Damian Brotbek and Erwan Rousseau.</p>
         </article>
 
         <article class="talk-card">
-          <div class="speaker-header">
-            <span class="speaker-name"><a href="https://www.ihes.fr/~gromov/" target="_blank" rel="noopener">Mikhail Gromov</a></span>
-            <span class="speaker-sep">—</span>
+          <div class="speaker-heading">
+            <h2 class="speaker-name"><a href="https://www.ihes.fr/~gromov/" target="_blank" rel="noopener">Mikhail Gromov</a></h2>
             <span class="speaker-inst">IHÉS / New York University</span>
           </div>
-          <h3 class="talk-title">Topological Uniformization problem</h3>
-          <p class="talk-abstract talk-abstract-missing"><span class="abstract-label">Abstract</span>Forthcoming.</p>
+          <h3 class="talk-title">Topological Uniformization Problem</h3>
+          <p class="talk-abstract abstract-forthcoming">Abstract forthcoming.</p>
         </article>
 
         <article class="talk-card">
-          <div class="speaker-header">
-            <span class="speaker-name"><a href="https://mathematics.brown.edu/people/brendan-hassett" target="_blank" rel="noopener">Brendan Hassett</a></span>
-            <span class="speaker-sep">—</span>
+          <div class="speaker-heading">
+            <h2 class="speaker-name"><a href="https://mathematics.brown.edu/people/brendan-hassett" target="_blank" rel="noopener">Brendan Hassett</a></h2>
             <span class="speaker-inst">Brown University</span>
           </div>
           <h3 class="talk-title">Moduli of conic bundles, with a view toward rationality statistics</h3>
-          <p class="talk-abstract"><span class="abstract-label">Abstract</span>We consider moduli spaces for conic bundles over P<sup>1</sup>, obtained via explicit equations of their models. Connections to related moduli problems, including parabolic bundles, are discussed. We present an application to the proportion of such varieties rational over a given finite field, due to Hernandez. (Joint with Amanda Hernandez.)</p>
+          <p class="talk-abstract"><strong>Abstract.</strong> We consider moduli spaces for conic bundles over P<sup>1</sup>, obtained via explicit equations of their models. Connections to related moduli problems, including parabolic bundles, are discussed. We present an application to the proportion of such varieties rational over a given finite field, due to Hernandez. (Joint with Amanda Hernandez.)</p>
         </article>
 
         <article class="talk-card">
-          <div class="speaker-header">
-            <span class="speaker-name"><a href="https://www.math.stonybrook.edu/~kamenova/" target="_blank" rel="noopener">Ljudmila Kamenova</a></span>
-            <span class="speaker-sep">—</span>
+          <div class="speaker-heading">
+            <h2 class="speaker-name"><a href="https://www.math.stonybrook.edu/~kamenova/" target="_blank" rel="noopener">Ljudmila Kamenova</a></h2>
             <span class="speaker-inst">Stony Brook University</span>
           </div>
           <h3 class="talk-title">Lagrangian fibrations in hyperkähler geometry: sections, multiple fibers and non-hyperbolicity</h3>
-          <p class="talk-abstract"><span class="abstract-label">Abstract</span>In this talk we'll explore various results in hyperkähler geometry inspired by ideas and conversations with Fedya Bogomolov. We'll revisit results on non-hyperbolicity of hyperkähler manifolds, vanishing of the Kobayashi pseudometric (joint with F. Bogomolov, M. Verbitsky, S. Lu), and their generalizations in the singular case (for primitive symplectic varieties, joint with C. Lehn). We'll also explore the questions about existence and properties of multiple fibers of a Lagrangian fibration (joint results with M. Verbitsky and F. Campana), and the question on existence of a rational section of a hyperkähler Lagrangian fibration (joint with F. Bogomolov and M. Verbitsky).</p>
+          <p class="talk-abstract"><strong>Abstract.</strong> In this talk we'll explore various results in hyperkähler geometry inspired by ideas and conversations with Fedya Bogomolov. We'll revisit results on non-hyperbolicity of hyperkähler manifolds, vanishing of the Kobayashi pseudometric (joint with F. Bogomolov, M. Verbitsky, S. Lu), and their generalizations in the singular case (for primitive symplectic varieties, joint with C. Lehn). We'll also explore the questions about existence and properties of multiple fibers of a Lagrangian fibration (joint results with M. Verbitsky and F. Campana), and the question on existence of a rational section of a hyperkähler Lagrangian fibration (joint with F. Bogomolov and M. Verbitsky).</p>
         </article>
 
         <article class="talk-card">
-          <div class="speaker-header">
-            <span class="speaker-name"><a href="https://people.miami.edu/profile/285d74bf51ccc978f527c1386e82d0d4" target="_blank" rel="noopener">Ludmil Katzarkov</a></span>
-            <span class="speaker-sep">—</span>
+          <div class="speaker-heading">
+            <h2 class="speaker-name"><a href="https://people.miami.edu/profile/285d74bf51ccc978f527c1386e82d0d4" target="_blank" rel="noopener">Ludmil Katzarkov</a></h2>
             <span class="speaker-inst">University of Miami</span>
           </div>
           <h3 class="talk-title">Atoms and MMP</h3>
-          <p class="talk-abstract"><span class="abstract-label">Abstract</span>In this talk we will describe the connection of the theory of atoms with MMP and mixed Hodge theory. Applications will be considered.</p>
+          <p class="talk-abstract"><strong>Abstract.</strong> In this talk we will describe the connection of the theory of atoms with MMP and mixed Hodge theory. Applications will be considered.</p>
         </article>
 
         <article class="talk-card">
-          <div class="speaker-header">
-            <span class="speaker-name"><a href="https://www.mat.uniroma2.it/~mcquilla/" target="_blank" rel="noopener">Michael McQuillan</a></span>
-            <span class="speaker-sep">—</span>
+          <div class="speaker-heading">
+            <h2 class="speaker-name"><a href="https://www.mat.uniroma2.it/~mcquilla/" target="_blank" rel="noopener">Michael McQuillan</a></h2>
             <span class="speaker-inst">University of Rome Tor Vergata</span>
           </div>
           <h3 class="talk-title">Why Fedor was right and Bourbaki were wrong</h3>
-          <p class="talk-abstract"><span class="abstract-label">Abstract</span>In the Bourbaki on Fedor's work on symmetric tensors, when it came to applying it to bounding the moduli of curves on surfaces of general type, Fedor's appeal to resolution of foliation singularities was skipped in favour of an algebrisation criteria of Jouanlou for hypersurface foliations. This latter approach has, modulo fully functorial resolution of singularities, a simple and well defined generalisation to bounding the moduli of hypersurfaces in dimension n whenever Ω<sup>n−1</sup> is big, but deeper problems such as bounding the moduli of curves on surfaces of general type, require generalisations of Fedor's approach.</p>
+          <p class="talk-abstract"><strong>Abstract.</strong> In the Bourbaki on Fedor's work on symmetric tensors, when it came to applying it to bounding the moduli of curves on surfaces of general type, Fedor's appeal to resolution of foliation singularities was skipped in favour of an algebrisation criterion of Jouanolou for hypersurface foliations. This latter approach has, modulo fully functorial resolution of singularities, a simple and well-defined generalisation to bounding the moduli of hypersurfaces in dimension <em>n</em> whenever Ω<sup>n−1</sup> is big, but deeper problems such as bounding the moduli of curves on surfaces of general type require generalisations of Fedor's approach.</p>
         </article>
 
         <article class="talk-card">
-          <div class="speaker-header">
-            <span class="speaker-name"><a href="https://mathematics.jhu.edu/directory/vyacheslav-shokurov/" target="_blank" rel="noopener">Vyacheslav Shokurov</a></span>
-            <span class="speaker-sep">—</span>
-            <span class="speaker-inst">Steklov Mathematical Institute RAS/Moscow Institute of Physics and Technology</span>
+          <div class="speaker-heading">
+            <h2 class="speaker-name"><a href="https://mathematics.jhu.edu/directory/vyacheslav-shokurov/" target="_blank" rel="noopener">Vyacheslav Shokurov</a></h2>
+            <span class="speaker-inst">Steklov Mathematical Institute RAS / Moscow Institute of Physics and Technology</span>
           </div>
-          <h3 class="talk-title">Boundedness and birational boundedness in algebraic geometry?</h3>
-          <p class="talk-abstract"><span class="abstract-label">Abstract</span>Two examples will illustrate boundedness and its birational version. The first example will be about boundedness of exceptional varieties of fixed dimension (Birkar). The second example is about birational boundedness of three-dimensional tetragonal conic bundles with bounded discriminant.</p>
+          <h3 class="talk-title">Boundedness and birational boundedness in algebraic geometry</h3>
+          <p class="talk-abstract"><strong>Abstract.</strong> Two examples will illustrate boundedness and its birational version. The first example will be about boundedness of exceptional varieties of fixed dimension (Birkar). The second example is about birational boundedness of three-dimensional tetragonal conic bundles with bounded discriminant.</p>
         </article>
 
       </div>
@@ -535,7 +697,7 @@
 
   <section id="practical">
     <div class="container">
-      <p class="section-label">Practical information</p>
+      <p class="section-label">Practical Information</p>
       <div class="practical-grid">
         <dl class="practical-block">
           <dt>Venue</dt>
@@ -547,7 +709,7 @@
         </dl>
         <dl class="practical-block">
           <dt>Registration</dt>
-          <dd>If you plan to attend this workshop, please register <a href="https://docs.google.com/forms/d/e/1FAIpQLSd49-nUSOvffJhqXIFBEnVSwv_aeDVOJxgDH_t2Xp1EJ_SUJQ/viewform">here</a>.</dd>
+          <dd>If you plan to attend this workshop, please register <a href="https://docs.google.com/forms/d/e/1FAIpQLSd49-nUSOvffJhqXIFBEnVSwv_aeDVOJxgDH_t2Xp1EJ_SUJQ/viewform" target="_blank" rel="noopener">here</a>.</dd>
         </dl>
         <dl class="practical-block">
           <dt>Contact</dt>
