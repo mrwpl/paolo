@@ -7,41 +7,71 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <link href="style.css" rel="stylesheet"/>
 <style>
-    /* These refinements apply only to this working copy. */
-    .publications-heading {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.5rem;
-    }
-    .publications-heading h2 { margin: 0; }
-    .publications-heading > a { font-size: 0.95rem; }
-    .publications h3 {
-      margin: 2rem 0 0.75rem;
-      font-size: 1.1rem;
-    }
-    .publications .pub-list { padding-left: 2rem; }
-    .publications .pub-list li {
-      margin: 0;
-      padding: 1rem 0 1rem 0.35rem;
-      font-size: 0.95rem;
-      line-height: 1.6;
-      border-bottom: 1px solid #e5e7eb;
-    }
+    :root { --paper: #faf8f3; --ink: #252a27; --muted: #686b64; --accent: #8b6137; --rule: #deded3; }
+    html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+    body { background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    a { color: inherit; }
+    a:hover { color: var(--accent); }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+    .container { max-width: 1160px; padding-left: 2rem; padding-right: 2rem; }
+    .site-header { background: var(--paper); border-bottom: 1px solid var(--rule); }
+    .header-inner { padding: 1.3rem 2rem; gap: 1.5rem; }
+    .site-title { font-family: Georgia, "Times New Roman", serif; font-size: 1.5rem; font-weight: 400; letter-spacing: -.04em; }
+    .site-title a { color: var(--ink); }
+    .site-nav { display: flex; gap: 1.65rem; }
+    .site-nav a { font-size: .8rem; margin: 0; padding: .2rem 0; color: var(--muted); }
+    .site-nav a.active { color: var(--ink); border-color: var(--accent); }
+    main.container { padding-top: 4rem; padding-bottom: 5rem; }
+    .publications { max-width: none; }
+    .publication-intro { border-bottom: 1px solid var(--ink); padding-bottom: 2.6rem; margin-bottom: 3rem; }
+    .eyebrow { margin: 0 0 1.1rem; text-transform: uppercase; letter-spacing: .18em; font-size: .67rem; color: var(--accent); font-weight: 600; }
+    .publications-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem; flex-wrap: wrap; }
+    .publications-heading h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: clamp(3rem, 7vw, 5.4rem); line-height: 1.12; letter-spacing: -.055em; color: var(--ink); }
+    .scholar-link { font-size: .8rem; border-bottom: 1px solid var(--accent); padding-bottom: .3rem; color: var(--accent); white-space: nowrap; }
+    .scholar-link:hover { text-decoration: none; border-bottom-color: var(--ink); }
+    .publication-intro .intro-note { margin: 1.3rem 0 0; font-family: Georgia, "Times New Roman", serif; color: var(--muted); font-size: 1.15rem; }
+    .publication-layout { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 4rem; align-items: start; }
+    .publication-index { position: sticky; top: 7rem; padding-top: .5rem; }
+    .index-label { margin: 0 0 1.2rem; font-size: .64rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+    .publication-index nav { display: grid; gap: 1rem; }
+    .publication-index a { display: flex; gap: .7rem; font-size: .8rem; line-height: 1.6; color: var(--muted); }
+    .publication-index a:hover { color: var(--accent); text-decoration: none; }
+    .publication-index .index-number { font-size: .65rem; color: var(--accent); padding-top: .1rem; font-variant-numeric: tabular-nums; }
+    .publications h3 { display: flex; align-items: baseline; flex-wrap: wrap; gap: .8rem; font-family: Georgia, "Times New Roman", serif; font-size: 1.9rem; font-weight: 400; letter-spacing: -.035em; margin: 3.8rem 0 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--rule); color: var(--ink); }
+    .publication-sections > h3:first-child { margin-top: 0; }
+    .section-count { color: var(--muted); font: 400 .7rem -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: 0; }
+    .publications ol.pub-list { list-style: none; padding: 0; margin: 0; counter-reset: publication var(--count); }
+    .publications .pub-list li { position: relative; counter-increment: publication -1; margin: 0; padding: 1.25rem 0 1.3rem 3rem; border-bottom: 1px solid var(--rule); font-size: .86rem; line-height: 1.65; }
     .publications .pub-list li:last-child { border-bottom: 0; }
-    .pub-list li::marker { color: #6b7280; font-variant-numeric: tabular-nums; }
-    .pub-title, .pub-title a { font-weight: 600; }
-    .pub-authors { margin-top: 0.2rem; color: #4b5563; }
-    .pub-details { margin-top: 0.2rem; color: #4b5563; }
+    .pub-list li::before { content: counter(publication, decimal-leading-zero); position: absolute; top: 1.5rem; left: 0; font-size: .75rem; font-variant-numeric: tabular-nums; color: var(--accent); }
+    .pub-title, .pub-title a { font-family: Georgia, "Times New Roman", serif; font-size: 1.25rem; font-weight: 400; line-height: 1.4; color: var(--ink); }
+    .pub-title a:hover { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: .2em; }
+    .pub-authors { color: var(--muted); margin-top: .4rem; font-size: .8rem; }
+    .pub-details { color: var(--muted); margin-top: .3rem; font-size: .8rem; }
+    .pub-details a { color: var(--accent); font-weight: 400; text-decoration: underline; text-decoration-color: #c9b69e; text-underline-offset: .2em; }
     .pub-title, .pub-authors, .pub-details { overflow-wrap: anywhere; }
-    a:focus-visible { outline: 2px solid #1d4ed8; outline-offset: 3px; }
-    @media (max-width: 640px) {
-      .header-inner { padding: 0.75rem 1rem; }
-      .publications .pub-list { padding-left: 1.65rem; }
-      .publications .pub-list li { padding-left: 0.15rem; }
+    .site-footer { border-color: var(--rule); background: transparent; color: var(--muted); padding: 1.2rem 0; margin: 0; font-size: .75rem; }
+    @media (max-width: 800px) {
+      .publication-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .publication-index { position: static; padding: 0 0 1.5rem; border-bottom: 1px solid var(--rule); }
+      .publication-index nav { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; }
+      .index-label { margin-bottom: .75rem; }
+      main.container { padding-top: 2.5rem; }
+      .publication-intro { margin-bottom: 1.5rem; }
     }
+    @media (max-width: 640px) {
+      .container { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .header-inner { padding: 1rem 1.25rem; gap: .5rem; }
+      .site-nav { gap: 1.5rem; margin-top: .25rem; }
+      .site-nav a { margin: 0; }
+      .publication-intro { padding-bottom: 2rem; }
+      .publications-heading { align-items: flex-start; gap: 1.2rem; }
+      .publications-heading h2 { width: 100%; }
+      .publications .pub-list li { padding-left: 2.2rem; }
+      .publications h3 { font-size: 1.65rem; }
+      .pub-title, .pub-title a { font-size: 1.15rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
 </head>
 <body>
@@ -57,12 +87,26 @@
 </header>
 <main class="container">
 <section class="publications">
+<header class="publication-intro">
+<p class="eyebrow">Paolo Cascini · Publications</p>
 <div class="publications-heading">
 <h2>Publications</h2>
-<a href="https://scholar.google.co.uk/citations?hl=en&amp;user=_1BRY7oAAAAJ&amp;view_op=list_works" rel="noopener noreferrer" target="_blank">Google Scholar</a>
+<a class="scholar-link" href="https://scholar.google.co.uk/citations?hl=en&amp;user=_1BRY7oAAAAJ&amp;view_op=list_works" rel="noopener noreferrer" target="_blank">Google Scholar <span aria-hidden="true">↗</span></a>
 </div>
-<h3>Research articles</h3>
-<ol class="pub-list pub-numbered" reversed="" start="42">
+<p class="intro-note">Research articles, edited volumes and surveys.</p>
+</header>
+<div class="publication-layout">
+<aside class="publication-index">
+<p class="index-label">On this page</p>
+<nav aria-label="Publication sections">
+<a href="#research"><span class="index-number" aria-hidden="true">01</span> Research articles</a>
+<a href="#books"><span class="index-number" aria-hidden="true">02</span> Books edited</a>
+<a href="#surveys"><span class="index-number" aria-hidden="true">03</span> Survey papers</a>
+</nav>
+</aside>
+<div class="publication-sections">
+<h3 id="research">Research articles <span class="section-count">42 papers</span></h3>
+<ol class="pub-list pub-numbered" reversed="" start="42" style="--count: 43">
 <li>
 <div class="pub-title"><a href="https://arxiv.org/abs/2610.16727" rel="noopener noreferrer" target="_blank">MMP for smooth co-rank one foliations</a></div>
 <div class="pub-authors">(with C. Spicer)</div>
@@ -271,8 +315,8 @@
 <div class="pub-details">Forum Math. 13 (2001), no. 2, 251-260.</div>
 </li>
 </ol>
-<h3>Books edited</h3>
-<ol class="pub-list pub-secondary" reversed="" start="4">
+<h3 id="books">Books edited <span class="section-count">4 volumes</span></h3>
+<ol class="pub-list pub-secondary" reversed="" start="4" style="--count: 5">
 <li>
 <div class="pub-title"><a href="https://link.intlpress.com/journals/journalPanel?jid=1804417850613493761&amp;sid=1978762098614792194&amp;iid=2047658364271972353" rel="noopener noreferrer" target="_blank">Special issue in honor of James M<sup>c</sup>Kernan's 60th Birthday</a></div>
 <div class="pub-authors">(with B. Lehmann, D. Oprea, C. Xu)</div>
@@ -294,8 +338,8 @@
 <div class="pub-details">Simons Symposia, Springer (2015).</div>
 </li>
 </ol>
-<h3>Survey papers</h3>
-<ol class="pub-list pub-secondary" reversed="" start="6">
+<h3 id="surveys">Survey papers <span class="section-count">6 papers</span></h3>
+<ol class="pub-list pub-secondary" reversed="" start="6" style="--count: 7">
 <li>
 <div class="pub-title"><a href="https://arxiv.org/abs/2604.09027" rel="noopener noreferrer" target="_blank">Recent progress on the Minimal Model Program for foliations</a></div>
 <div class="pub-authors">(with C. Spicer)</div>
@@ -324,6 +368,8 @@
 <div class="pub-details">Contributions to Algebraic Geometry, EMS Publishing House (2012) 169-187.</div>
 </li>
 </ol>
+</div>
+</div>
 </section>
 </main>
 <footer class="site-footer">
