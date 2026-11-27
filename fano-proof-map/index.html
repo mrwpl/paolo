@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore the mathematical results, verified Lean proofs and remaining dependencies towards the classification of Picard-number-one smooth Fano threefolds.">
+  <meta name="theme-color" content="#122c3a">
+  <title>Fano threefolds · Formalisation atlas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to the diagram</a>
+  <header class="site-header">
+    <a class="brand" href="#panel=A" aria-label="Fano atlas overview"><span class="brand-mark" aria-hidden="true">F</span><span>Birational geometry<span class="brand-subtitle">FORMALISATION ATLAS</span></span></a>
+    <div class="header-scope"><span class="scope-label">THE CLASSIFICATION PROGRAMME</span><strong>Smooth Fano threefolds · ρ = 1</strong></div>
+    <button class="quiet-button" id="about-button" type="button">How to read this</button>
+  </header>
+
+  <div class="app-shell" id="app-shell">
+    <aside class="sidebar" aria-label="Diagram navigation">
+      <div class="sidebar-heading"><span class="eyebrow">Explore the proof</span><button class="quiet-button mobile-only" id="mobile-nav-toggle" aria-expanded="false" type="button">Panels</button></div>
+      <div class="sidebar-content" id="sidebar-content">
+        <nav id="panel-nav" aria-label="Book panels"></nav>
+        <div class="sidebar-section">
+          <label class="control-label" for="status-filter">Proof status</label>
+          <div class="select-wrap"><select id="status-filter"><option value="all">All statuses</option><option value="verified">Verified</option><option value="partial">Partly assembled</option><option value="in_progress">In progress</option><option value="compiled">Compiled · audit pending</option><option value="planned">Open target</option></select></div>
+          <label class="control-label" for="origin-filter">Formal source</label>
+          <div class="select-wrap"><select id="origin-filter"><option value="all">All sources</option><option value="project">This project</option><option value="mathlib">Mathlib</option><option value="axiom_stacks">Axiom / Stacks</option><option value="axiom_mmp">Axiom / MMP</option><option value="mixed">Combined sources</option><option value="unassigned">Not yet assigned</option></select></div>
+          <label class="check-control"><input id="context-toggle" type="checkbox"><span>Include direct inputs from other panels</span></label>
+          <button class="text-button" id="reset-filters" type="button">Clear filters</button>
+        </div>
+        <div class="legend sidebar-section" aria-label="Status legend">
+          <span class="control-label">Evidence, not percentage complete</span>
+          <span><i class="legend-swatch verified"></i> Verified</span>
+          <span><i class="legend-swatch partial"></i> Partial / in progress</span>
+          <span><i class="legend-swatch compiled"></i> Compiled, audit pending</span>
+          <span><i class="legend-swatch planned"></i> Open in this project</span>
+          <p>A colour applies only to the statement and hypotheses in that box.</p>
+        </div>
+        <div class="snapshot" id="snapshot"></div>
+        <div class="sidebar-exports"><button class="text-button" id="export-json" type="button">Download result data</button><button class="text-button" id="references-button" type="button">Sources &amp; methodology</button></div>
+      </div>
+    </aside>
+
+    <main id="workspace" tabindex="-1">
+      <section class="workspace-heading" aria-labelledby="panel-title">
+        <div class="heading-meta"><span class="eyebrow" id="panel-label">Panel A</span><span id="book-page" class="book-page"></span></div>
+        <h1 id="panel-title">The rank-one classification</h1>
+        <p id="panel-description">Loading the mathematical roadmap…</p>
+      </section>
+      <div class="workspace-controls">
+        <label class="search-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5"></path></svg><input id="search" type="search" placeholder="Search results, statements or Lean names" aria-label="Search results in the current view" autocomplete="off"><kbd aria-hidden="true">/</kbd></label>
+        <div class="segmented" role="group" aria-label="Display mode"><button id="graph-mode" class="active" aria-pressed="true" type="button">Diagram</button><button id="list-mode" aria-pressed="false" type="button">Results</button></div>
+      </div>
+      <div class="graph-caption"><span id="result-count" aria-live="polite"></span><span class="direction-note">Supporting result <span aria-hidden="true">→</span> theorem it supports <span class="alternative-note">· dashed = alternative route</span></span></div>
+      <div class="graph-container" id="graph-container">
+        <svg id="graph" role="group" aria-label="Interactive mathematical dependency diagram. Select a result for its statement and evidence." tabindex="0"><defs><marker id="dependency-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#78909b"></path></marker><marker id="highlight-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#147b78"></path></marker></defs><g id="graph-world"></g></svg>
+        <div class="graph-empty" id="graph-empty" hidden><strong>No results match these filters.</strong><span>Try a different panel or clear the search and filters.</span><button class="primary-button" id="empty-reset" type="button">Clear filters</button></div>
+        <div class="graph-tools" role="group" aria-label="Diagram controls"><button id="zoom-in" aria-label="Zoom in" title="Zoom in" type="button">+</button><span id="zoom-label" aria-live="off">100%</span><button id="zoom-out" aria-label="Zoom out" title="Zoom out" type="button">−</button><span class="tool-divider"></span><button id="fit-graph" type="button">Fit</button><button id="export-svg" type="button">Save SVG</button></div>
+        <div class="graph-hint">Drag to pan · scroll to zoom · select any result</div>
+      </div>
+      <div id="results-list" class="results-list" hidden aria-label="Results matching this view"></div>
+      <footer class="workspace-footer"><span>Curated mathematical dependency map. Not an exhaustive Lean kernel dependency graph.</span><span id="snapshot-date"></span></footer>
+    </main>
+
+    <aside class="detail-panel" id="detail-panel" hidden aria-labelledby="detail-title">
+      <div class="detail-top"><span class="eyebrow">Result dossier</span><button class="icon-button" id="close-detail" aria-label="Close result details" type="button">×</button></div>
+      <div id="detail-content"></div>
+    </aside>
+  </div>
+
+  <dialog id="about-dialog" aria-labelledby="about-title"><div class="dialog-top"><span class="eyebrow">A map of the mathematics</span><button class="icon-button" id="close-about" aria-label="Close explanation" type="button">×</button></div><h2 id="about-title">Read from ingredients to conclusions.</h2><p>Every arrow points from a supporting result to a theorem it helps prove. The classification is the ultimate destination. Dashed arrows indicate alternative strategies, which are not all required at once.</p><p>Choose a book panel for a manageable part of the proof, or open the full atlas. Click a result to see its hypotheses, conclusion, Lean declarations, provenance and saved evidence. The highlighted prerequisite chain traces what a result needs; its consequences trace what it can support.</p><p><strong>Verified</strong> means the stated scope has recorded verification evidence. <strong>Compiled</strong> is weaker: the module built but its complete audit was still pending at the snapshot. <strong>Open</strong> means not yet verified in this project, not that the result is absent from every Lean library.</p><p>These are mathematical milestones, not equal units of effort. Node counts are not a completion percentage. Statements about models, arbitrary members and deformation families are kept separate.</p><p>The atlas is a dated snapshot. It does not monitor a running agent or perform new Lean checks.</p><div id="about-limitations"></div><h3>References and pinned sources</h3><div id="reference-list"></div></dialog>
+  <div class="toast" id="toast" role="status" hidden></div>
+  <noscript><p class="noscript">This interactive diagram needs JavaScript enabled. Its complete result data is available in <a href="graph-data.js">graph-data.js</a>.</p></noscript>
+  <script src="graph-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
