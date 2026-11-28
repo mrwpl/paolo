@@ -37,8 +37,10 @@ Verification recorded here comprises saved Lean checks and axiom audits. A separ
 
 These files live in the `fano-proof-map/` subdirectory of the existing `mrwpl/paolo` website repository. Its existing GitHub Pages workflow publishes the static repository; no change to repository visibility or to the personal website's other pages is required.
 
-## Degree-two snapshot, 28 November 2026
+## Degree-two and degree-five snapshot, 28 November 2026
 
-At proof checkpoint `55a6c7f`, the complete-system map is finite flat of rank two, with the original polarization and section-space comparison. The native quartic cover algebra (including multiplication), branch comparisons, and the narrower smooth inhabited Fermat branch/inhabited-cover endpoint are verified. Full intrinsic recognition, supplied-cover invariants and deformation-family claims remain open.
+Cubic and degree-four models and intrinsic quartic double-solid recognition are verified. Degree-two Picard, full converse and invariant-bearing Fermat example have passed production builds; final public/direct acceptance is pending. Degree-five construction preparation is in progress with uncompiled drafts. Degrees one/five, the general degree bound and deformation-family certificates remain open.
 
-The public normal audit and separate direct Lean replay agree on 13 standard-three axiom reports. The graph has 126 boxes: 49 verified, 9 partial/in progress, 68 open and 0 compiled/audit-pending. These are counts of mathematical boxes, not effort percentages.
+Intrinsic recognition is accepted at `81cf101` (public normal 566.02 s; separate direct replay 249.98 s; 25 matching standard-three axiom reports). The full supplied-cover/Picard and Fermat-invariant package compiled at `2044e6c`; its closing public/direct acceptance remains pending.
+
+The graph retains all 126 boxes: 51 verified, 5 partial/in progress, 3 compiled/audit-pending and 67 open. These counts do not measure mathematical effort. Degree-five construction is an assigned preparation workstream; its new Lean drafts remain uncompiled.
