@@ -28,7 +28,8 @@ The algebraic theorems retain their recorded field and universe hypotheses. The 
 3. Update `graph-data.js`, its snapshot date and checkpoint. Use stable node IDs, unique IDs and valid acyclic dependencies. Do not add a planned hypothesis-construction result as a purported established dependency of an already verified conditional lemma.
 4. Record the exact scope and the provenance of each result. Include all-member and special-member obligations when updating a model-classification branch.
 5. Publish only public-safe summaries. Evidence paths are repository-relative references to locally retained receipts, not public downloads of the private proof repository. Do not copy account details, credentials, local absolute paths or private working logs.
-6. Check search, panel navigation, result details, prerequisite/consequence highlighting, filters and exports in a browser before publishing the updated static files.
+6. When an asset changes, refresh its `?v=` content-hash suffix in `index.html` (`styles.css`, `graph-data.js`, and `app.js`). This prevents a newly fetched page from using a cached older script or stylesheet.
+7. Check search, panel navigation, result details, prerequisite/consequence highlighting, filters and exports in a browser before publishing the updated static files.
 
 Verification recorded here comprises saved Lean checks and axiom audits. A separate replay using Lean is not an independently implemented proof checker. The project’s Linux-only SHEAF comparator was not run for this snapshot.
 
