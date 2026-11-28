@@ -39,7 +39,7 @@ These files live in the `fano-proof-map/` subdirectory of the existing `mrwpl/pa
 
 ## Degree-one and degree-five progress, 28 November 2026
 
-Cubic, degree-four and quartic double-solid model recognition and supplied-model invariants remain verified. Degree two also has an explicit smooth Fermat cover with the full Picard, numerical and exact-index package. Two newly verified supporting theorems now appear as separate green boxes: the primitive degree-five complete embedding into projective six-space, and integrality of every nonzero degree-one member's full zero scheme. The snapshot is `be523c2`, at 09:49 UTC.
+Cubic, degree-four and quartic double-solid model recognition and supplied-model invariants remain verified. Degree two also has an explicit smooth Fermat cover with the full Picard, numerical and exact-index package. Two newly verified supporting theorems now appear as separate green boxes: the primitive degree-five complete embedding into projective six-space, and integrality of every nonzero degree-one member's full zero scheme. The snapshot is `a24050a`, at 10:00 UTC.
 
 The degree-two campaign is accepted at `8d05105`. The closing public normal build took 689.94 s and its separate direct Lean replay 301.71 s. Named and independently expanded types and all 26 transitive axiom reports agree, using only `propext`, `Classical.choice` and `Quot.sound`. The full supplied-cover theorem includes integral Picard generation, numerical Picard number one and exact index two; the explicit Fermat cover has the same invariant package.
 
@@ -50,3 +50,12 @@ The degree-one integral-member theorem was publicly verified at `be523c2`. Every
 There are now 128 boxes: 56 verified, 8 partial/in progress, 0 compiled/audit-pending and 64 open. Panel B has 26 boxes: 17 verified, 5 partial/in progress, 0 compiled and 4 open. The two added boxes expose supporting results, without changing the previous classification targets. Counts do not measure mathematical effort.
 
 Still open are the degree-five Pfaffian image-ideal equality and polarized Grassmannian identification, the full supplied V₅ invariant and existence package, the degree-one regular genus-one pair and weighted-sextic package, the primitive degree bound and exhaustion, and the cubic parameter-family certificate. Cubic family work is assigned but its endpoint is unverified. Later deformation-family obligations remain separate. Supporting Plücker-frame and finite-algebra modules have passed normal builds; this does not certify the full Grassmannian branch.
+
+
+## Final coordinator checkpoint
+
+At `dc34039`, 32 supporting declarations passed matching narrow normal and separate direct axiom audits. Two presentations of the five-point coordinate algebra split as five copies of the original field, and graded-module results lift surjectivity, kernels and injectivity through a regular linear parameter. Applying these calculations to the actual global Grassmannian slice and its full resolution is still required.
+
+At `a24050a`, eight remaining weighted-sextic, degree-bound/reduction/exhaustion and cubic-family propositions and all eight independent expanded-type equalities compile. These are checked theorem interfaces, not proofs of the propositions. No node is promoted on that basis. The map keeps the same 128 boxes and status counts as the preceding update.
+
+Book links follow the rebuilt 87-page PDF: panels A–F start on printed pages 71, 72, 74, 75, 76 and 78 respectively. The degree-one and degree-five supporting propositions are on printed pages 65–66. The additional cubic view points to the intrinsic recognition theorem on printed page 59.
