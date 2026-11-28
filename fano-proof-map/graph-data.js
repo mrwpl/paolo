@@ -3,9 +3,9 @@ window.FANO_GRAPH = {
   "meta": {
     "title": "The rank-one Fano proof map",
     "scope": "A curated mathematical roadmap toward the 17 deformation families of smooth complex Fano threefolds with numerical Picard number one.",
-    "snapshot": "28 November 2026 · 02:34 (UTC+08:00) · static snapshot",
-    "checkpoint": "adf1a91",
-    "updatedAt": "2026-11-27T18:34:00Z",
+    "snapshot": "28 November 2026 · 11:22 (UTC+08:00) · static snapshot",
+    "checkpoint": "3d19f62",
+    "updatedAt": "2026-11-28T03:22:00Z",
     "fieldScope": "Final classification over ℂ. Many verified local algebraic theorems hold over algebraically closed fields of characteristic zero at arbitrary Lean universe u; the regular-pair cancellation and chart theorem hold over any field.",
     "versionPins": {
       "Lean": "v4.35.0",
@@ -24,7 +24,9 @@ window.FANO_GRAPH = {
       "The graph does not measure completion by counting boxes. Nodes have very different proof costs.",
       "This is a snapshot, not live monitoring. “In progress” labels an open assigned workstream; no claim is made that a compiler or agent is currently running.",
       "Evidence paths are repository-relative record identifiers; private proof source files are not published by this website.",
-      "Exactly seventeen counts deformation families, not individual varieties up to isomorphism. The higher-Picard-number branches of the 105-family classification are outside this graph."
+      "Exactly seventeen counts deformation families, not individual varieties up to isomorphism. The higher-Picard-number branches of the 105-family classification are outside this graph.",
+      "The degree-four example theorem proves a nonempty smooth regular intersection over each allowed field; it does not establish a connected parameter family or one deformation class.",
+      "Verified degree-four proof cutoff: checkpoint 3d19f62, 28 November 04:42 UTC+08. The later degree-two assignment is open work, not a completed proof."
     ]
   },
   "panels": [
@@ -38,19 +40,19 @@ window.FANO_GRAPH = {
       "id": "B",
       "title": "The five index-two models",
       "bookPage": 66,
-      "description": "Five degree branches. The primitive degree bound is open. Cubic polarized recognition is verified; degree four is the current mathematical frontier."
+      "description": "Cubic and degree-four polarized models are verified. The active next branch is degree two: quartic double-solid recognition, construction and a smooth example. The degree bound, degrees one and five, and deformation certificates remain open."
     },
     {
       "id": "C",
       "title": "Degree four: intrinsic recognition",
       "bookPage": 67,
-      "description": "From ample H with −K=2H and H³=4 to a complete-system embedding and the full two-quadric image ideal."
+      "description": "Completed intrinsic degree-four route: remove fixed divisors, use actual regular curves and length-two tests, embed by the complete system, and identify the full two-quadric image ideal."
     },
     {
       "id": "D",
       "title": "Degree four: supplied construction",
       "bookPage": 68,
-      "description": "From an actual smooth intersection of two quadrics to Fano, Picard and exact-index invariants. The first quadric may be singular."
+      "description": "Completed supplied-model route: actual Cartier cuts, geometry, adjunction, numerical and Picard invariants; an explicit smooth nonempty model exists. The first quadric may be singular. Deformation-family claims remain open."
     },
     {
       "id": "E",
@@ -93,7 +95,7 @@ window.FANO_GRAPH = {
         "G"
       ],
       "family": "shared",
-      "details": "Several exact applications are verified. The complete collection needed for all seventeen families is not assembled.",
+      "details": "Verified uses now include both cubic and two-quadric geometry, Picard comparisons, intrinsic recognition and actual numerical intersections. The complete collection needed for all seventeen families is not assembled.",
       "leanDeclarations": [],
       "evidence": [
         {
@@ -215,7 +217,7 @@ window.FANO_GRAPH = {
         "B"
       ],
       "family": "index2",
-      "details": "The polarized cubic recognition and supplied-model invariants are verified. The general degree bound and the other model branches remain open.",
+      "details": "The polarized cubic and degree-four two-quadric recognition theorems and supplied-model invariant packages are verified. Degree four also has an explicit smooth nonempty example. The general primitive degree bound, degrees one, two and five, and deformation-family certificates remain open.",
       "leanDeclarations": [],
       "evidence": [
         {
@@ -227,6 +229,18 @@ window.FANO_GRAPH = {
           "label": "Iskovskikh–Prokhorov, Fano Varieties (1999)",
           "url": "https://link.springer.com/book/9783540614685",
           "kind": "literature"
+        },
+        {
+          "label": "quadrics-acceptance.json",
+          "path": "projects/fano-threefolds/audit/quadrics-acceptance.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "DEGREE-FOUR-PROOFS.md",
+          "path": "projects/fano-threefolds/audit/DEGREE-FOUR-PROOFS.md",
+          "commit": "3d19f62",
+          "kind": "audit"
         }
       ],
       "caveats": [],
@@ -668,7 +682,7 @@ window.FANO_GRAPH = {
         "G"
       ],
       "family": "shared",
-      "details": "A complete hypersurface application is verified for cubics. Iterated quadrics and other homogeneous or weighted models need their own comparison proofs.",
+      "details": "Actual hypersurface adjunction for cubics and the two-quadric conormal-determinant application are verified. Other complete-intersection, weighted and homogeneous models still require their own comparison theorems.",
       "leanDeclarations": [],
       "evidence": [
         {
@@ -681,6 +695,18 @@ window.FANO_GRAPH = {
           "label": "FanoThreefolds/CubicGeometry.lean",
           "path": "projects/fano-threefolds/FanoThreefolds/CubicGeometry.lean",
           "kind": "source"
+        },
+        {
+          "label": "quadrics-supplied-model-verification.json",
+          "path": "projects/fano-threefolds/audit/quadrics-supplied-model-verification.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "DEGREE-FOUR-PROOFS.md",
+          "path": "projects/fano-threefolds/audit/DEGREE-FOUR-PROOFS.md",
+          "commit": "3d19f62",
+          "kind": "audit"
         }
       ],
       "caveats": [],
@@ -1708,38 +1734,65 @@ window.FANO_GRAPH = {
     {
       "id": "quadrics-model",
       "title": "Degree-four polarized model package",
-      "statement": "Ample H with −K=2H and H³=4 is equivalent to a smooth intersection of two quadrics in ℙ⁵, with exact index and Picard invariants on the supplied side.",
+      "statement": "The degree-four polarized model is characterised in both directions: ample H with ω_X⁻¹≅H² and H³=4 gives a smooth two-quadric embedding, and every supplied smooth regular intersection has the exact Fano, integral Picard and numerical Picard invariants.",
       "hypotheses": [
         "X is a smooth projective integral threefold over an algebraically closed field k of characteristic zero.",
         "Statements are intended at arbitrary Lean universe u unless this node explicitly restricts to ℂ.",
         "H is an actual ample invertible sheaf on X, with an isomorphism ω_X⁻¹ ≅ H⊗H.",
         "H³ = 4. No Picard-number or primitive-generator hypothesis is assumed."
       ],
-      "conclusion": "Ample H with −K=2H and H³=4 is equivalent to a smooth intersection of two quadrics in ℙ⁵, with exact index and Picard invariants on the supplied side.",
-      "status": "partial",
-      "origin": "unassigned",
+      "conclusion": "The degree-four polarized model is characterised in both directions: ample H with ω_X⁻¹≅H² and H³=4 gives a smooth two-quadric embedding, and every supplied smooth regular intersection has the exact Fano, integral Picard and numerical Picard invariants.",
+      "status": "verified",
+      "origin": "project",
       "panels": [
         "B"
       ],
       "family": "index2",
-      "details": "Numerical and geometric helper results are verified; both main directions remain open.",
-      "leanDeclarations": [],
+      "details": "Both geometric directions and an explicit smooth nonempty example are verified at 3d19f62, together with the parameterized all-integer Hilbert formula. The intrinsic direction assumes no primitive-generator or Picard-number hypothesis. The family-level classification obligations remain open.",
+      "leanDeclarations": [
+        "FanoThreefolds.intrinsicTwoQuadricsRecognitionStatement_proved",
+        "FanoThreefolds.smoothTwoQuadricsStatement_proved",
+        "FanoThreefolds.smoothTwoQuadricsExistenceStatement_proved"
+      ],
       "evidence": [
         {
-          "label": "Book, rank-one progress panels A–F",
-          "path": "book/chapters/fano-rank-one-progress.tex",
+          "label": "quadrics-supplied-model-verification.json",
+          "path": "projects/fano-threefolds/audit/quadrics-supplied-model-verification.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "quadrics-acceptance.json",
+          "path": "projects/fano-threefolds/audit/quadrics-acceptance.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "DEGREE-FOUR-PROOFS.md",
+          "path": "projects/fano-threefolds/audit/DEGREE-FOUR-PROOFS.md",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "FanoThreefolds/QuadricsProposal.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsProposal.lean",
+          "commit": "3d19f62",
           "kind": "source"
         },
         {
-          "label": "Iskovskikh–Prokhorov, Fano Varieties (1999)",
-          "url": "https://link.springer.com/book/9783540614685",
-          "kind": "literature"
+          "label": "FanoThreefolds/QuadricsConstructionAudit.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsConstructionAudit.lean",
+          "commit": "3d19f62",
+          "kind": "source"
         }
       ],
-      "caveats": [],
+      "caveats": [
+        "This is not yet a proof that all degree-four models constitute one deformation family."
+      ],
       "dependencies": [
         "quadrics-recognition",
-        "quadrics-construction"
+        "quadrics-construction",
+        "quadrics-existence"
       ],
       "alternativeDependencies": []
     },
@@ -1811,38 +1864,66 @@ window.FANO_GRAPH = {
     },
     {
       "id": "quadrics-no-fixed",
-      "title": "Remove degree-four fixed divisors",
-      "statement": "The complete |H| of intrinsic degree-four data has no fixed prime divisor.",
+      "title": "No fixed divisor in degree four",
+      "statement": "For intrinsic degree-four data, every integral closed surface sees a nonzero H-section; the complete |H| has no fixed prime divisor.",
       "hypotheses": [
         "X is a smooth projective integral threefold over an algebraically closed field k of characteristic zero.",
         "Statements are intended at arbitrary Lean universe u unless this node explicitly restricts to ℂ.",
         "H is an actual ample invertible sheaf on X, with an isomorphism ω_X⁻¹ ≅ H⊗H.",
         "H³ = 4. No Picard-number or primitive-generator hypothesis is assumed."
       ],
-      "conclusion": "The complete |H| of intrinsic degree-four data has no fixed prime divisor.",
-      "status": "in_progress",
+      "conclusion": "For intrinsic degree-four data, every integral closed surface sees a nonzero H-section; the complete |H| has no fixed prime divisor.",
+      "status": "verified",
       "origin": "project",
       "panels": [
         "C"
       ],
       "family": "index2",
-      "details": "Current proof workstream. The cubic numerical contradiction only gives H³≥4, so equality remains possible here. Additional residual-member and section-rank arguments are required.",
-      "leanDeclarations": [],
+      "details": "A hypothetical fixed part B with residual system M forces H²B=1, H·B·M=2 and H·M²=1. Finite avoidance gives a residual Cartier surface whose positive component intersections sum to one, so it is integral with multiplicity one. Restriction to a curve bounds its residual sections by three, whereas the six sections on X lose at most one on restriction. This contradiction removes the fixed part.",
+      "leanDeclarations": [
+        "FanoThreefolds.quadrics_fixedPart_eq_top",
+        "FanoThreefolds.quadricsNoFixedDivisor",
+        "FanoThreefolds.residualSurface_sections_le_three"
+      ],
       "evidence": [
         {
-          "label": "Book, rank-one progress panels A–F",
-          "path": "book/chapters/fano-rank-one-progress.tex",
+          "label": "quadrics-intrinsic-model-verification.json",
+          "path": "projects/fano-threefolds/audit/quadrics-intrinsic-model-verification.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "quadrics-acceptance.json",
+          "path": "projects/fano-threefolds/audit/quadrics-acceptance.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "DEGREE-FOUR-PROOFS.md",
+          "path": "projects/fano-threefolds/audit/DEGREE-FOUR-PROOFS.md",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "FanoThreefolds/QuadricsResidualComponents.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsResidualComponents.lean",
+          "commit": "3d19f62",
           "kind": "source"
         },
         {
-          "label": "Iskovskikh–Prokhorov, Fano Varieties (1999)",
-          "url": "https://link.springer.com/book/9783540614685",
-          "kind": "literature"
+          "label": "FanoThreefolds/QuadricsResidualFixedPart.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsResidualFixedPart.lean",
+          "commit": "3d19f62",
+          "kind": "source"
+        },
+        {
+          "label": "FanoThreefolds/QuadricsRecognition.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsRecognition.lean",
+          "commit": "3d19f62",
+          "kind": "source"
         }
       ],
-      "caveats": [
-        "The residual numerical case H²B=1, H·B·M=2, H·M²=1 for H=B+M has not yet been eliminated. “In progress” describes an open workstream, not a live process."
-      ],
+      "caveats": [],
       "dependencies": [
         "quadrics-counts",
         "quadrics-low-rank"
@@ -1851,74 +1932,119 @@ window.FANO_GRAPH = {
     },
     {
       "id": "quadrics-regular-cuts",
-      "title": "Actual regular cuts for degree four",
-      "statement": "Construct successive regular members of |H| on X and prove their curve has scalar constants, genus one, ω≅O and H-degree four, with the needed restriction maps.",
+      "title": "Regular degree-four curves and restriction",
+      "statement": "Any successive regular pair of H-sections cuts a proper curve with scalar constants, genus one, trivial dualizing sheaf and H-degree four; its H-sections lift to X.",
       "hypotheses": [
         "X is a smooth projective integral threefold over an algebraically closed field k of characteristic zero.",
         "Statements are intended at arbitrary Lean universe u unless this node explicitly restricts to ℂ.",
         "H is an actual ample invertible sheaf on X, with an isomorphism ω_X⁻¹ ≅ H⊗H.",
-        "H³ = 4. No Picard-number or primitive-generator hypothesis is assumed."
+        "H³ = 4. No Picard-number or primitive-generator hypothesis is assumed.",
+        "A nonzero first section and a second section regular on its actual Cartier divisor are supplied."
       ],
-      "conclusion": "Construct successive regular members of |H| on X and prove their curve has scalar constants, genus one, ω≅O and H-degree four, with the needed restriction maps.",
-      "status": "planned",
-      "origin": "unassigned",
+      "conclusion": "Any successive regular pair of H-sections cuts a proper curve with scalar constants, genus one, trivial dualizing sheaf and H-degree four; its H-sections lift to X.",
+      "status": "verified",
+      "origin": "project",
       "panels": [
         "C"
       ],
       "family": "index2",
-      "details": "The required curve must be constructed; it cannot be assumed smooth or integral merely because |H| is defined.",
-      "leanDeclarations": [],
+      "details": "Two actual Cartier exact sequences compute cohomology, genus and degree and give surjective restrictions. Adjunction gives the trivial dualizing sheaf. The statements allow a singular intermediate surface and a reducible or nonreduced curve. The global-generation proof constructs a regular pair using the no-fixed-divisor theorem; this box states the conditional curve calculation.",
+      "leanDeclarations": [
+        "FanoThreefolds.quadricsRegularSectionCurve",
+        "FanoThreefolds.quadricsRegularPairRestriction",
+        "FanoThreefolds.regularPairDualizingTrivial"
+      ],
       "evidence": [
         {
-          "label": "Book, rank-one progress panels A–F",
-          "path": "book/chapters/fano-rank-one-progress.tex",
+          "label": "quadrics-intrinsic-model-verification.json",
+          "path": "projects/fano-threefolds/audit/quadrics-intrinsic-model-verification.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "quadrics-acceptance.json",
+          "path": "projects/fano-threefolds/audit/quadrics-acceptance.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "DEGREE-FOUR-PROOFS.md",
+          "path": "projects/fano-threefolds/audit/DEGREE-FOUR-PROOFS.md",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "FanoThreefolds/QuadricsRegularCurve.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsRegularCurve.lean",
+          "commit": "3d19f62",
           "kind": "source"
         },
         {
-          "label": "Iskovskikh–Prokhorov, Fano Varieties (1999)",
-          "url": "https://link.springer.com/book/9783540614685",
-          "kind": "literature"
+          "label": "FanoThreefolds/GenerationSectionCurves.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/GenerationSectionCurves.lean",
+          "commit": "3d19f62",
+          "kind": "source"
         }
       ],
       "caveats": [],
       "dependencies": [
-        "quadrics-no-fixed"
+        "half-euler",
+        "half-sections"
       ],
       "alternativeDependencies": []
     },
     {
       "id": "quadrics-generation",
       "title": "Degree-four H is globally generated",
-      "statement": "Global sections of H generate the actual line bundle on the original X.",
+      "statement": "The actual global sections of H generate every stalk of the given H on the original degree-four threefold X.",
       "hypotheses": [
         "X is a smooth projective integral threefold over an algebraically closed field k of characteristic zero.",
         "Statements are intended at arbitrary Lean universe u unless this node explicitly restricts to ℂ.",
         "H is an actual ample invertible sheaf on X, with an isomorphism ω_X⁻¹ ≅ H⊗H.",
         "H³ = 4. No Picard-number or primitive-generator hypothesis is assumed."
       ],
-      "conclusion": "Global sections of H generate the actual line bundle on the original X.",
-      "status": "planned",
-      "origin": "unassigned",
+      "conclusion": "The actual global sections of H generate every stalk of the given H on the original degree-four threefold X.",
+      "status": "verified",
+      "origin": "project",
       "panels": [
         "C"
       ],
       "family": "index2",
-      "details": "Literature target in the local roadmap. “Planned” means no matching verified local endpoint is recorded; it does not assert that the result is absent from all Lean libraries.",
-      "leanDeclarations": [],
+      "details": "No fixed divisor allows finite avoidance to choose a regular pair. Degree-four genus-one curve separation supplies generation on the curve; surjective restriction and the defining sections lift it to the surface and then to X. The proof does not replace X by a blowup.",
+      "leanDeclarations": [
+        "FanoThreefolds.quadricsRegularPair_separates",
+        "FanoThreefolds.quadricsGlobalGeneration"
+      ],
       "evidence": [
         {
-          "label": "Book, rank-one progress panels A–F",
-          "path": "book/chapters/fano-rank-one-progress.tex",
-          "kind": "source"
+          "label": "quadrics-intrinsic-model-verification.json",
+          "path": "projects/fano-threefolds/audit/quadrics-intrinsic-model-verification.json",
+          "commit": "3d19f62",
+          "kind": "audit"
         },
         {
-          "label": "Iskovskikh–Prokhorov, Fano Varieties (1999)",
-          "url": "https://link.springer.com/book/9783540614685",
-          "kind": "literature"
+          "label": "quadrics-acceptance.json",
+          "path": "projects/fano-threefolds/audit/quadrics-acceptance.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "DEGREE-FOUR-PROOFS.md",
+          "path": "projects/fano-threefolds/audit/DEGREE-FOUR-PROOFS.md",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "FanoThreefolds/QuadricsRecognition.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsRecognition.lean",
+          "commit": "3d19f62",
+          "kind": "source"
         }
       ],
       "caveats": [],
       "dependencies": [
+        "quadrics-no-fixed",
+        "quadrics-counts",
         "quadrics-regular-cuts",
         "curve-separation"
       ],
@@ -1927,37 +2053,54 @@ window.FANO_GRAPH = {
     {
       "id": "quadrics-separation",
       "title": "Degree-four H separates length two",
-      "statement": "For every length-two Z⊂X, including a tangent double point, the restriction map for H is onto.",
+      "statement": "The polarization H on the original degree-four threefold separates every length-two closed subscheme, including tangent double points.",
       "hypotheses": [
         "X is a smooth projective integral threefold over an algebraically closed field k of characteristic zero.",
         "Statements are intended at arbitrary Lean universe u unless this node explicitly restricts to ℂ.",
         "H is an actual ample invertible sheaf on X, with an isomorphism ω_X⁻¹ ≅ H⊗H.",
         "H³ = 4. No Picard-number or primitive-generator hypothesis is assumed."
       ],
-      "conclusion": "For every length-two Z⊂X, including a tangent double point, the restriction map for H is onto.",
-      "status": "planned",
-      "origin": "unassigned",
+      "conclusion": "The polarization H on the original degree-four threefold separates every length-two closed subscheme, including tangent double points.",
+      "status": "verified",
+      "origin": "project",
       "panels": [
         "C"
       ],
       "family": "index2",
-      "details": "Literature target in the local roadmap. “Planned” means no matching verified local endpoint is recorded; it does not assert that the result is absent from all Lean libraries.",
-      "leanDeclarations": [],
+      "details": "If restriction to a length-two test failed, its section kernel would be large. Global generation and finite avoidance produce a regular pair through that test. Separation on the actual genus-one section curve, and surjective restriction back to X, contradict failure.",
+      "leanDeclarations": [
+        "FanoThreefolds.quadricsSeparation"
+      ],
       "evidence": [
         {
-          "label": "Book, rank-one progress panels A–F",
-          "path": "book/chapters/fano-rank-one-progress.tex",
-          "kind": "source"
+          "label": "quadrics-intrinsic-model-verification.json",
+          "path": "projects/fano-threefolds/audit/quadrics-intrinsic-model-verification.json",
+          "commit": "3d19f62",
+          "kind": "audit"
         },
         {
-          "label": "Iskovskikh–Prokhorov, Fano Varieties (1999)",
-          "url": "https://link.springer.com/book/9783540614685",
-          "kind": "literature"
+          "label": "quadrics-acceptance.json",
+          "path": "projects/fano-threefolds/audit/quadrics-acceptance.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "DEGREE-FOUR-PROOFS.md",
+          "path": "projects/fano-threefolds/audit/DEGREE-FOUR-PROOFS.md",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "FanoThreefolds/QuadricsRecognition.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsRecognition.lean",
+          "commit": "3d19f62",
+          "kind": "source"
         }
       ],
       "caveats": [],
       "dependencies": [
         "quadrics-generation",
+        "quadrics-counts",
         "quadrics-regular-cuts",
         "curve-separation"
       ],
@@ -1966,32 +2109,48 @@ window.FANO_GRAPH = {
     {
       "id": "quadrics-embedding",
       "title": "Complete |H| embeds X into ℙ⁵",
-      "statement": "The six-dimensional complete section space yields an over-k closed immersion into ℙ⁵ with H the restricted hyperplane.",
+      "statement": "The six-dimensional complete H-system gives an over-k closed immersion X→ℙ⁵ with O(1) pulling back to H and a bijection on spaces of linear sections.",
       "hypotheses": [
         "X is a smooth projective integral threefold over an algebraically closed field k of characteristic zero.",
         "Statements are intended at arbitrary Lean universe u unless this node explicitly restricts to ℂ.",
         "H is an actual ample invertible sheaf on X, with an isomorphism ω_X⁻¹ ≅ H⊗H.",
         "H³ = 4. No Picard-number or primitive-generator hypothesis is assumed."
       ],
-      "conclusion": "The six-dimensional complete section space yields an over-k closed immersion into ℙ⁵ with H the restricted hyperplane.",
-      "status": "planned",
-      "origin": "unassigned",
+      "conclusion": "The six-dimensional complete H-system gives an over-k closed immersion X→ℙ⁵ with O(1) pulling back to H and a bijection on spaces of linear sections.",
+      "status": "verified",
+      "origin": "project",
       "panels": [
         "C"
       ],
       "family": "index2",
-      "details": "Literature target in the local roadmap. “Planned” means no matching verified local endpoint is recorded; it does not assert that the result is absent from all Lean libraries.",
-      "leanDeclarations": [],
+      "details": "A basis of the actual section space and length-two separation yield a closed immersion. The proof transports the projective-space presentation to polynomial projective five-space and verifies that the entire space of ambient linear forms restricts bijectively.",
+      "leanDeclarations": [
+        "FanoThreefolds.quadricsEmbedding_of_degreeTwo"
+      ],
       "evidence": [
         {
-          "label": "Book, rank-one progress panels A–F",
-          "path": "book/chapters/fano-rank-one-progress.tex",
-          "kind": "source"
+          "label": "quadrics-intrinsic-model-verification.json",
+          "path": "projects/fano-threefolds/audit/quadrics-intrinsic-model-verification.json",
+          "commit": "3d19f62",
+          "kind": "audit"
         },
         {
-          "label": "Iskovskikh–Prokhorov, Fano Varieties (1999)",
-          "url": "https://link.springer.com/book/9783540614685",
-          "kind": "literature"
+          "label": "quadrics-acceptance.json",
+          "path": "projects/fano-threefolds/audit/quadrics-acceptance.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "DEGREE-FOUR-PROOFS.md",
+          "path": "projects/fano-threefolds/audit/DEGREE-FOUR-PROOFS.md",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "FanoThreefolds/QuadricsRecognition.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsRecognition.lean",
+          "commit": "3d19f62",
+          "kind": "source"
         }
       ],
       "caveats": [],
@@ -2043,7 +2202,7 @@ window.FANO_GRAPH = {
     {
       "id": "quadrics-ideal",
       "title": "Regular equations generate the whole ideal",
-      "statement": "For the intrinsic embedding, choose two quadratic relations that form a regular sequence and prove they generate its full scheme-theoretic ideal.",
+      "statement": "The two independent quadratic relations of the intrinsic closed embedding form a regular sequence and generate its whole scheme-theoretic image ideal.",
       "hypotheses": [
         "X is a smooth projective integral threefold over an algebraically closed field k of characteristic zero.",
         "Statements are intended at arbitrary Lean universe u unless this node explicitly restricts to ℂ.",
@@ -2051,70 +2210,120 @@ window.FANO_GRAPH = {
         "H³ = 4. No Picard-number or primitive-generator hypothesis is assumed.",
         "The complete H-system is embedded in ℙ⁵."
       ],
-      "conclusion": "For the intrinsic embedding, choose two quadratic relations that form a regular sequence and prove they generate its full scheme-theoretic ideal.",
-      "status": "planned",
-      "origin": "unassigned",
+      "conclusion": "The two independent quadratic relations of the intrinsic closed embedding form a regular sequence and generate its whole scheme-theoretic image ideal.",
+      "status": "verified",
+      "origin": "project",
       "panels": [
         "C"
       ],
       "family": "index2",
-      "details": "Regularity and scheme-theoretic equality are separate from the dimension count 21−19=2.",
-      "leanDeclarations": [],
+      "details": "The image is integral and linearly nondegenerate, which makes the independent quadrics a regular sequence. Successive actual Cartier cuts compute the common zero scheme’s Hilbert polynomial. Equality with the embedded threefold’s polynomial, followed by Serre vanishing and generation for the coherent ideal, proves that ideal is zero and hence identifies the full image.",
+      "leanDeclarations": [
+        "FanoThreefolds.quadrics_regular_of_nondegenerate_image",
+        "FanoThreefolds.quadrics_iterated_hilbert",
+        "FanoThreefolds.quadrics_ideal_eq_of_hilbert",
+        "FanoThreefolds.degreeFour_image_ideal_of_polarized_closedImmersion"
+      ],
       "evidence": [
         {
-          "label": "Book, rank-one progress panels A–F",
-          "path": "book/chapters/fano-rank-one-progress.tex",
+          "label": "quadrics-intrinsic-model-verification.json",
+          "path": "projects/fano-threefolds/audit/quadrics-intrinsic-model-verification.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "quadrics-acceptance.json",
+          "path": "projects/fano-threefolds/audit/quadrics-acceptance.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "DEGREE-FOUR-PROOFS.md",
+          "path": "projects/fano-threefolds/audit/DEGREE-FOUR-PROOFS.md",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "FanoThreefolds/QuadricsRelations.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsRelations.lean",
+          "commit": "3d19f62",
           "kind": "source"
         },
         {
-          "label": "Iskovskikh–Prokhorov, Fano Varieties (1999)",
-          "url": "https://link.springer.com/book/9783540614685",
-          "kind": "literature"
+          "label": "FanoThreefolds/QuadricsImageIdentification.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsImageIdentification.lean",
+          "commit": "3d19f62",
+          "kind": "source"
         }
       ],
       "caveats": [],
       "dependencies": [
         "quadrics-embedding",
-        "quadrics-equations"
+        "quadrics-equations",
+        "quadrics-cartier",
+        "half-euler"
       ],
       "alternativeDependencies": []
     },
     {
       "id": "quadrics-recognition",
       "title": "Intrinsic recognition as two quadrics",
-      "statement": "The original X with ample H, −K=2H and H³=4 is a smooth scheme-theoretic intersection of two quadrics in ℙ⁵.",
+      "statement": "Ample H with ω_X⁻¹≅H² and H³=4 has six sections, is very ample, and gives the original X as a smooth scheme-theoretic intersection of two quadrics in ℙ⁵ by its complete system.",
       "hypotheses": [
         "X is a smooth projective integral threefold over an algebraically closed field k of characteristic zero.",
         "Statements are intended at arbitrary Lean universe u unless this node explicitly restricts to ℂ.",
         "H is an actual ample invertible sheaf on X, with an isomorphism ω_X⁻¹ ≅ H⊗H.",
         "H³ = 4. No Picard-number or primitive-generator hypothesis is assumed."
       ],
-      "conclusion": "The original X with ample H, −K=2H and H³=4 is a smooth scheme-theoretic intersection of two quadrics in ℙ⁵.",
-      "status": "planned",
-      "origin": "unassigned",
+      "conclusion": "Ample H with ω_X⁻¹≅H² and H³=4 has six sections, is very ample, and gives the original X as a smooth scheme-theoretic intersection of two quadrics in ℙ⁵ by its complete system.",
+      "status": "verified",
+      "origin": "project",
       "panels": [
         "B",
         "C"
       ],
       "family": "index2",
-      "details": "The proposition has been prepared and type-compared; no proof of this endpoint is currently verified.",
+      "details": "The verified endpoint combines length-two separation, the complete-system embedding, regularity of its two quadratic equations and equality of the image ideal. It holds over the original algebraically closed characteristic-zero field at arbitrary universe; neither ρ=1 nor primitive H is assumed.",
       "leanDeclarations": [
-        "FanoThreefolds.IntrinsicTwoQuadricsRecognitionStatement"
+        "FanoThreefolds.intrinsicTwoQuadricsRecognitionStatement_proved"
       ],
       "evidence": [
         {
-          "label": "Book, rank-one progress panels A–F",
-          "path": "book/chapters/fano-rank-one-progress.tex",
+          "label": "quadrics-intrinsic-model-verification.json",
+          "path": "projects/fano-threefolds/audit/quadrics-intrinsic-model-verification.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "quadrics-acceptance.json",
+          "path": "projects/fano-threefolds/audit/quadrics-acceptance.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "DEGREE-FOUR-PROOFS.md",
+          "path": "projects/fano-threefolds/audit/DEGREE-FOUR-PROOFS.md",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "FanoThreefolds/QuadricsRecognition.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsRecognition.lean",
+          "commit": "3d19f62",
           "kind": "source"
         },
         {
-          "label": "Iskovskikh–Prokhorov, Fano Varieties (1999)",
-          "url": "https://link.springer.com/book/9783540614685",
-          "kind": "literature"
+          "label": "FanoThreefolds/QuadricsProposal.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsProposal.lean",
+          "commit": "3d19f62",
+          "kind": "source"
         }
       ],
-      "caveats": [],
+      "caveats": [
+        "This is the geometric model theorem. Connectedness of a parameter family and classification up to deformation remain separate obligations."
+      ],
       "dependencies": [
+        "quadrics-embedding",
         "quadrics-ideal"
       ],
       "alternativeDependencies": []
@@ -2164,7 +2373,7 @@ window.FANO_GRAPH = {
         "D"
       ],
       "family": "index2",
-      "details": "Latest verified checkpoint. Public named and expanded arbitrary-universe tests and separate direct replay both passed, with exactly the three standard axioms. This is a chart theorem, not yet the global second Cartier cut.",
+      "details": "Earlier verified input at adf1a91. Public named and expanded arbitrary-universe tests and separate direct replay both passed, with exactly the three standard axioms. This chartwise regularity theorem now supports the completed global second Cartier-cut proof.",
       "leanDeclarations": [
         "FanoThreefolds.quadrics_second_chart_regular"
       ],
@@ -2191,39 +2400,51 @@ window.FANO_GRAPH = {
     {
       "id": "quadrics-cartier",
       "title": "Global second Cartier cut",
-      "statement": "The restriction of G to V(F) is a regular section of O(2), and its zero scheme is the second effective Cartier divisor giving V(F,G).",
+      "statement": "For a regular polynomial pair F,G, the restriction of G to the actual first-quadric subscheme V(F) is a regular section of O(2), and its zero scheme is an effective Cartier divisor giving V(F,G).",
       "hypotheses": [
-        "k algebraically closed of characteristic zero, arbitrary universe u.",
-        "X is the supplied smooth scheme-theoretic zero locus of a regular pair of quadratic forms F,G in ℙ⁵; H is the restricted O(1).",
-        "The first quadric is not assumed smooth."
+        "k is any field; arbitrary universe u.",
+        "F,G are homogeneous quadrics in six variables forming a regular sequence; no smoothness of V(F) is assumed."
       ],
-      "conclusion": "The restriction of G to V(F) is a regular section of O(2), and its zero scheme is the second effective Cartier divisor giving V(F,G).",
-      "status": "in_progress",
+      "conclusion": "For a regular polynomial pair F,G, the restriction of G to the actual first-quadric subscheme V(F) is a regular section of O(2), and its zero scheme is an effective Cartier divisor giving V(F,G).",
+      "status": "verified",
       "origin": "project",
       "panels": [
         "D"
       ],
       "family": "index2",
-      "details": "Draft source exists. The selected check has no completed verdict, so this statement is not counted as compiled or proved.",
+      "details": "The verified chartwise multiplication-injectivity result glues through the affine-local Cartier criterion. Pullback of the second zero-scheme ideal identifies the restricted section, and the composite immersion has kernel equal to the sum of the two original ideals.",
       "leanDeclarations": [
         "FanoThreefolds.quadrics_second_cartier",
-        "FanoThreefolds.quadrics_second_regular"
+        "FanoThreefolds.quadrics_second_regular",
+        "FanoThreefolds.quadrics_composite_kernel"
       ],
       "evidence": [
         {
-          "label": "FanoThreefolds/QuadricsConstructionSecondCut.lean",
-          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsConstructionSecondCut.lean",
-          "kind": "source"
+          "label": "quadrics-global-cut-verification.json",
+          "path": "projects/fano-threefolds/audit/quadrics-global-cut-verification.json",
+          "commit": "3d19f62",
+          "kind": "audit"
         },
         {
-          "label": "QUADRICS-HANDOFF.md",
-          "path": "projects/fano-threefolds/audit/QUADRICS-HANDOFF.md",
+          "label": "quadrics-acceptance.json",
+          "path": "projects/fano-threefolds/audit/quadrics-acceptance.json",
+          "commit": "3d19f62",
           "kind": "audit"
+        },
+        {
+          "label": "DEGREE-FOUR-PROOFS.md",
+          "path": "projects/fano-threefolds/audit/DEGREE-FOUR-PROOFS.md",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "FanoThreefolds/QuadricsConstructionSecondCut.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsConstructionSecondCut.lean",
+          "commit": "3d19f62",
+          "kind": "source"
         }
       ],
-      "caveats": [
-        "Do not infer a global result solely from the verified chart theorem; gluing and zero-scheme comparisons remain to be checked."
-      ],
+      "caveats": [],
       "dependencies": [
         "quadrics-chart"
       ],
@@ -2231,32 +2452,57 @@ window.FANO_GRAPH = {
     },
     {
       "id": "quadrics-geometry",
-      "title": "Dimension, constants and integrality of supplied X",
-      "statement": "Transport the iterated Cartier presentation to the supplied X and prove dimension three, scalar global constants and integrality using smoothness and connectedness.",
+      "title": "Supplied intersection: geometry and sections",
+      "statement": "The supplied smooth regular intersection has dimension three, is projective and integral, has scalar global constants and six hyperplane sections.",
       "hypotheses": [
-        "k algebraically closed of characteristic zero, arbitrary universe u.",
-        "X is the supplied smooth scheme-theoretic zero locus of a regular pair of quadratic forms F,G in ℙ⁵; H is the restricted O(1).",
-        "The first quadric is not assumed smooth."
+        "k is any field; arbitrary Lean universe u.",
+        "The supplied smooth X is closed-immersed in polynomial ℙ⁵_k with image ideal (F)+(G), where F,G are a regular pair of homogeneous quadrics in six variables.",
+        "H is the restricted O(1). The first quadric is not assumed smooth."
       ],
-      "conclusion": "Transport the iterated Cartier presentation to the supplied X and prove dimension three, scalar global constants and integrality using smoothness and connectedness.",
-      "status": "planned",
-      "origin": "unassigned",
+      "conclusion": "The supplied smooth regular intersection has dimension three, is projective and integral, has scalar global constants and six hyperplane sections.",
+      "status": "verified",
+      "origin": "project",
       "panels": [
         "D"
       ],
       "family": "index2",
-      "details": "Section/cohomology sequences and the actual scheme identification are needed. Smoothness alone does not guarantee connectedness or integrality.",
-      "leanDeclarations": [],
+      "details": "The given immersion is identified with the iterated Cartier presentation. Each cut lowers relative dimension by one. The Cartier cohomology sequences give one-dimensional constants and six sections of the restricted hyperplane; connectedness and smoothness then give integrality. The geometric and section-rank helpers work over any field.",
+      "leanDeclarations": [
+        "FanoThreefolds.quadrics_exists_iterated_presentation",
+        "FanoThreefolds.quadrics_supplied_section_ranks",
+        "FanoThreefolds.quadrics_supplied_connected",
+        "FanoThreefolds.quadrics_supplied_geometry"
+      ],
       "evidence": [
         {
-          "label": "Book, rank-one progress panels A–F",
-          "path": "book/chapters/fano-rank-one-progress.tex",
+          "label": "quadrics-supplied-model-verification.json",
+          "path": "projects/fano-threefolds/audit/quadrics-supplied-model-verification.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "quadrics-acceptance.json",
+          "path": "projects/fano-threefolds/audit/quadrics-acceptance.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "DEGREE-FOUR-PROOFS.md",
+          "path": "projects/fano-threefolds/audit/DEGREE-FOUR-PROOFS.md",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "FanoThreefolds/QuadricsEmbedded.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsEmbedded.lean",
+          "commit": "3d19f62",
           "kind": "source"
         },
         {
-          "label": "Iskovskikh–Prokhorov, Fano Varieties (1999)",
-          "url": "https://link.springer.com/book/9783540614685",
-          "kind": "literature"
+          "label": "FanoThreefolds/QuadricsSuppliedGeometry.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsSuppliedGeometry.lean",
+          "commit": "3d19f62",
+          "kind": "source"
         }
       ],
       "caveats": [],
@@ -2268,31 +2514,55 @@ window.FANO_GRAPH = {
     {
       "id": "quadrics-adjunction",
       "title": "Adjunction: −K=2H for two quadrics",
-      "statement": "Iterated adjunction on the actual supplied smooth intersection yields ω_X≅O_X(−2), so −K_X≅H² is ample.",
+      "statement": "On the supplied smooth regular intersection, ω_X≅O_X(−2); consequently ω_X⁻¹≅H² and both H and −K_X are ample.",
       "hypotheses": [
-        "k algebraically closed of characteristic zero, arbitrary universe u.",
-        "X is the supplied smooth scheme-theoretic zero locus of a regular pair of quadratic forms F,G in ℙ⁵; H is the restricted O(1).",
-        "The first quadric is not assumed smooth."
+        "k is an algebraically closed field of characteristic zero; arbitrary Lean universe u.",
+        "The supplied smooth X is closed-immersed in polynomial ℙ⁵_k with image ideal (F)+(G), where F,G are a regular pair of homogeneous quadrics in six variables.",
+        "H is the restricted O(1). The first quadric is not assumed smooth."
       ],
-      "conclusion": "Iterated adjunction on the actual supplied smooth intersection yields ω_X≅O_X(−2), so −K_X≅H² is ample.",
-      "status": "planned",
-      "origin": "unassigned",
+      "conclusion": "On the supplied smooth regular intersection, ω_X≅O_X(−2); consequently ω_X⁻¹≅H² and both H and −K_X are ample.",
+      "status": "verified",
+      "origin": "project",
       "panels": [
         "D"
       ],
       "family": "index2",
-      "details": "No extra smoothness hypothesis may be imposed on V(F).",
-      "leanDeclarations": [],
+      "details": "Take the determinant of the conormal sequence of the complete intersection and compare it with the actual third relative forms on the supplied X. The argument allows a singular first quadric. The canonical-twist helper itself works over any field; the complete public invariant package is stated over algebraically closed characteristic-zero fields.",
+      "leanDeclarations": [
+        "FanoThreefolds.quadrics_iterated_conormal_determinant",
+        "FanoThreefolds.quadrics_supplied_canonicalTwist",
+        "FanoThreefolds.quadrics_supplied_polarization_cubes"
+      ],
       "evidence": [
         {
-          "label": "Book, rank-one progress panels A–F",
-          "path": "book/chapters/fano-rank-one-progress.tex",
+          "label": "quadrics-supplied-model-verification.json",
+          "path": "projects/fano-threefolds/audit/quadrics-supplied-model-verification.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "quadrics-acceptance.json",
+          "path": "projects/fano-threefolds/audit/quadrics-acceptance.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "DEGREE-FOUR-PROOFS.md",
+          "path": "projects/fano-threefolds/audit/DEGREE-FOUR-PROOFS.md",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "FanoThreefolds/QuadricsSuppliedAdjunction.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsSuppliedAdjunction.lean",
+          "commit": "3d19f62",
           "kind": "source"
         },
         {
-          "label": "Iskovskikh–Prokhorov, Fano Varieties (1999)",
-          "url": "https://link.springer.com/book/9783540614685",
-          "kind": "literature"
+          "label": "FanoThreefolds/QuadricsSuppliedNumerics.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsSuppliedNumerics.lean",
+          "commit": "3d19f62",
+          "kind": "source"
         }
       ],
       "caveats": [],
@@ -2305,109 +2575,180 @@ window.FANO_GRAPH = {
     {
       "id": "quadrics-degree",
       "title": "Two-quadric degrees: 4 and 32",
-      "statement": "The actual restricted hyperplane has H³=4 and the anticanonical volume is (−K_X)³=32.",
+      "statement": "For the supplied smooth two-quadric intersection, the actual numerical intersection pairing gives H³=4 and (−K_X)³=32.",
       "hypotheses": [
-        "k algebraically closed of characteristic zero, arbitrary universe u.",
-        "X is the supplied smooth scheme-theoretic zero locus of a regular pair of quadratic forms F,G in ℙ⁵; H is the restricted O(1).",
-        "The first quadric is not assumed smooth."
+        "k is an algebraically closed field of characteristic zero; arbitrary Lean universe u.",
+        "The supplied smooth X is closed-immersed in polynomial ℙ⁵_k with image ideal (F)+(G), where F,G are a regular pair of homogeneous quadrics in six variables.",
+        "H is the restricted O(1). The first quadric is not assumed smooth."
       ],
-      "conclusion": "The actual restricted hyperplane has H³=4 and the anticanonical volume is (−K_X)³=32.",
-      "status": "planned",
-      "origin": "unassigned",
+      "conclusion": "For the supplied smooth two-quadric intersection, the actual numerical intersection pairing gives H³=4 and (−K_X)³=32.",
+      "status": "verified",
+      "origin": "project",
       "panels": [
         "D"
       ],
       "family": "index2",
-      "details": "Use actual intersection or Euler/Koszul comparisons, not an unproved identification with a formal product 2·2.",
-      "leanDeclarations": [],
+      "details": "The section computation gives h⁰(H)=6. Applying the verified half-anticanonical formula h⁰(H)=H³+2 gives H³=4. Tensor-square scaling of the actual numerical pairing then gives (−K_X)³=8H³=32. The proof does not infer the degree merely from a formal product 2·2.",
+      "leanDeclarations": [
+        "FanoThreefolds.quadrics_supplied_polarization_cubes"
+      ],
       "evidence": [
         {
-          "label": "Book, rank-one progress panels A–F",
-          "path": "book/chapters/fano-rank-one-progress.tex",
-          "kind": "source"
+          "label": "quadrics-supplied-model-verification.json",
+          "path": "projects/fano-threefolds/audit/quadrics-supplied-model-verification.json",
+          "commit": "3d19f62",
+          "kind": "audit"
         },
         {
-          "label": "Iskovskikh–Prokhorov, Fano Varieties (1999)",
-          "url": "https://link.springer.com/book/9783540614685",
-          "kind": "literature"
+          "label": "quadrics-acceptance.json",
+          "path": "projects/fano-threefolds/audit/quadrics-acceptance.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "DEGREE-FOUR-PROOFS.md",
+          "path": "projects/fano-threefolds/audit/DEGREE-FOUR-PROOFS.md",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "FanoThreefolds/QuadricsSuppliedNumerics.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsSuppliedNumerics.lean",
+          "commit": "3d19f62",
+          "kind": "source"
         }
       ],
       "caveats": [],
       "dependencies": [
-        "quadrics-cartier",
-        "quadrics-adjunction"
+        "quadrics-geometry",
+        "quadrics-adjunction",
+        "half-sections"
       ],
       "alternativeDependencies": []
     },
     {
       "id": "quadrics-picard",
       "title": "Integral Picard generator on two quadrics",
-      "statement": "Every invertible sheaf on the supplied smooth intersection is a unique integral power of H; hence Pic(X)=ℤ[H].",
+      "statement": "For the supplied smooth two-quadric intersection, n↦n[H] is bijective ℤ→Pic(X); equivalently every invertible sheaf is a unique integral tensor power of H.",
       "hypotheses": [
-        "k algebraically closed of characteristic zero, arbitrary universe u.",
-        "X is the supplied smooth scheme-theoretic zero locus of a regular pair of quadratic forms F,G in ℙ⁵; H is the restricted O(1).",
-        "The first quadric is not assumed smooth."
+        "k is an algebraically closed field of characteristic zero; arbitrary Lean universe u.",
+        "The supplied smooth X is closed-immersed in polynomial ℙ⁵_k with image ideal (F)+(G), where F,G are a regular pair of homogeneous quadrics in six variables.",
+        "H is the restricted O(1). The first quadric is not assumed smooth."
       ],
-      "conclusion": "Every invertible sheaf on the supplied smooth intersection is a unique integral power of H; hence Pic(X)=ℤ[H].",
-      "status": "planned",
-      "origin": "unassigned",
+      "conclusion": "For the supplied smooth two-quadric intersection, n↦n[H] is bijective ℤ→Pic(X); equivalently every invertible sheaf is a unique integral tensor power of H.",
+      "status": "verified",
+      "origin": "project",
       "panels": [
         "D"
       ],
       "family": "index2",
-      "details": "An appropriate Lefschetz/formal-Picard theorem must apply without falsely assuming the first quadric smooth. The cubic proof supplies reusable techniques, not this conclusion.",
-      "leanDeclarations": [],
+      "details": "Formal Picard lifting and algebraization extend classes across both cuts. The complement of a suitable neighborhood on the first quadric consists of finitely many closed points. Their four-dimensional complete-intersection stalks have punctured spectra with trivial Picard group, so finite induction fills the punctures. Ambient Picard generation gives surjectivity, and pairing with H² with H³=4 gives injectivity. The first quadric need not be smooth.",
+      "leanDeclarations": [
+        "FanoThreefolds.quadrics_picard_lift_tower",
+        "FanoThreefolds.quadrics_picard_extend_algebraization",
+        "FanoThreefolds.quadrics_picard_fill_punctures",
+        "FanoThreefolds.quadrics_supplied_picard_restriction",
+        "FanoThreefolds.quadrics_supplied_picard"
+      ],
       "evidence": [
         {
-          "label": "Book, rank-one progress panels A–F",
-          "path": "book/chapters/fano-rank-one-progress.tex",
+          "label": "quadrics-supplied-model-verification.json",
+          "path": "projects/fano-threefolds/audit/quadrics-supplied-model-verification.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "quadrics-acceptance.json",
+          "path": "projects/fano-threefolds/audit/quadrics-acceptance.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "DEGREE-FOUR-PROOFS.md",
+          "path": "projects/fano-threefolds/audit/DEGREE-FOUR-PROOFS.md",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "FanoThreefolds/QuadricsSuppliedPicardComplement.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsSuppliedPicardComplement.lean",
+          "commit": "3d19f62",
           "kind": "source"
         },
         {
-          "label": "Iskovskikh–Prokhorov, Fano Varieties (1999)",
-          "url": "https://link.springer.com/book/9783540614685",
-          "kind": "literature"
+          "label": "FanoThreefolds/QuadricsSuppliedPicard.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsSuppliedPicard.lean",
+          "commit": "3d19f62",
+          "kind": "source"
         }
       ],
-      "caveats": [],
+      "caveats": [
+        "The integral Picard result is proved for the supplied smooth model. It does not establish the general reverse implication ρ=1 ⇒ Pic(X)=ℤ for all Fano threefolds."
+      ],
       "dependencies": [
-        "quadrics-geometry"
+        "quadrics-geometry",
+        "quadrics-degree",
+        "algebraization"
       ],
       "alternativeDependencies": []
     },
     {
       "id": "quadrics-index-rho",
       "title": "Exact index two and numerical ρ=1",
-      "statement": "For the supplied smooth intersection, H is primitive, the Fano index is exactly two and the conventional numerical Picard number is one.",
+      "statement": "The supplied smooth intersection has exact Fano index two and conventional numerical Picard number one.",
       "hypotheses": [
-        "k algebraically closed of characteristic zero, arbitrary universe u.",
-        "X is the supplied smooth scheme-theoretic zero locus of a regular pair of quadratic forms F,G in ℙ⁵; H is the restricted O(1).",
-        "The first quadric is not assumed smooth."
+        "k is an algebraically closed field of characteristic zero; arbitrary Lean universe u.",
+        "The supplied smooth X is closed-immersed in polynomial ℙ⁵_k with image ideal (F)+(G), where F,G are a regular pair of homogeneous quadrics in six variables.",
+        "H is the restricted O(1). The first quadric is not assumed smooth."
       ],
-      "conclusion": "For the supplied smooth intersection, H is primitive, the Fano index is exactly two and the conventional numerical Picard number is one.",
-      "status": "planned",
-      "origin": "unassigned",
+      "conclusion": "The supplied smooth intersection has exact Fano index two and conventional numerical Picard number one.",
+      "status": "verified",
+      "origin": "project",
       "panels": [
         "D"
       ],
       "family": "index2",
-      "details": "Literature target in the local roadmap. “Planned” means no matching verified local endpoint is recorded; it does not assert that the result is absent from all Lean libraries.",
-      "leanDeclarations": [],
+      "details": "The maximal-root argument is independent of Picard generation: a positive anticanonical tensor-root exponent r satisfies r³∣32, so r≤2, and H realizes r=2. Separately, the ample integral Picard generator and a positive proper curve identify the numerical one-cycle quotient with a one-dimensional real space.",
+      "leanDeclarations": [
+        "FanoThreefolds.quadrics_supplied_index",
+        "FanoThreefolds.quadrics_supplied_picard"
+      ],
       "evidence": [
         {
-          "label": "Book, rank-one progress panels A–F",
-          "path": "book/chapters/fano-rank-one-progress.tex",
+          "label": "quadrics-supplied-model-verification.json",
+          "path": "projects/fano-threefolds/audit/quadrics-supplied-model-verification.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "quadrics-acceptance.json",
+          "path": "projects/fano-threefolds/audit/quadrics-acceptance.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "DEGREE-FOUR-PROOFS.md",
+          "path": "projects/fano-threefolds/audit/DEGREE-FOUR-PROOFS.md",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "FanoThreefolds/QuadricsConstruction.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsConstruction.lean",
+          "commit": "3d19f62",
           "kind": "source"
         },
         {
-          "label": "Iskovskikh–Prokhorov, Fano Varieties (1999)",
-          "url": "https://link.springer.com/book/9783540614685",
-          "kind": "literature"
+          "label": "FanoThreefolds/QuadricsSuppliedPicard.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsSuppliedPicard.lean",
+          "commit": "3d19f62",
+          "kind": "source"
         }
       ],
       "caveats": [],
       "dependencies": [
         "quadrics-adjunction",
+        "quadrics-degree",
         "quadrics-picard",
         "picard-numerical"
       ],
@@ -2416,37 +2757,65 @@ window.FANO_GRAPH = {
     {
       "id": "quadrics-construction",
       "title": "Supplied two quadrics → complete Fano package",
-      "statement": "The supplied smooth intersection in ℙ⁵ is a rank-one Fano of exact index two, H³=4 and (−K)³=32.",
+      "statement": "Every supplied smooth regular intersection of two quadrics in ℙ⁵ is a rank-one Fano threefold of exact index two, with Pic(X)=ℤ[H], H³=4 and (−K_X)³=32.",
       "hypotheses": [
-        "k algebraically closed of characteristic zero, arbitrary universe u.",
-        "X is the supplied smooth scheme-theoretic zero locus of a regular pair of quadratic forms F,G in ℙ⁵; H is the restricted O(1).",
-        "The first quadric is not assumed smooth."
+        "k is an algebraically closed field of characteristic zero; arbitrary Lean universe u.",
+        "The supplied smooth X is closed-immersed in polynomial ℙ⁵_k with image ideal (F)+(G), where F,G are a regular pair of homogeneous quadrics in six variables.",
+        "H is the restricted O(1). The first quadric is not assumed smooth."
       ],
-      "conclusion": "The supplied smooth intersection in ℙ⁵ is a rank-one Fano of exact index two, H³=4 and (−K)³=32.",
-      "status": "planned",
-      "origin": "unassigned",
+      "conclusion": "Every supplied smooth regular intersection of two quadrics in ℙ⁵ is a rank-one Fano threefold of exact index two, with Pic(X)=ℤ[H], H³=4 and (−K_X)³=32.",
+      "status": "verified",
+      "origin": "project",
       "panels": [
         "B",
         "D"
       ],
       "family": "index2",
-      "details": "Literature target in the local roadmap. “Planned” means no matching verified local endpoint is recorded; it does not assert that the result is absent from all Lean libraries.",
+      "details": "The final public endpoint includes the supplied scheme’s projectivity, smoothness, integrality, dimension, actual canonical and anticanonical isomorphisms, ampleness, numerical cubes, Picard bijection, numerical ρ=1 and maximal positive tensor-root exponent. Named and independently expanded arbitrary-universe checks passed on the final import with matching direct replay.",
       "leanDeclarations": [
-        "FanoThreefolds.SmoothTwoQuadricsStatement"
+        "FanoThreefolds.smoothTwoQuadricsStatement_proved"
       ],
       "evidence": [
         {
-          "label": "Book, rank-one progress panels A–F",
-          "path": "book/chapters/fano-rank-one-progress.tex",
+          "label": "quadrics-supplied-model-verification.json",
+          "path": "projects/fano-threefolds/audit/quadrics-supplied-model-verification.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "quadrics-acceptance.json",
+          "path": "projects/fano-threefolds/audit/quadrics-acceptance.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "DEGREE-FOUR-PROOFS.md",
+          "path": "projects/fano-threefolds/audit/DEGREE-FOUR-PROOFS.md",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "FanoThreefolds/QuadricsConstruction.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsConstruction.lean",
+          "commit": "3d19f62",
           "kind": "source"
         },
         {
-          "label": "Iskovskikh–Prokhorov, Fano Varieties (1999)",
-          "url": "https://link.springer.com/book/9783540614685",
-          "kind": "literature"
+          "label": "FanoThreefolds/QuadricsProposal.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsProposal.lean",
+          "commit": "3d19f62",
+          "kind": "source"
+        },
+        {
+          "label": "FanoThreefolds/QuadricsConstructionAudit.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsConstructionAudit.lean",
+          "commit": "3d19f62",
+          "kind": "source"
         }
       ],
-      "caveats": [],
+      "caveats": [
+        "This proves supplied-model invariants, not connectedness or uniqueness of a deformation family."
+      ],
       "dependencies": [
         "quadrics-geometry",
         "quadrics-adjunction",
@@ -2457,38 +2826,62 @@ window.FANO_GRAPH = {
     },
     {
       "id": "quadrics-existence",
-      "title": "A nonempty smooth two-quadric family",
-      "statement": "There are smooth regular intersections of two quadrics in ℙ⁵, forming the required nonempty smooth parameter-family locus.",
+      "title": "An explicit smooth two-quadric model exists",
+      "statement": "Over every algebraically closed characteristic-zero field, there is a regular pair of quadrics in ℙ⁵ whose simultaneous zero scheme is nonempty and smooth.",
       "hypotheses": [
-        "Ground field ℂ; pairs of quadrics with independent equations and expected dimension."
+        "k is algebraically closed of characteristic zero; arbitrary Lean universe u."
       ],
-      "conclusion": "There are smooth regular intersections of two quadrics in ℙ⁵, forming the required nonempty smooth parameter-family locus.",
-      "status": "planned",
-      "origin": "unassigned",
+      "conclusion": "Over every algebraically closed characteristic-zero field, there is a regular pair of quadrics in ℙ⁵ whose simultaneous zero scheme is nonempty and smooth.",
+      "status": "verified",
+      "origin": "project",
       "panels": [
         "D",
         "F"
       ],
       "family": "index2",
-      "details": "Construction of a supplied model and existence of a suitable smooth pair are different obligations.",
+      "details": "Take F=∑ᵢ₌₀⁵xᵢ² and G=∑ᵢ₌₀⁵i·xᵢ². Their coefficients are distinct in characteristic zero. The proof establishes polynomial regularity, checks a surviving two-by-two Jacobian minor at each prime on every standard affine chart, and identifies these charts with the actual projective intersection. Connectedness supplies nonemptiness.",
       "leanDeclarations": [
-        "FanoThreefolds.SmoothTwoQuadricsExistenceStatement"
+        "FanoThreefolds.diagonalQuadric_example_regular",
+        "FanoThreefolds.quadrics_smooth_of_chart_quotients",
+        "FanoThreefolds.smoothTwoQuadricsExistenceStatement_proved"
       ],
       "evidence": [
         {
-          "label": "Book, rank-one progress panels A–F",
-          "path": "book/chapters/fano-rank-one-progress.tex",
+          "label": "quadrics-supplied-model-verification.json",
+          "path": "projects/fano-threefolds/audit/quadrics-supplied-model-verification.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "quadrics-acceptance.json",
+          "path": "projects/fano-threefolds/audit/quadrics-acceptance.json",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "DEGREE-FOUR-PROOFS.md",
+          "path": "projects/fano-threefolds/audit/DEGREE-FOUR-PROOFS.md",
+          "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "FanoThreefolds/QuadricsDiagonalSmooth.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsDiagonalSmooth.lean",
+          "commit": "3d19f62",
           "kind": "source"
         },
         {
-          "label": "Iskovskikh–Prokhorov, Fano Varieties (1999)",
-          "url": "https://link.springer.com/book/9783540614685",
-          "kind": "literature"
+          "label": "FanoThreefolds/QuadricsJacobian.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/QuadricsJacobian.lean",
+          "commit": "3d19f62",
+          "kind": "source"
         }
       ],
-      "caveats": [],
+      "caveats": [
+        "This certifies an explicit example over each allowed field. A smooth parameter-space family, its connectedness and its deformation-equivalence certificate have not been proved by this endpoint."
+      ],
       "dependencies": [
-        "quadrics-construction"
+        "quadrics-cartier"
       ],
       "alternativeDependencies": []
     },
@@ -2599,22 +2992,145 @@ window.FANO_GRAPH = {
       "alternativeDependencies": []
     },
     {
-      "id": "d2-construction",
-      "title": "Quartic double solid: invariants",
-      "statement": "A double cover of ℙ³ branched along a smooth quartic has −K=2H, H³=2, Pic=ℤ[H] and exact index two with ρ=1.",
+      "id": "d2-generation",
+      "title": "Degree-two |H| gives a double-cover map",
+      "statement": "The four sections of H generate every stalk and define an over-k finite degree-two morphism to ℙ³, pulling O(1) back to H.",
       "hypotheses": [
-        "Ground field ℂ; finite flat double cover with smooth quartic branch and H the pullback of O(1)."
+        "Original algebraically closed field k of characteristic zero, at arbitrary Lean universe u.",
+        "X is a smooth projective integral threefold; H is an ample invertible sheaf.",
+        "The actual anticanonical sheaf is isomorphic to H⊗H and H³=2."
       ],
-      "conclusion": "A double cover of ℙ³ branched along a smooth quartic has −K=2H, H³=2, Pic=ℤ[H] and exact index two with ρ=1.",
-      "status": "planned",
-      "origin": "unassigned",
+      "conclusion": "The four sections of H generate every stalk and define an over-k finite degree-two morphism to ℙ³, pulling O(1) back to H.",
+      "status": "in_progress",
+      "origin": "project",
       "panels": [
         "B"
       ],
       "family": "index2",
-      "details": "Forward construction must include the canonical sheaf, intersection and integral Picard claims; the model name alone is not a proof.",
+      "details": "Worker 1: reuse Hilbert numerics, exclude fixed divisors and use length-one generation on degree-two genus-one curves. Degree-three length-two separation must not be assumed.",
       "leanDeclarations": [],
       "evidence": [
+        {
+          "label": "Authorised degree-two campaign and assignments",
+          "path": "projects/fano-threefolds/coord/claims.md",
+          "kind": "source"
+        },
+        {
+          "label": "Current mathematical state",
+          "path": "projects/fano-threefolds/coord/STATE.md",
+          "kind": "source"
+        }
+      ],
+      "caveats": [
+        "Assigned proof obligation; no completed proof is claimed."
+      ],
+      "dependencies": [
+        "half-sections"
+      ],
+      "alternativeDependencies": []
+    },
+    {
+      "id": "d2-cover-algebra",
+      "title": "Rank-two cover algebra and quartic branch",
+      "statement": "Identify the actual finite flat cover algebra as O⊕O(−2), with multiplication determined by a smooth quartic branch section.",
+      "hypotheses": [
+        "Original algebraically closed field k of characteristic zero, at arbitrary Lean universe u.",
+        "X is a smooth projective integral threefold; H is an ample invertible sheaf.",
+        "The actual anticanonical sheaf is isomorphic to H⊗H and H³=2.",
+        "A supplied complete-system finite degree-two map to ℙ³ as in the preceding node."
+      ],
+      "conclusion": "Identify the actual finite flat cover algebra as O⊕O(−2), with multiplication determined by a smooth quartic branch section.",
+      "status": "in_progress",
+      "origin": "project",
+      "panels": [
+        "B"
+      ],
+      "family": "index2",
+      "details": "Worker 2: general miracle flatness, trace splitting, trace-zero line-bundle identification, multiplication, branch smoothness and an actual over-base isomorphism.",
+      "leanDeclarations": [],
+      "evidence": [
+        {
+          "label": "Authorised degree-two campaign and assignments",
+          "path": "projects/fano-threefolds/coord/claims.md",
+          "kind": "source"
+        },
+        {
+          "label": "Current mathematical state",
+          "path": "projects/fano-threefolds/coord/STATE.md",
+          "kind": "source"
+        }
+      ],
+      "caveats": [
+        "Assigned proof obligation; no completed proof is claimed."
+      ],
+      "dependencies": [
+        "d2-generation"
+      ],
+      "alternativeDependencies": []
+    },
+    {
+      "id": "d2-picard",
+      "title": "Double-solid Picard and numerical invariants",
+      "statement": "For the smooth quartic double cover, Pic(X)=ℤ[H] and the conventional numerical Picard number is one.",
+      "hypotheses": [
+        "Algebraically closed characteristic-zero field k at arbitrary universe.",
+        "X is the smooth double cover of ℙ³ defined by a smooth quartic branch section; H is the pulled hyperplane."
+      ],
+      "conclusion": "For the smooth quartic double cover, Pic(X)=ℤ[H] and the conventional numerical Picard number is one.",
+      "status": "in_progress",
+      "origin": "project",
+      "panels": [
+        "B"
+      ],
+      "family": "index2",
+      "details": "Worker 3: establish an appropriate genuine covering or weighted-projective Lefschetz bridge. Its availability is still under source audit.",
+      "leanDeclarations": [],
+      "evidence": [
+        {
+          "label": "Authorised degree-two campaign and assignments",
+          "path": "projects/fano-threefolds/coord/claims.md",
+          "kind": "source"
+        },
+        {
+          "label": "Current mathematical state",
+          "path": "projects/fano-threefolds/coord/STATE.md",
+          "kind": "source"
+        }
+      ],
+      "caveats": [
+        "Assigned proof obligation; no completed proof is claimed."
+      ],
+      "dependencies": [],
+      "alternativeDependencies": []
+    },
+    {
+      "id": "d2-construction",
+      "title": "Quartic double solid: invariants",
+      "statement": "A double cover of ℙ³ branched along a smooth quartic has −K=2H, H³=2, Pic=ℤ[H] and exact index two with ρ=1.",
+      "hypotheses": [
+        "Original algebraically closed characteristic-zero field k, at arbitrary Lean universe u.",
+        "A smooth quartic branch surface in polynomial projective three-space; use the associated rank-two cover algebra O⊕O(−2)."
+      ],
+      "conclusion": "A double cover of ℙ³ branched along a smooth quartic has −K=2H, H³=2, Pic=ℤ[H] and exact index two with ρ=1.",
+      "status": "in_progress",
+      "origin": "project",
+      "panels": [
+        "B"
+      ],
+      "family": "index2",
+      "details": "Worker 3: construct the genuine smooth projective integral double cover, identify its canonical bundle and H³=2, (−K)³=16, then prove integral Picard generation, numerical rank one and exact index two.",
+      "leanDeclarations": [],
+      "evidence": [
+        {
+          "label": "Authorised degree-two campaign and assignments",
+          "path": "projects/fano-threefolds/coord/claims.md",
+          "kind": "source"
+        },
+        {
+          "label": "Current mathematical state",
+          "path": "projects/fano-threefolds/coord/STATE.md",
+          "kind": "source"
+        },
         {
           "label": "Book, rank-one progress panels A–F",
           "path": "book/chapters/fano-rank-one-progress.tex",
@@ -2626,32 +3142,44 @@ window.FANO_GRAPH = {
           "kind": "literature"
         }
       ],
-      "caveats": [],
-      "dependencies": [],
+      "caveats": [
+        "Assigned campaign; no completed degree-two endpoint is claimed in this snapshot.",
+        "The Picard bridge is a substantial open obligation; numerical volume alone does not prove Pic(X)=ℤ[H]."
+      ],
+      "dependencies": [
+        "d2-picard"
+      ],
       "alternativeDependencies": []
     },
     {
       "id": "d2-recognition",
       "title": "Quartic double solid: recognise every input",
-      "statement": "Every primitive index-two rank-one Fano of degree 2 is isomorphic, with polarization, to a double cover of ℙ³ branched along a smooth quartic.",
+      "statement": "For the given degree-two half-anticanonical polarization, the complete system gives a finite flat double cover X→ℙ³ with algebra O⊕O(−2), defined by a smooth quartic branch section, and H is the pulled hyperplane.",
       "hypotheses": [
-        "X is a smooth projective integral threefold over an algebraically closed field k of characteristic zero.",
-        "Statements are intended at arbitrary Lean universe u unless this node explicitly restricts to ℂ.",
-        "The conventional numerical Picard number ρ(X) is one.",
-        "Pic(X)=ℤ[H], with H primitive and ample; −K_X = rH.",
-        "r=2 and H³=2.",
-        "X is Fano: its actual anticanonical invertible sheaf ω_X⁻¹ is ample."
+        "Original algebraically closed field k of characteristic zero, at arbitrary Lean universe u.",
+        "X is a smooth projective integral threefold; H is an ample invertible sheaf.",
+        "The actual anticanonical sheaf is isomorphic to H⊗H and H³=2."
       ],
-      "conclusion": "Every primitive index-two rank-one Fano of degree 2 is isomorphic, with polarization, to a double cover of ℙ³ branched along a smooth quartic.",
-      "status": "planned",
-      "origin": "unassigned",
+      "conclusion": "For the given degree-two half-anticanonical polarization, the complete system gives a finite flat double cover X→ℙ³ with algebra O⊕O(−2), defined by a smooth quartic branch section, and H is the pulled hyperplane.",
+      "status": "in_progress",
+      "origin": "project",
       "panels": [
         "B"
       ],
       "family": "index2",
-      "details": "An intrinsic recognition theorem. Full graded-ring or cover/homogeneous-model arguments must cover special members, not just a generic example.",
+      "details": "Workers 1 and 2: construct generation and the actual map, then identify the rank-two algebra and branch. No Picard-rank, global-generation or pre-existing-cover hypothesis is added.",
       "leanDeclarations": [],
       "evidence": [
+        {
+          "label": "Authorised degree-two campaign and assignments",
+          "path": "projects/fano-threefolds/coord/claims.md",
+          "kind": "source"
+        },
+        {
+          "label": "Current mathematical state",
+          "path": "projects/fano-threefolds/coord/STATE.md",
+          "kind": "source"
+        },
         {
           "label": "Book, rank-one progress panels A–F",
           "path": "book/chapters/fano-rank-one-progress.tex",
@@ -2663,28 +3191,43 @@ window.FANO_GRAPH = {
           "kind": "literature"
         }
       ],
-      "caveats": [],
-      "dependencies": [],
+      "caveats": [
+        "Assigned campaign; no completed degree-two endpoint is claimed in this snapshot."
+      ],
+      "dependencies": [
+        "d2-generation",
+        "d2-cover-algebra"
+      ],
       "alternativeDependencies": []
     },
     {
       "id": "d2-existence",
-      "title": "Quartic double solid: nonempty family",
-      "statement": "The admissible quartic double solid parameter space has a nonempty locus of smooth models with the asserted invariants.",
+      "title": "Quartic double solid: explicit smooth example",
+      "statement": "Construct a nonempty smooth quartic double solid over every permitted field, with the proved Fano, polarization, index and Picard invariants.",
       "hypotheses": [
-        "Ground field ℂ; the admissibility and smoothness conditions in the construction theorem."
+        "Algebraically closed characteristic-zero field k at arbitrary Lean universe u."
       ],
-      "conclusion": "The admissible quartic double solid parameter space has a nonempty locus of smooth models with the asserted invariants.",
-      "status": "planned",
-      "origin": "unassigned",
+      "conclusion": "Construct a nonempty smooth quartic double solid over every permitted field, with the proved Fano, polarization, index and Picard invariants.",
+      "status": "in_progress",
+      "origin": "project",
       "panels": [
         "B",
         "F"
       ],
       "family": "index2",
-      "details": "Literature target in the local roadmap. “Planned” means no matching verified local endpoint is recorded; it does not assert that the result is absent from all Lean libraries.",
+      "details": "Worker 3 will supply an explicit smooth branch quartic, with the Fermat equation as the initial candidate, and construct its cover. Parameter-family connectedness and deformation uniqueness remain separate open goals.",
       "leanDeclarations": [],
       "evidence": [
+        {
+          "label": "Authorised degree-two campaign and assignments",
+          "path": "projects/fano-threefolds/coord/claims.md",
+          "kind": "source"
+        },
+        {
+          "label": "Current mathematical state",
+          "path": "projects/fano-threefolds/coord/STATE.md",
+          "kind": "source"
+        },
         {
           "label": "Book, rank-one progress panels A–F",
           "path": "book/chapters/fano-rank-one-progress.tex",
@@ -2697,7 +3240,8 @@ window.FANO_GRAPH = {
         }
       ],
       "caveats": [
-        "Explicit general models do not alone prove exhaustive recognition or a single deformation class."
+        "Explicit general models do not alone prove exhaustive recognition or a single deformation class.",
+        "Assigned campaign; no completed degree-two endpoint is claimed in this snapshot."
       ],
       "dependencies": [
         "d2-construction"
@@ -4538,7 +5082,9 @@ window.FANO_GRAPH = {
           "kind": "literature"
         }
       ],
-      "caveats": [],
+      "caveats": [
+        "The two-quadric node now supplies a verified explicit smooth example, not a parameter-family connectedness theorem. Family objects and their required geometric properties still need formal certificates."
+      ],
       "dependencies": [
         "p3-construction",
         "quadric-construction",
@@ -4556,7 +5102,8 @@ window.FANO_GRAPH = {
         "g8-existence",
         "g9-existence",
         "g10-existence",
-        "g12-existence"
+        "g12-existence",
+        "quadrics-construction"
       ],
       "alternativeDependencies": []
     },
