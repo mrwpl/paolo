@@ -37,10 +37,12 @@ Verification recorded here comprises saved Lean checks and axiom audits. A separ
 
 These files live in the `fano-proof-map/` subdirectory of the existing `mrwpl/paolo` website repository. Its existing GitHub Pages workflow publishes the static repository; no change to repository visibility or to the personal website's other pages is required.
 
-## Degree-two and degree-five snapshot, 28 November 2026
+## Degree-two completion and degree-five preparation, 28 November 2026
 
-Cubic and degree-four models and intrinsic quartic double-solid recognition are verified. Degree-two Picard, full converse and invariant-bearing Fermat example have passed production builds; final public/direct acceptance is pending. Degree-five construction preparation is in progress with uncompiled drafts. Degrees one/five, the general degree bound and deformation-family certificates remain open.
+Cubic, degree-four and quartic double-solid model recognition and supplied-model invariants are verified. Degree two also has an explicit smooth Fermat cover with the full Picard, numerical and exact-index package. Degree-five construction preparation remains in progress with uncompiled drafts. Degrees one/five, the general degree bound and deformation-family certificates remain open.
 
-Intrinsic recognition is accepted at `81cf101` (public normal 566.02 s; separate direct replay 249.98 s; 25 matching standard-three axiom reports). The full supplied-cover/Picard and Fermat-invariant package compiled at `2044e6c`; its closing public/direct acceptance remains pending.
+The degree-two campaign is accepted at `8d05105`. The closing public normal build took 689.94 s and its separate direct Lean replay 301.71 s. Named and independently expanded types and all 26 transitive axiom reports agree, using only `propext`, `Classical.choice` and `Quot.sound`. The full supplied-cover theorem includes integral Picard generation, numerical Picard number one and exact index two; the explicit Fermat cover has the same invariant package.
 
-The graph retains all 126 boxes: 51 verified, 5 partial/in progress, 3 compiled/audit-pending and 67 open. These counts do not measure mathematical effort. Degree-five construction is an assigned preparation workstream; its new Lean drafts remain uncompiled.
+The graph retains all 126 boxes: 54 verified, 5 partial/in progress, 0 compiled/audit-pending and 67 open. Panel B retains 24 boxes: 15 verified, 2 partial/in progress, 0 compiled and 7 open. These counts do not measure mathematical effort.
+
+Degree-five construction remains assigned preparation with uncompiled Lean drafts. The corrected source audit records existing native/polynomial projective comparison and twist-transport APIs. The actual Grassmannian factorisation and polarization, Pfaffian structure, canonical and Picard bridges remain unproved. No degree-five theorem is promoted to verified by this snapshot.
