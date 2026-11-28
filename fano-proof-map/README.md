@@ -36,3 +36,9 @@ Verification recorded here comprises saved Lean checks and axiom audits. A separ
 ## Hosting
 
 These files live in the `fano-proof-map/` subdirectory of the existing `mrwpl/paolo` website repository. Its existing GitHub Pages workflow publishes the static repository; no change to repository visibility or to the personal website's other pages is required.
+
+## Degree-two snapshot, 28 November 2026
+
+At proof checkpoint `55a6c7f`, the complete-system map is finite flat of rank two, with the original polarization and section-space comparison. The native quartic cover algebra (including multiplication), branch comparisons, and the narrower smooth inhabited Fermat branch/inhabited-cover endpoint are verified. Full intrinsic recognition, supplied-cover invariants and deformation-family claims remain open.
+
+The public normal audit and separate direct Lean replay agree on 13 standard-three axiom reports. The graph has 126 boxes: 49 verified, 9 partial/in progress, 68 open and 0 compiled/audit-pending. These are counts of mathematical boxes, not effort percentages.

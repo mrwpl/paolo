@@ -3,9 +3,9 @@ window.FANO_GRAPH = {
   "meta": {
     "title": "The rank-one Fano proof map",
     "scope": "A curated mathematical roadmap toward the 17 deformation families of smooth complex Fano threefolds with numerical Picard number one.",
-    "snapshot": "28 November 2026 · 11:22 (UTC+08:00) · static snapshot",
-    "checkpoint": "3d19f62",
-    "updatedAt": "2026-11-28T03:22:00Z",
+    "snapshot": "28 November 2026 · 05:54 UTC · static snapshot",
+    "checkpoint": "55a6c7f",
+    "updatedAt": "2026-11-28T05:54:20Z",
     "fieldScope": "Final classification over ℂ. Many verified local algebraic theorems hold over algebraically closed fields of characteristic zero at arbitrary Lean universe u; the regular-pair cancellation and chart theorem hold over any field.",
     "versionPins": {
       "Lean": "v4.35.0",
@@ -26,7 +26,7 @@ window.FANO_GRAPH = {
       "Evidence paths are repository-relative record identifiers; private proof source files are not published by this website.",
       "Exactly seventeen counts deformation families, not individual varieties up to isomorphism. The higher-Picard-number branches of the 105-family classification are outside this graph.",
       "The degree-four example theorem proves a nonempty smooth regular intersection over each allowed field; it does not establish a connected parameter family or one deformation class.",
-      "Verified degree-four proof cutoff: checkpoint 3d19f62, 28 November 04:42 UTC+08. The later degree-two assignment is open work, not a completed proof."
+      "Verified degree-two proof cutoff: checkpoint 55a6c7f, 28 November 05:54 UTC. The complete finite flat rank-two map, native quartic cover algebra/branch comparisons and narrower Fermat example are verified. Full intrinsic quartic recognition and supplied-cover invariants remain in progress."
     ]
   },
   "panels": [
@@ -40,7 +40,7 @@ window.FANO_GRAPH = {
       "id": "B",
       "title": "The five index-two models",
       "bookPage": 66,
-      "description": "Cubic and degree-four polarized models are verified. The active next branch is degree two: quartic double-solid recognition, construction and a smooth example. The degree bound, degrees one and five, and deformation certificates remain open."
+      "description": "Cubic and degree-four models are verified. In degree two, the complete finite flat double map, native quartic cover algebra/branch comparisons and a smooth inhabited Fermat branch with inhabited cover are verified. Full recognition, supplied-cover invariants, the degree bound, degrees one/five and deformation certificates remain open."
     },
     {
       "id": "C",
@@ -217,7 +217,7 @@ window.FANO_GRAPH = {
         "B"
       ],
       "family": "index2",
-      "details": "The polarized cubic and degree-four two-quadric recognition theorems and supplied-model invariant packages are verified. Degree four also has an explicit smooth nonempty example. The general primitive degree bound, degrees one, two and five, and deformation-family certificates remain open.",
+      "details": "The polarized cubic and degree-four recognition theorems and supplied-model invariant packages are verified. Degree two now has the complete finite flat rank-two map, native quartic algebra/branch comparisons and a smooth inhabited Fermat branch with inhabited cover. Full degree-two recognition and converse invariants, the general degree bound, degrees one/five and deformation-family certificates remain open.",
       "leanDeclarations": [],
       "evidence": [
         {
@@ -240,6 +240,18 @@ window.FANO_GRAPH = {
           "label": "DEGREE-FOUR-PROOFS.md",
           "path": "projects/fano-threefolds/audit/DEGREE-FOUR-PROOFS.md",
           "commit": "3d19f62",
+          "kind": "audit"
+        },
+        {
+          "label": "double-solid-cover-map-verification.json",
+          "path": "projects/fano-threefolds/audit/double-solid-cover-map-verification.json",
+          "commit": "55a6c7f",
+          "kind": "audit"
+        },
+        {
+          "label": "double-solid-fermat-verification.json",
+          "path": "projects/fano-threefolds/audit/double-solid-fermat-verification.json",
+          "commit": "2359c3e",
           "kind": "audit"
         }
       ],
@@ -2993,41 +3005,145 @@ window.FANO_GRAPH = {
     },
     {
       "id": "d2-generation",
-      "title": "Degree-two |H| gives a double-cover map",
-      "statement": "The four sections of H generate every stalk and define an over-k finite degree-two morphism to ℙ³, pulling O(1) back to H.",
+      "title": "Degree-two complete map is finite flat",
+      "statement": "H has four independent global sections generating every stalk. Its complete system gives an over-k finite flat rank-two morphism X→ℙ³, pulling O(1) back to H and inducing a bijection on linear sections.",
       "hypotheses": [
         "Original algebraically closed field k of characteristic zero, at arbitrary Lean universe u.",
         "X is a smooth projective integral threefold; H is an ample invertible sheaf.",
         "The actual anticanonical sheaf is isomorphic to H⊗H and H³=2."
       ],
-      "conclusion": "The four sections of H generate every stalk and define an over-k finite degree-two morphism to ℙ³, pulling O(1) back to H.",
-      "status": "in_progress",
+      "conclusion": "H has four independent global sections generating every stalk. Its complete system gives an over-k finite flat rank-two morphism X→ℙ³, pulling O(1) back to H and inducing a bijection on linear sections.",
+      "status": "verified",
       "origin": "project",
       "panels": [
         "B"
       ],
       "family": "index2",
-      "details": "Worker 1: reuse Hilbert numerics, exclude fixed divisors and use length-one generation on degree-two genus-one curves. Degree-three length-two separation must not be assumed.",
-      "leanDeclarations": [],
+      "details": "Hilbert numerics give four sections. Fixed/moving intersection positivity excludes a fixed divisor; length-one generation on actual degree-two genus-one section curves lifts to the original X. Properness and ampleness give finiteness; miracle flatness and the hyperplane cube give constant rank two. The public named and expanded map checks, 13 transitive axiom reports and separate direct replay passed.",
+      "leanDeclarations": [
+        "FanoThreefolds.doubleSolidSectionCount",
+        "FanoThreefolds.doubleSolidNoFixedDivisor",
+        "FanoThreefolds.doubleSolidGlobalGeneration",
+        "FanoThreefolds.exists_completeDoubleSolidMap"
+      ],
       "evidence": [
         {
-          "label": "Authorised degree-two campaign and assignments",
-          "path": "projects/fano-threefolds/coord/claims.md",
-          "kind": "source"
+          "label": "double-solid-generation-verification.json",
+          "path": "projects/fano-threefolds/audit/double-solid-generation-verification.json",
+          "commit": "6a77d67",
+          "kind": "audit"
         },
         {
-          "label": "Current mathematical state",
-          "path": "projects/fano-threefolds/coord/STATE.md",
+          "label": "double-solid-cover-map-verification.json",
+          "path": "projects/fano-threefolds/audit/double-solid-cover-map-verification.json",
+          "commit": "55a6c7f",
+          "kind": "audit"
+        },
+        {
+          "label": "DoubleSolidGenerationFinite.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/DoubleSolidGenerationFinite.lean",
+          "commit": "55a6c7f",
           "kind": "source"
         }
       ],
       "caveats": [
-        "Assigned proof obligation; no completed proof is claimed."
+        "This constructs the actual complete finite flat rank-two map. Identifying its algebra with a smooth quartic native cover remains a separate recognition obligation."
       ],
       "dependencies": [
         "half-sections"
       ],
       "alternativeDependencies": []
+    },
+    {
+      "id": "d2-native-algebra",
+      "title": "Native quartic cover: algebra and branch",
+      "statement": "For a supplied homogeneous quartic F on ℙ³, the native double cover has the actual algebra O⊕O(−2), with multiplication prescribed by F on every open. For F≠0, its branch ideals agree with the quartic ideal; smoothness of the native cover implies smoothness of that branch.",
+      "hypotheses": [
+        "A field k at arbitrary Lean universe u and a supplied homogeneous quartic F on polynomial projective three-space.",
+        "F is nonzero for branch-ideal agreement and the smooth-branch implication. The latter assumes that the native cover is smooth over k."
+      ],
+      "status": "verified",
+      "origin": "project",
+      "panels": [
+        "B"
+      ],
+      "family": "index2",
+      "details": "The even–odd chart decomposition is an isomorphism of actual algebras, including odd multiplication. The public audit checks both the named and independently expanded pushforward algebra, the branch-ideal comparison and the implication from a smooth cover to a smooth branch. Normal and separate direct checks agree on the 13 standard-three axiom reports.",
+      "leanDeclarations": [
+        "FanoThreefolds.quarticDoubleProjection_hasAlgebra",
+        "FanoThreefolds.doubleSolid_quartic_branch_agreement",
+        "FanoThreefolds.doubleSolid_branch_smooth_of_smooth"
+      ],
+      "evidence": [
+        {
+          "label": "double-solid-cover-map-verification.json",
+          "path": "projects/fano-threefolds/audit/double-solid-cover-map-verification.json",
+          "commit": "55a6c7f",
+          "kind": "audit"
+        },
+        {
+          "label": "DoubleCoverAlgebraCore.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/DoubleCoverAlgebraCore.lean",
+          "commit": "55a6c7f",
+          "kind": "source"
+        },
+        {
+          "label": "DoubleSolidConstructionBranch.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/DoubleSolidConstructionBranch.lean",
+          "commit": "55a6c7f",
+          "kind": "source"
+        }
+      ],
+      "caveats": [
+        "This concerns the native cover of a supplied quartic. Identifying the algebra of the intrinsic complete map with such a quartic cover remains in progress.",
+        "The smooth-branch implication assumes smoothness of the cover; the converse construction has its own verification obligations."
+      ],
+      "dependencies": [],
+      "alternativeDependencies": [],
+      "conclusion": "For a supplied homogeneous quartic F on ℙ³, the native double cover has the actual algebra O⊕O(−2), with multiplication prescribed by F on every open. For F≠0, its branch ideals agree with the quartic ideal; smoothness of the native cover implies smoothness of that branch."
+    },
+    {
+      "id": "d2-fermat-example",
+      "title": "Smooth Fermat branch, inhabited cover",
+      "statement": "The Fermat quartic is nonzero; its actual branch in ℙ³ is smooth and inhabited, and its native double cover is inhabited.",
+      "hypotheses": [
+        "Original algebraically closed field k of characteristic zero, at arbitrary Lean universe u.",
+        "Use the named Fermat quartic and its native double cover."
+      ],
+      "status": "verified",
+      "origin": "project",
+      "panels": [
+        "B",
+        "F"
+      ],
+      "family": "index2",
+      "details": "The explicit Fermat endpoint passed its public named and expanded checks and separate direct Lean replay. Smoothness and nonemptiness are established for the actual quartic branch, and surjectivity supplies a point of the native cover.",
+      "leanDeclarations": [
+        "FanoThreefolds.fermatQuarticDoubleSolidExistenceStatement_proved"
+      ],
+      "evidence": [
+        {
+          "label": "double-solid-fermat-verification.json",
+          "path": "projects/fano-threefolds/audit/double-solid-fermat-verification.json",
+          "commit": "2359c3e",
+          "kind": "audit"
+        },
+        {
+          "label": "DoubleSolidConstructionFermat.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/DoubleSolidConstructionFermat.lean",
+          "commit": "2359c3e",
+          "kind": "source"
+        }
+      ],
+      "caveats": [
+        "The cover’s smoothness, Fano, Picard and exact-index package remain in the broader converse target.",
+        "An inhabited example does not establish a connected parameter family or a single deformation class."
+      ],
+      "dependencies": [
+        "d2-native-algebra"
+      ],
+      "alternativeDependencies": [],
+      "conclusion": "The Fermat quartic is nonzero; its actual branch in ℙ³ is smooth and inhabited, and its native double cover is inhabited."
     },
     {
       "id": "d2-cover-algebra",
@@ -3046,25 +3162,28 @@ window.FANO_GRAPH = {
         "B"
       ],
       "family": "index2",
-      "details": "Worker 2: general miracle flatness, trace splitting, trace-zero line-bundle identification, multiplication, branch smoothness and an actual over-base isomorphism.",
+      "details": "The complete finite flat rank-two map and the supplied native-cover algebra/branch comparisons are verified. Normalized trace and its trace-free product calculation have passed a standalone build. The remaining intrinsic step identifies the arbitrary complete map’s trace-free line, quartic multiplication and native-cover presentation over ℙ³.",
       "leanDeclarations": [],
       "evidence": [
         {
-          "label": "Authorised degree-two campaign and assignments",
-          "path": "projects/fano-threefolds/coord/claims.md",
-          "kind": "source"
+          "label": "double-solid-cover-map-verification.json",
+          "path": "projects/fano-threefolds/audit/double-solid-cover-map-verification.json",
+          "commit": "55a6c7f",
+          "kind": "audit"
         },
         {
-          "label": "Current mathematical state",
-          "path": "projects/fano-threefolds/coord/STATE.md",
-          "kind": "source"
+          "label": "DOUBLE-SOLIDS.md",
+          "path": "projects/fano-threefolds/audit/DOUBLE-SOLIDS.md",
+          "commit": "55a6c7f",
+          "kind": "audit"
         }
       ],
       "caveats": [
-        "Assigned proof obligation; no completed proof is claimed."
+        "The verified native algebra is for a supplied quartic. It does not yet identify the algebra of every intrinsic finite map."
       ],
       "dependencies": [
-        "d2-generation"
+        "d2-generation",
+        "d2-native-algebra"
       ],
       "alternativeDependencies": []
     },
@@ -3083,22 +3202,18 @@ window.FANO_GRAPH = {
         "B"
       ],
       "family": "index2",
-      "details": "Worker 3: establish an appropriate genuine covering or weighted-projective Lefschetz bridge. Its availability is still under source audit.",
+      "details": "The proposed route uses an auxiliary ordinary quartic in ℙ⁴, the map to the native double solid, actual pullback-polarization comparisons and Picard descent. The integral Picard-generation and numerical comparison endpoints are still undergoing verification.",
       "leanDeclarations": [],
       "evidence": [
         {
-          "label": "Authorised degree-two campaign and assignments",
-          "path": "projects/fano-threefolds/coord/claims.md",
-          "kind": "source"
-        },
-        {
-          "label": "Current mathematical state",
-          "path": "projects/fano-threefolds/coord/STATE.md",
-          "kind": "source"
+          "label": "DOUBLE-SOLIDS.md",
+          "path": "projects/fano-threefolds/audit/DOUBLE-SOLIDS.md",
+          "commit": "55a6c7f",
+          "kind": "audit"
         }
       ],
       "caveats": [
-        "Assigned proof obligation; no completed proof is claimed."
+        "No accepted integral Picard-generation endpoint for the native quartic cover is recorded at this cutoff. Degree and volume alone do not prove Pic(X)=ℤ[H]."
       ],
       "dependencies": [],
       "alternativeDependencies": []
@@ -3118,35 +3233,28 @@ window.FANO_GRAPH = {
         "B"
       ],
       "family": "index2",
-      "details": "Worker 3: construct the genuine smooth projective integral double cover, identify its canonical bundle and H³=2, (−K)³=16, then prove integral Picard generation, numerical rank one and exact index two.",
+      "details": "The native algebra and branch comparisons are verified, and the remaining native geometry, canonical polarization, intersection, Picard and exact-index assembly is in serial verification.",
       "leanDeclarations": [],
       "evidence": [
         {
-          "label": "Authorised degree-two campaign and assignments",
-          "path": "projects/fano-threefolds/coord/claims.md",
-          "kind": "source"
+          "label": "double-solid-cover-map-verification.json",
+          "path": "projects/fano-threefolds/audit/double-solid-cover-map-verification.json",
+          "commit": "55a6c7f",
+          "kind": "audit"
         },
         {
-          "label": "Current mathematical state",
-          "path": "projects/fano-threefolds/coord/STATE.md",
-          "kind": "source"
-        },
-        {
-          "label": "Book, rank-one progress panels A–F",
-          "path": "book/chapters/fano-rank-one-progress.tex",
-          "kind": "source"
-        },
-        {
-          "label": "Iskovskikh–Prokhorov, Fano Varieties (1999)",
-          "url": "https://link.springer.com/book/9783540614685",
-          "kind": "literature"
+          "label": "DOUBLE-SOLIDS.md",
+          "path": "projects/fano-threefolds/audit/DOUBLE-SOLIDS.md",
+          "commit": "55a6c7f",
+          "kind": "audit"
         }
       ],
       "caveats": [
-        "Assigned campaign; no completed degree-two endpoint is claimed in this snapshot.",
-        "The Picard bridge is a substantial open obligation; numerical volume alone does not prove Pic(X)=ℤ[H]."
+        "The full supplied-cover invariant package is not yet accepted at this cutoff.",
+        "Integral Picard generation requires the actual auxiliary-cover and descent comparisons."
       ],
       "dependencies": [
+        "d2-native-algebra",
         "d2-picard"
       ],
       "alternativeDependencies": []
@@ -3167,32 +3275,30 @@ window.FANO_GRAPH = {
         "B"
       ],
       "family": "index2",
-      "details": "Workers 1 and 2: construct generation and the actual map, then identify the rank-two algebra and branch. No Picard-rank, global-generation or pre-existing-cover hypothesis is added.",
+      "details": "Four sections, stalkwise generation and the complete finite flat rank-two map are verified over the original field. The remaining step constructs the quartic multiplication of that map and an actual isomorphism to the native cover over ℙ³. No Picard-rank or pre-existing-cover hypothesis is added.",
       "leanDeclarations": [],
       "evidence": [
         {
-          "label": "Authorised degree-two campaign and assignments",
-          "path": "projects/fano-threefolds/coord/claims.md",
-          "kind": "source"
+          "label": "double-solid-cover-map-verification.json",
+          "path": "projects/fano-threefolds/audit/double-solid-cover-map-verification.json",
+          "commit": "55a6c7f",
+          "kind": "audit"
         },
         {
-          "label": "Current mathematical state",
-          "path": "projects/fano-threefolds/coord/STATE.md",
-          "kind": "source"
+          "label": "double-solid-generation-verification.json",
+          "path": "projects/fano-threefolds/audit/double-solid-generation-verification.json",
+          "commit": "6a77d67",
+          "kind": "audit"
         },
         {
-          "label": "Book, rank-one progress panels A–F",
-          "path": "book/chapters/fano-rank-one-progress.tex",
-          "kind": "source"
-        },
-        {
-          "label": "Iskovskikh–Prokhorov, Fano Varieties (1999)",
-          "url": "https://link.springer.com/book/9783540614685",
-          "kind": "literature"
+          "label": "DOUBLE-SOLIDS.md",
+          "path": "projects/fano-threefolds/audit/DOUBLE-SOLIDS.md",
+          "commit": "55a6c7f",
+          "kind": "audit"
         }
       ],
       "caveats": [
-        "Assigned campaign; no completed degree-two endpoint is claimed in this snapshot."
+        "The complete map is verified. Full intrinsic quartic presentation and over-base native-cover identification remain in progress."
       ],
       "dependencies": [
         "d2-generation",
@@ -3215,35 +3321,28 @@ window.FANO_GRAPH = {
         "F"
       ],
       "family": "index2",
-      "details": "Worker 3 will supply an explicit smooth branch quartic, with the Fermat equation as the initial candidate, and construct its cover. Parameter-family connectedness and deformation uniqueness remain separate open goals.",
+      "details": "The named Fermat quartic is nonzero, its branch is smooth and inhabited, and its native cover is inhabited. That narrower endpoint is verified separately. This broader box still requires the full smooth Fano, polarization, Picard and exact-index package.",
       "leanDeclarations": [],
       "evidence": [
         {
-          "label": "Authorised degree-two campaign and assignments",
-          "path": "projects/fano-threefolds/coord/claims.md",
-          "kind": "source"
+          "label": "double-solid-fermat-verification.json",
+          "path": "projects/fano-threefolds/audit/double-solid-fermat-verification.json",
+          "commit": "2359c3e",
+          "kind": "audit"
         },
         {
-          "label": "Current mathematical state",
-          "path": "projects/fano-threefolds/coord/STATE.md",
-          "kind": "source"
-        },
-        {
-          "label": "Book, rank-one progress panels A–F",
-          "path": "book/chapters/fano-rank-one-progress.tex",
-          "kind": "source"
-        },
-        {
-          "label": "De Biase–Fatighenti–Tanturri, Fano 3-folds from homogeneous vector bundles over Grassmannians",
-          "url": "https://arxiv.org/abs/2009.13382",
-          "kind": "literature"
+          "label": "DOUBLE-SOLIDS.md",
+          "path": "projects/fano-threefolds/audit/DOUBLE-SOLIDS.md",
+          "commit": "55a6c7f",
+          "kind": "audit"
         }
       ],
       "caveats": [
-        "Explicit general models do not alone prove exhaustive recognition or a single deformation class.",
-        "Assigned campaign; no completed degree-two endpoint is claimed in this snapshot."
+        "The verified Fermat branch/inhabited-cover endpoint does not yet supply all the invariants asserted in this box.",
+        "Parameter-family connectedness and deformation equivalence remain separate open goals."
       ],
       "dependencies": [
+        "d2-fermat-example",
         "d2-construction"
       ],
       "alternativeDependencies": []
@@ -5083,7 +5182,7 @@ window.FANO_GRAPH = {
         }
       ],
       "caveats": [
-        "The two-quadric node now supplies a verified explicit smooth example, not a parameter-family connectedness theorem. Family objects and their required geometric properties still need formal certificates."
+        "Degree four supplies a verified explicit smooth example. Degree two supplies a smooth inhabited Fermat branch with inhabited native cover, whose full invariant package remains in progress. Neither endpoint proves parameter-family connectedness or deformation equivalence."
       ],
       "dependencies": [
         "p3-construction",
