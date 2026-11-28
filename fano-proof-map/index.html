@@ -31,10 +31,11 @@
         </div>
         <div class="legend sidebar-section" aria-label="Status legend">
           <span class="control-label">Evidence, not percentage complete</span>
-          <span><i class="legend-swatch verified"></i> Verified</span>
-          <span><i class="legend-swatch partial"></i> Partial / in progress</span>
-          <span><i class="legend-swatch compiled"></i> Compiled, audit pending</span>
-          <span><i class="legend-swatch planned"></i> Open in this project</span>
+          <p id="legend-scope">Box counts in the current view.</p>
+          <span><i class="legend-swatch verified" aria-hidden="true"></i><span>Verified</span><strong class="legend-count" id="legend-count-verified">—</strong></span>
+          <span><i class="legend-swatch partial" aria-hidden="true"></i><span>Partial / in progress</span><strong class="legend-count" id="legend-count-partial">—</strong></span>
+          <span><i class="legend-swatch compiled" aria-hidden="true"></i><span>Compiled, audit pending</span><strong class="legend-count" id="legend-count-compiled">—</strong></span>
+          <span><i class="legend-swatch planned" aria-hidden="true"></i><span>Open in this project</span><strong class="legend-count" id="legend-count-planned">—</strong></span>
           <p>A colour applies only to the statement and hypotheses in that box.</p>
         </div>
         <div class="snapshot" id="snapshot"></div>

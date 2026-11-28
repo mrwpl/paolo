@@ -99,6 +99,15 @@
     visible=[...found.values()];
     return primary.length;
   }
+  function renderLegendCounts() {
+    const counts={verified:0,partial:0,compiled:0,planned:0};
+    visible.forEach(n=>{
+      const key=n.status==='in_progress'?'partial':Object.hasOwn(statuses,n.status)?n.status:'planned';
+      counts[key]++;
+    });
+    Object.entries(counts).forEach(([key,count])=>{el(`legend-count-${key}`).textContent=String(count);});
+    el('legend-scope').textContent=`${visible.length} ${visible.length===1?'box':'boxes'} in this view${contextIds.size?', including context inputs':''}. Counts follow the panel and filters.`;
+  }
   function buildNavigation() {
     const nav=el('panel-nav'); nav.replaceChildren();
     [...panels,{id:'all',title:'Full atlas'}].forEach(p => {
@@ -334,7 +343,7 @@
     el('graph-container').hidden=state.mode!=='graph';el('results-list').hidden=state.mode!=='list';
     ['graph','list'].forEach(mode=>{el(`${mode}-mode`).classList.toggle('active',state.mode===mode);el(`${mode}-mode`).setAttribute('aria-pressed',String(state.mode===mode));});
     el('graph-empty').hidden=visible.length>0;
-    renderDetail();drawGraph();drawList();saveHash();
+    renderLegendCounts();renderDetail();drawGraph();drawList();saveHash();
     if(fit)requestAnimationFrame(()=>{if(token===renderToken)fitGraph(true);});else applyCamera();
   }
   function resetFilters() {state.query='';state.status='all';state.origin='all';render(true);}
