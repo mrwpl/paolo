@@ -3,9 +3,9 @@ window.FANO_GRAPH = {
   "meta": {
     "title": "The rank-one Fano proof map",
     "scope": "A curated mathematical roadmap toward the 17 deformation families of smooth complex Fano threefolds with numerical Picard number one.",
-    "snapshot": "28 November 2026 · 07:22 UTC · static snapshot",
-    "checkpoint": "8d05105",
-    "updatedAt": "2026-11-28T07:22:07Z",
+    "snapshot": "28 November 2026 · 09:49 UTC · static snapshot",
+    "checkpoint": "be523c2",
+    "updatedAt": "2026-11-28T09:49:34Z",
     "fieldScope": "Final classification over ℂ. Many verified local algebraic theorems hold over algebraically closed fields of characteristic zero at arbitrary Lean universe u; the regular-pair cancellation and chart theorem hold over any field.",
     "versionPins": {
       "Lean": "v4.35.0",
@@ -27,7 +27,9 @@ window.FANO_GRAPH = {
       "Exactly seventeen counts deformation families, not individual varieties up to isomorphism. The higher-Picard-number branches of the 105-family classification are outside this graph.",
       "The degree-four example theorem proves a nonempty smooth regular intersection over each allowed field; it does not establish a connected parameter family or one deformation class.",
       "The degree-two campaign is accepted at 8d05105: intrinsic quartic recognition, full supplied-cover invariants and the invariant-bearing Fermat example are verified. The closing public normal build and separate direct replay agree on 26 transitive axiom reports using only the standard three axioms. These model and example theorems do not prove a connected parameter family or deformation classification.",
-      "Degree-five progress is source-backed preparation and explicitly uncompiled research drafts. The pinned source already provides the native/polynomial projective comparison and twist transport; the actual Grassmannian factorisation and polarization, and the canonical, Picard and recognition bridges remain open."
+      "Degree-five complete embedding is publicly verified at 07fb074. Five independent quadratic relations have passed their selected normal build; they do not establish the whole image ideal. The polarized Grassmannian identification and full supplied-model invariants remain open.",
+      "The degree-one integral-member theorem is publicly verified at be523c2. It proves integrality of the full zero scheme of every nonzero section, without assuming Picard generation or global generation. It does not yet give the integral genus-one regular pair or a weighted-sextic model.",
+      "Two supporting-result boxes were added in this snapshot to display newly verified theorems. The classification targets retain their earlier statements; the larger box count is not an increase in scope."
     ]
   },
   "panels": [
@@ -41,7 +43,7 @@ window.FANO_GRAPH = {
       "id": "B",
       "title": "The five index-two models",
       "bookPage": 66,
-      "description": "Cubic, degree-four and quartic double-solid model recognition and supplied-model invariants are verified. Degree two also has an explicit smooth Fermat cover with the full Picard, numerical and exact-index package. Degree-five construction preparation remains in progress with uncompiled drafts. Degrees one/five, the general degree bound and deformation-family certificates remain open."
+      "description": "Degrees two, three and four have verified recognition and supplied-model packages. New verified steps are the primitive degree-five complete embedding into ℙ⁶ and integrality of every nonzero degree-one member. Degree-five Grassmannian recognition, the degree-one weighted-sextic package, the general degree bound and family certificates remain open."
     },
     {
       "id": "C",
@@ -218,7 +220,7 @@ window.FANO_GRAPH = {
         "B"
       ],
       "family": "index2",
-      "details": "Cubic, degree-four and quartic double-solid model recognition and supplied-model invariants are verified. Degree two also has an explicit smooth Fermat cover with the full Picard, numerical and exact-index package. Degree-five construction preparation remains in progress with uncompiled drafts. Degrees one/five, the general degree bound and deformation-family certificates remain open.",
+      "details": "Degrees two, three and four have verified recognition and supplied-model packages. New verified steps are the primitive degree-five complete embedding into ℙ⁶ and integrality of every nonzero degree-one member. Degree-five Grassmannian recognition, the degree-one weighted-sextic package, the general degree bound and family certificates remain open.",
       "leanDeclarations": [],
       "evidence": [
         {
@@ -271,6 +273,18 @@ window.FANO_GRAPH = {
           "label": "double-solid-acceptance.json",
           "path": "projects/fano-threefolds/audit/double-solid-acceptance.json",
           "commit": "8d05105",
+          "kind": "audit"
+        },
+        {
+          "label": "panel-b-embedding-verification.json",
+          "path": "projects/fano-threefolds/audit/panel-b-embedding-verification.json",
+          "commit": "07fb074",
+          "kind": "audit"
+        },
+        {
+          "label": "panel-b-api-integral-member-candidate-3-public-verification.json",
+          "path": "projects/fano-threefolds/audit/panel-b-api-integral-member-candidate-3-public-verification.json",
+          "commit": "be523c2",
           "kind": "audit"
         }
       ],
@@ -1735,14 +1749,14 @@ window.FANO_GRAPH = {
         "Ground field ℂ; nonzero homogeneous cubic equations up to scaling."
       ],
       "conclusion": "Smooth cubic equations in five variables form a nonempty parameter locus giving smooth cubic threefolds with the supplied-model invariants.",
-      "status": "planned",
-      "origin": "unassigned",
+      "status": "in_progress",
+      "origin": "project",
       "panels": [
         "B",
         "F"
       ],
       "family": "index2",
-      "details": "A Fermat-type example can witness nonemptiness; the parameter-family theorem and deformation certificate have not been verified locally.",
+      "details": "The verified cubic model theorem is available. Current family preparation studies the actual coefficient-space locus, specialization of the universal cubic and flatness. The nonempty smooth parameter-family endpoint has not yet been verified.",
       "leanDeclarations": [],
       "evidence": [
         {
@@ -2949,6 +2963,54 @@ window.FANO_GRAPH = {
       "alternativeDependencies": []
     },
     {
+      "id": "d1-integral-members",
+      "title": "Degree one: every nonzero member is integral",
+      "statement": "If −K_X ≅ H⊗H and H³=1, every nonzero section of the ample invertible H has an integral full zero scheme.",
+      "hypotheses": [
+        "X is a smooth projective integral threefold over an algebraically closed field k of characteristic zero.",
+        "The statement holds at arbitrary Lean universe u over the original field.",
+        "H is the actual supplied ample invertible sheaf, with ω_X⁻¹ ≅ H⊗H and H³=1.",
+        "The section t of H is nonzero."
+      ],
+      "conclusion": "The actual closed zero scheme of t is irreducible and reduced.",
+      "status": "verified",
+      "origin": "project",
+      "panels": [
+        "B"
+      ],
+      "family": "index2",
+      "details": "The actual Cartier member has degree one. Positive component degrees and generic multiplicities force one component; the prime-divisor power comparison then forces multiplicity one. The public normal audit, independent expanded types and separate direct Lean replay passed, with seven matching standard-only transitive axiom reports.",
+      "leanDeclarations": [
+        "FanoThreefolds.PanelB.DegreeOne.integralMemberStatement_proved"
+      ],
+      "evidence": [
+        {
+          "label": "panel-b-api-integral-member-candidate-3-public-verification.json",
+          "path": "projects/fano-threefolds/audit/panel-b-api-integral-member-candidate-3-public-verification.json",
+          "commit": "be523c2",
+          "kind": "audit"
+        },
+        {
+          "label": "PanelBDegreeOneIntegralMember.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/PanelBDegreeOneIntegralMember.lean",
+          "commit": "9bae762",
+          "kind": "source"
+        },
+        {
+          "label": "PanelBDegreeOneMemberAudit.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/PanelBDegreeOneMemberAudit.lean",
+          "commit": "be523c2",
+          "kind": "source"
+        }
+      ],
+      "caveats": [
+        "No Picard-generator, global-generation or supplied-model hypothesis is added.",
+        "The full scheme structure is proved integral. This is a surface-member theorem; the genus-one regular pair and weighted-sextic reconstruction remain open."
+      ],
+      "dependencies": [],
+      "alternativeDependencies": []
+    },
+    {
       "id": "d1-recognition",
       "title": "Weighted sextic: recognise every input",
       "statement": "Every primitive index-two rank-one Fano of degree 1 is isomorphic, with polarization, to a sextic hypersurface in ℙ(1,1,1,2,3).",
@@ -2961,13 +3023,13 @@ window.FANO_GRAPH = {
         "X is Fano: its actual anticanonical invertible sheaf ω_X⁻¹ is ample."
       ],
       "conclusion": "Every primitive index-two rank-one Fano of degree 1 is isomorphic, with polarization, to a sextic hypersurface in ℙ(1,1,1,2,3).",
-      "status": "planned",
-      "origin": "unassigned",
+      "status": "partial",
+      "origin": "project",
       "panels": [
         "B"
       ],
       "family": "index2",
-      "details": "An intrinsic recognition theorem. Full graded-ring or cover/homogeneous-model arguments must cover special members, not just a generic example.",
+      "details": "A verified first step proves that every nonzero section of the original ample H has an integral full zero scheme when −K ≅ H⊗H and H³=1. The integral regular genus-one pair and weighted section-ring reconstruction remain open. The original polarized weighted-sextic recognition target is unchanged.",
       "leanDeclarations": [],
       "evidence": [
         {
@@ -2979,10 +3041,20 @@ window.FANO_GRAPH = {
           "label": "Iskovskikh–Prokhorov, Fano Varieties (1999)",
           "url": "https://link.springer.com/book/9783540614685",
           "kind": "literature"
+        },
+        {
+          "label": "panel-b-api-integral-member-candidate-3-public-verification.json",
+          "path": "projects/fano-threefolds/audit/panel-b-api-integral-member-candidate-3-public-verification.json",
+          "commit": "be523c2",
+          "kind": "audit"
         }
       ],
-      "caveats": [],
-      "dependencies": [],
+      "caveats": [
+        "An integral surface member is a supporting theorem, not a weighted-sextic presentation. Special members, the full graded-ring comparison and the supplied-model package still require proofs."
+      ],
+      "dependencies": [
+        "d1-integral-members"
+      ],
       "alternativeDependencies": []
     },
     {
@@ -3435,7 +3507,7 @@ window.FANO_GRAPH = {
         "B"
       ],
       "family": "index2",
-      "details": "An independent preparation lane has written uncompiled numerical, equation, matrix and signed-coordinate compression drafts. The corrected source audit locates the existing native/polynomial projective comparison and twist transport. The actual Grassmannian factorisation through ten Plücker coordinates and its polarization remain unproved, as do the required Pfaffian structure, canonical and integral Picard bridges.",
+      "details": "Construction work now includes normal-build-checked normalized Plücker frames, finite coordinate algebra spanning and a split pentagon chart. These supporting checks improve the earlier draft-only state. The full theorem for every supplied smooth Grassmannian linear section, including its actual degree, canonical sheaf, integral Picard group and exact index, remains open.",
       "leanDeclarations": [],
       "evidence": [
         {
@@ -3467,13 +3539,81 @@ window.FANO_GRAPH = {
           "label": "Corrected Plücker compression/source audit (uncompiled draft)",
           "path": "research/fano-panel-b/degree-five-2026-11-28/COMPRESSION-AUDIT.md",
           "kind": "source"
+        },
+        {
+          "label": "panel-b-plucker-frame-verification.json",
+          "path": "projects/fano-threefolds/audit/panel-b-plucker-frame-verification.json",
+          "commit": "ca494b9",
+          "kind": "audit"
+        },
+        {
+          "label": "panel-b-ambient-algebra-verification.json",
+          "path": "projects/fano-threefolds/audit/panel-b-ambient-algebra-verification.json",
+          "commit": "ca494b9",
+          "kind": "audit"
+        },
+        {
+          "label": "panel-b-pentagon-chart-verification.json",
+          "path": "projects/fano-threefolds/audit/panel-b-pentagon-chart-verification.json",
+          "commit": "ca494b9",
+          "kind": "audit"
         }
       ],
       "caveats": [
-        "In progress denotes assigned preparation. None of the new degree-five Lean drafts has been compiled, exported or accepted.",
-        "The existing projective-space comparison and twist transport do not by themselves prove the actual Grassmannian factorisation or its polarization. Full supplied-model invariants remain open."
+        "The complete embedding theorem concerns an intrinsic input of degree five; it does not prove all invariants of an arbitrary supplied Grassmannian section.",
+        "Supporting chart and algebra builds do not by themselves give a globally identified polarized Grassmannian model. The full construction, example and parameter-open endpoints remain open."
       ],
       "dependencies": [],
+      "alternativeDependencies": []
+    },
+    {
+      "id": "d5-embedding",
+      "title": "Degree five: complete embedding in ℙ⁶",
+      "statement": "The primitive degree-five index-two polarization defines its complete closed embedding X ↪ ℙ⁶ over the original field, with pulled-back hyperplane H.",
+      "hypotheses": [
+        "X is a smooth projective integral threefold over an algebraically closed field k of characteristic zero.",
+        "The statement holds at arbitrary Lean universe u over the original field.",
+        "H is the supplied ample invertible sheaf, with ω_X⁻¹ ≅ H⊗H and H³=5.",
+        "The actual integral Picard group is freely generated by the class of H."
+      ],
+      "conclusion": "There is a closed immersion over k into polynomial projective six-space; O(1) pulls back to H and its seven sections give the complete system.",
+      "status": "verified",
+      "origin": "project",
+      "panels": [
+        "B"
+      ],
+      "family": "index2",
+      "details": "The proof establishes absence of fixed divisors, stalkwise generation, length-two separation and the complete polarized embedding. Public named and independently expanded checks and a separate direct Lean replay passed. All nine transitive axiom reports agree and lie within the standard three-axiom whitelist.",
+      "leanDeclarations": [
+        "FanoThreefolds.PanelB.degreeFiveCompleteEmbeddingStatement_proved"
+      ],
+      "evidence": [
+        {
+          "label": "panel-b-embedding-verification.json",
+          "path": "projects/fano-threefolds/audit/panel-b-embedding-verification.json",
+          "commit": "07fb074",
+          "kind": "audit"
+        },
+        {
+          "label": "PanelBDegreeFiveEmbedding.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/PanelBDegreeFiveEmbedding.lean",
+          "commit": "8f76ce4",
+          "kind": "source"
+        },
+        {
+          "label": "PanelBEmbeddingAudit.lean",
+          "path": "projects/fano-threefolds/FanoThreefolds/PanelBEmbeddingAudit.lean",
+          "commit": "07fb074",
+          "kind": "source"
+        }
+      ],
+      "caveats": [
+        "The primitive Picard-generator hypothesis is retained, not constructed by this result.",
+        "A complete embedding and five independent quadrics do not yet identify the whole image ideal or prove the polarized Grassmannian linear-section presentation."
+      ],
+      "dependencies": [
+        "half-sections"
+      ],
       "alternativeDependencies": []
     },
     {
@@ -3489,13 +3629,13 @@ window.FANO_GRAPH = {
         "X is Fano: its actual anticanonical invertible sheaf ω_X⁻¹ is ample."
       ],
       "conclusion": "Every primitive index-two rank-one Fano of degree 5 is isomorphic, with polarization, to a smooth codimension-three linear section of gr(2,5)⊂ℙ⁹.",
-      "status": "planned",
-      "origin": "unassigned",
+      "status": "in_progress",
+      "origin": "project",
       "panels": [
         "B"
       ],
       "family": "index2",
-      "details": "The original primitive Pic(X)=ℤ[H] target is preserved. The preparation audit identifies reusable numerical/curve inputs and proposes uncompiled section-count and five-equation drafts. Full generation/separation, ideal generation and codimension-three Pfaffian recognition remain open. The optional stronger Picard-free proposal is not substituted for this target.",
+      "details": "The supplied primitive polarization now gives its complete closed embedding into polynomial ℙ⁶ over the original field, with seven sections and hyperplane pullback H. Five independent quadrics containing that image have a successful selected normal build. Equality with the entire image ideal, the codimension-three Pfaffian presentation and the polarized Grassmannian identification remain open.",
       "leanDeclarations": [],
       "evidence": [
         {
@@ -3527,13 +3667,27 @@ window.FANO_GRAPH = {
           "label": "Corrected Plücker compression/source audit (uncompiled draft)",
           "path": "research/fano-panel-b/degree-five-2026-11-28/COMPRESSION-AUDIT.md",
           "kind": "source"
+        },
+        {
+          "label": "panel-b-embedding-verification.json",
+          "path": "projects/fano-threefolds/audit/panel-b-embedding-verification.json",
+          "commit": "07fb074",
+          "kind": "audit"
+        },
+        {
+          "label": "panel-b-five-quadrics-proof-verification.json",
+          "path": "projects/fano-threefolds/audit/panel-b-five-quadrics-proof-verification.json",
+          "commit": "62cf0b1",
+          "kind": "audit"
         }
       ],
       "caveats": [
         "Five independent quadratic relations alone do not give the whole image ideal or a Grassmannian presentation.",
         "The located Buchsbaum–Eisenbud result is an exactness criterion for a supplied complex, not the needed codimension-three Pfaffian structure theorem."
       ],
-      "dependencies": [],
+      "dependencies": [
+        "d5-embedding"
+      ],
       "alternativeDependencies": []
     },
     {
