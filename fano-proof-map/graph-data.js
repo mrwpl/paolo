@@ -3,9 +3,9 @@ window.FANO_GRAPH = {
   "meta": {
     "title": "The rank-one Fano proof map",
     "scope": "A curated mathematical roadmap toward the 17 deformation families of smooth complex Fano threefolds with numerical Picard number one.",
-    "snapshot": "28 November 2026 · 10:00 UTC · static snapshot",
-    "checkpoint": "a24050a",
-    "updatedAt": "2026-11-28T10:00:23Z",
+    "snapshot": "28 November 2026 · 11:31 UTC · static snapshot",
+    "checkpoint": "main library a24050a; later isolated regular-pair verification",
+    "updatedAt": "2026-11-28T11:31:03Z",
     "fieldScope": "Final classification over ℂ. Many verified local algebraic theorems hold over algebraically closed fields of characteristic zero at arbitrary Lean universe u; the regular-pair cancellation and chart theorem hold over any field.",
     "versionPins": {
       "Lean": "v4.35.0",
@@ -28,10 +28,11 @@ window.FANO_GRAPH = {
       "The degree-four example theorem proves a nonempty smooth regular intersection over each allowed field; it does not establish a connected parameter family or one deformation class.",
       "The degree-two campaign is accepted at 8d05105: intrinsic quartic recognition, full supplied-cover invariants and the invariant-bearing Fermat example are verified. The closing public normal build and separate direct replay agree on 26 transitive axiom reports using only the standard three axioms. These model and example theorems do not prove a connected parameter family or deformation classification.",
       "Degree-five complete embedding is publicly verified at 07fb074. Five independent quadratic relations have passed their selected normal build; they do not establish the whole image ideal. The polarized Grassmannian identification and full supplied-model invariants remain open.",
-      "The degree-one integral-member theorem is publicly verified at be523c2. It proves integrality of the full zero scheme of every nonzero section, without assuming Picard generation or global generation. It does not yet give the integral genus-one regular pair or a weighted-sextic model.",
-      "Two supporting-result boxes were added in this snapshot to display newly verified theorems. The classification targets retain their earlier statements; the larger box count is not an increase in scope.",
+      "The degree-one integral-member theorem is publicly verified at be523c2. A later integral genus-one regular-pair theorem was verified in an isolated checkout at 11:31 UTC; integration into the main library remains pending. Neither result supplies a weighted-sextic model.",
+      "Three supporting-result boxes now display the degree-five complete embedding, degree-one integral members and degree-one regular pair. The classification targets retain their earlier statements; the larger box count records a more detailed decomposition, not a completion percentage or increase in scope.",
       "At dc34039, narrow normal and separate direct audits verify 32 supporting declarations for the five-point coordinate algebra and lifting through a regular linear parameter. Their application to the global Grassmannian slice and full resolution remains open.",
-      "At a24050a, eight remaining weighted-sextic, degree-bound/reduction/exhaustion and cubic-family propositions and their independent expanded-type equalities compile. Checking a proposition's definition and its type expansion does not prove that proposition."
+      "At a24050a, eight remaining weighted-sextic, degree-bound/reduction/exhaustion and cubic-family propositions and their independent expanded-type equalities compile. Checking a proposition's definition and its type expansion does not prove that proposition.",
+      "The later regular-pair result has fresh Target, Proof and Audit builds and a separate direct Lean replay, all successful, with five matching standard-only transitive axiom reports. Its receipt preserves 152 frozen files and eleven dependency pins. This is isolated-checkout verification, not a new main-library Git checkpoint or production audit."
     ]
   },
   "panels": [
@@ -45,7 +46,7 @@ window.FANO_GRAPH = {
       "id": "B",
       "title": "The five index-two models",
       "bookPage": 72,
-      "description": "Degrees two, three and four have verified recognition and supplied-model packages. New verified steps are the primitive degree-five complete embedding into ℙ⁶ and integrality of every nonzero degree-one member. Degree-five Grassmannian recognition, the degree-one weighted-sextic package, the general degree bound and family certificates remain open."
+      "description": "Degrees two, three and four have verified recognition and supplied-model packages. Supporting results include the primitive degree-five complete embedding into ℙ⁶, degree-one integral members and an integral genus-one regular pair verified in an isolated checkout, with main-library integration pending. Degree-five Grassmannian recognition, the degree-one weighted-sextic package, the general degree bound and family certificates remain open."
     },
     {
       "id": "C",
@@ -222,7 +223,7 @@ window.FANO_GRAPH = {
         "B"
       ],
       "family": "index2",
-      "details": "Degrees two, three and four have verified recognition and supplied-model packages. New verified steps are the primitive degree-five complete embedding into ℙ⁶ and integrality of every nonzero degree-one member. Degree-five Grassmannian recognition, the degree-one weighted-sextic package, the general degree bound and family certificates remain open. The final checkpoint also records audited supporting coordinate algebra and eight compiled remaining statement interfaces, without promoting any classification endpoint.",
+      "details": "Degrees two, three and four have verified recognition and supplied-model packages. Supporting results include the primitive degree-five complete embedding into ℙ⁶, degree-one integral members and an integral genus-one regular pair verified in an isolated checkout, with main-library integration pending. Degree-five Grassmannian recognition, the degree-one weighted-sextic package, the general degree bound and family certificates remain open. The main-library checkpoint a24050a also records audited supporting coordinate algebra and eight compiled remaining statement interfaces, without promoting any classification endpoint.",
       "leanDeclarations": [],
       "evidence": [
         {
@@ -3037,9 +3038,70 @@ window.FANO_GRAPH = {
       ],
       "caveats": [
         "No Picard-generator, global-generation or supplied-model hypothesis is added.",
-        "The full scheme structure is proved integral. This is a surface-member theorem; the genus-one regular pair and weighted-sextic reconstruction remain open."
+        "The full scheme structure is proved integral. This is a surface-member theorem. A separate integral genus-one regular-pair theorem is now verified in an isolated checkout; weighted-sextic reconstruction remains open."
       ],
       "dependencies": [],
+      "alternativeDependencies": []
+    },
+    {
+      "id": "d1-regular-pair",
+      "title": "Degree one: integral genus-one regular pair",
+      "statement": "If −K_X ≅ H⊗H and H³=1, there are two successive nonzero regular sections with integral full zero schemes D and C. The second section lifts from a global section of H on X, and C has dimension one, h⁰(C,O_C)=h¹(C,O_C)=1, genus one and H-degree one.",
+      "hypotheses": [
+        "X is a smooth projective integral threefold over an algebraically closed field k of characteristic zero.",
+        "The statement holds over the original field at arbitrary Lean universe u.",
+        "H is the actual supplied ample invertible sheaf, with ω_X⁻¹ ≅ H⊗H and H³=1."
+      ],
+      "conclusion": "There are a nonzero regular section t of H with integral full zero scheme D, and a nonzero regular section z of H|D, lifted from an actual global H section on X, with integral full zero scheme C. The integral curve C has dimension one, h⁰(C,O_C)=h¹(C,O_C)=1 over k, genus one and degree deg(H|C)=1.",
+      "status": "verified",
+      "origin": "project",
+      "panels": [
+        "B"
+      ],
+      "family": "index2",
+      "details": "Verified in an isolated checkout at 11:31:03 UTC on 28 November 2026. Fresh Target, Proof and Audit builds and a separate direct Lean replay all exited successfully. The named theorem and independent expanded type agree; five matching transitive axiom reports use only propext, Classical.choice and Quot.sound. The receipt preserves 152 frozen files and eleven dependency pins. Main-library integration remains pending; a24050a is still the main-library checkpoint.",
+      "leanDeclarations": [
+        "FanoThreefolds.DegreeOneResume.exists_degreeOne_integral_regular_pair",
+        "FanoThreefolds.PanelB.DegreeOne.regularPairStatement_proved"
+      ],
+      "evidence": [
+        {
+          "label": "Completed isolated regular-pair verification receipt",
+          "path": "research/fano-panel-b/api-standalone-regular-pair-2026-11-28/control/run-20261128-105922-20460/controller-result.json",
+          "kind": "audit"
+        },
+        {
+          "label": "Frozen regular-pair statement and independent expansion",
+          "path": "research/fano-panel-b/api-standalone-regular-pair-2026-11-28/worktree/FanoThreefolds/APIRegularPairTarget.lean",
+          "sha256": "21673738a610d14dd41e0d01fa79101a0644f654349d7e113c89ef327474d884",
+          "kind": "source"
+        },
+        {
+          "label": "Regular-pair proof, SHA-256 d414cb16…",
+          "path": "research/fano-panel-b/api-standalone-regular-pair-2026-11-28/worktree/FanoThreefolds/APIRegularPairProof.lean",
+          "sha256": "d414cb16b4dcde9c222106b8e6a51461c6634d8e97a60737e686ccda1a628689",
+          "kind": "source"
+        },
+        {
+          "label": "Cartier helper, SHA-256 c2f03e44…",
+          "path": "research/fano-panel-b/api-standalone-regular-pair-2026-11-28/worktree/FanoThreefolds/APIRegularPairCartier.lean",
+          "sha256": "c2f03e4424b64ba4d9d0006346037b896d2b86e07eef5620376eac986018cc14",
+          "kind": "source"
+        },
+        {
+          "label": "Regular-pair theorem and axiom audit",
+          "path": "research/fano-panel-b/api-standalone-regular-pair-2026-11-28/worktree/FanoThreefolds/APIRegularPairAudit.lean",
+          "kind": "source"
+        }
+      ],
+      "caveats": [
+        "Verified in the isolated checkout; main-library integration and its production audit are pending. No new Git checkpoint is asserted.",
+        "No Picard-generator or global-generation premise is added. Both full zero schemes are integral; the theorem does not assert that the curve is smooth.",
+        "This regular-pair theorem does not provide the weighted-sextic presentation, supplied-model invariants, existence locus or deformation-family classification."
+      ],
+      "dependencies": [
+        "d1-integral-members"
+      ],
       "alternativeDependencies": []
     },
     {
@@ -3061,7 +3123,7 @@ window.FANO_GRAPH = {
         "B"
       ],
       "family": "index2",
-      "details": "A verified first step proves that every nonzero section of the original ample H has an integral full zero scheme when −K ≅ H⊗H and H³=1. The integral regular genus-one pair and weighted section-ring reconstruction remain open. The original polarized weighted-sextic recognition target is unchanged. The literal weighted-sextic recognition target and its independent expansion now compile at a24050a; that interface check does not prove the recognition theorem.",
+      "details": "A verified first step proves that every nonzero section of the original ample H has an integral full zero scheme when −K ≅ H⊗H and H³=1. A second supporting theorem now constructs an integral genus-one regular pair in an isolated checkout; integration into the main library is pending. Weighted section-ring reconstruction remains open. The original polarized weighted-sextic recognition target is unchanged. The literal target and its independent expansion compile at a24050a; that interface check does not prove recognition.",
       "leanDeclarations": [],
       "evidence": [
         {
@@ -3088,10 +3150,11 @@ window.FANO_GRAPH = {
         }
       ],
       "caveats": [
-        "An integral surface member is a supporting theorem, not a weighted-sextic presentation. Special members, the full graded-ring comparison and the supplied-model package still require proofs."
+        "Integral surface members and the isolated regular-pair theorem are supporting results. Special members, the full graded-ring comparison and the supplied weighted-sextic model package still require proofs."
       ],
       "dependencies": [
-        "d1-integral-members"
+        "d1-integral-members",
+        "d1-regular-pair"
       ],
       "alternativeDependencies": []
     },
