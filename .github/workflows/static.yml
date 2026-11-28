@@ -38,6 +38,9 @@ jobs:
         with:
           # Upload entire repository
           path: '.'
+      # Allow the artifact service to register the freshly uploaded Pages bundle.
+      - name: Wait for artifact registration
+        run: sleep 30
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
